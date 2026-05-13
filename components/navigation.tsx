@@ -36,8 +36,13 @@ export function Navigation() {
           >
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </Button>
-          <Button className="bg-black text-white hover:bg-black/90 rounded-sm px-5 h-12 min-w-[48px] flex-shrink-0">
-            <Mail className="w-6 h-6" strokeWidth={2.5} />
+          <Button 
+            asChild 
+            className="bg-black text-white hover:bg-black/90 rounded-sm px-5 h-12 min-w-[48px] flex-shrink-0"
+          >
+            <a href="#contact">
+              <Mail className="w-6 h-6" strokeWidth={2.5} />
+            </a>
           </Button>
         </div>
       </nav>

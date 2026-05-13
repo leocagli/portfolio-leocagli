@@ -7,7 +7,7 @@ import { motion } from "framer-motion"
 
 export function Footer() {
   return (
-    <footer className="bg-black text-white py-12 md:py-16 border-t-4 border-black">
+    <footer id="contact" className="bg-black text-white py-12 md:py-16 border-t-4 border-black">
       <div className="container mx-auto px-4">
         <div className="max-w-7xl mx-auto">
           {/* Newsletter Section */}
@@ -51,28 +51,34 @@ export function Footer() {
               </p>
               <div className="flex gap-3">
                 <a
-                  href="#"
+                  href="https://linkedin.com/in/leocagli"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 bg-[#2F81F7] rounded-full flex items-center justify-center hover:opacity-80 transition-opacity"
                   aria-label="LinkedIn"
                 >
                   <Linkedin className="w-5 h-5" />
                 </a>
                 <a
-                  href="#"
+                  href="https://github.com/leocagli"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 bg-[#0B0B0B] border-2 border-white rounded-full flex items-center justify-center hover:opacity-80 transition-opacity"
                   aria-label="GitHub"
                 >
                   <Github className="w-5 h-5" />
                 </a>
                 <a
-                  href="#"
+                  href="https://x.com/leocagli"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 bg-[#0B0B0B] border-2 border-white rounded-full flex items-center justify-center hover:opacity-80 transition-opacity"
                   aria-label="X/Twitter"
                 >
                   <Twitter className="w-5 h-5" />
                 </a>
                 <a
-                  href="#"
+                  href="mailto:leocagli@gmail.com"
                   className="w-10 h-10 bg-[#FF6B7A] rounded-full flex items-center justify-center hover:opacity-80 transition-opacity"
                   aria-label="Email"
                 >
@@ -148,20 +154,26 @@ export function Footer() {
               <ul className="space-y-3 text-gray-400 text-sm">
                 <li className="flex items-center gap-2">
                   <Mail className="w-4 h-4" />
-                  <a href="mailto:hello@bitcoindefi.com" className="hover:text-white transition-colors">
-                    hello@bitcoindefi.com
+                  <a href="mailto:leocagli@gmail.com" className="hover:text-white transition-colors">
+                    leocagli@gmail.com
                   </a>
                 </li>
                 <li className="flex items-center gap-2">
                   <Linkedin className="w-4 h-4" />
-                  <a href="#" className="hover:text-white transition-colors">
-                    /in/leonardocagliero
+                  <a href="https://linkedin.com/in/leocagli" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                    /in/leocagli
                   </a>
                 </li>
                 <li className="flex items-center gap-2">
                   <Github className="w-4 h-4" />
-                  <a href="#" className="hover:text-white transition-colors">
-                    @bitcoindefi
+                  <a href="https://github.com/leocagli" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                    @leocagli
+                  </a>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Twitter className="w-4 h-4" />
+                  <a href="https://x.com/leocagli" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                    @leocagli
                   </a>
                 </li>
               </ul>
