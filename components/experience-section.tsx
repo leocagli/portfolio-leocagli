@@ -12,6 +12,7 @@ export function ExperienceSection() {
       company: "Bitcoin.defi",
       description: "Public AI/Web3 experimentation lab and personal brand focused on fintech infrastructure, programmable trust systems, ecosystem content and live prototypes.",
       color: "bg-[#2F81F7]",
+      logo: "/logos/bitcoin-defi.jpeg",
     },
     {
       period: "2025 - Present",
@@ -87,9 +88,15 @@ export function ExperienceSection() {
                   <div className="text-base md:text-[22px] leading-tight md:leading-[34px] font-bold text-[#0B0B0B]">
                     {exp.period}
                   </div>
-                  <div className={`${exp.color} w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center`}>
-                    <span className="text-white text-xs font-bold">{exp.company.slice(0, 2).toUpperCase()}</span>
-                  </div>
+                  {exp.logo ? (
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
+                      <img src={exp.logo} alt={`${exp.company} logo`} className="w-full h-full object-cover" />
+                    </div>
+                  ) : (
+                    <div className={`${exp.color} w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center`}>
+                      <span className="text-white text-xs font-bold">{exp.company.slice(0, 2).toUpperCase()}</span>
+                    </div>
+                  )}
                 </div>
 
                 <div className="border-t-[3px] border-black mb-4 md:mb-6"></div>
