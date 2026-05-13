@@ -12,6 +12,7 @@ export function PortfolioSection() {
       tags: ["Stellar", "USDC", "Escrow", "Fintech", "LATAM"],
       bgColor: "bg-[#2F81F7]",
       tagColor: "bg-[#FF6B7A]",
+      logo: "/logos/cosmos-icon.jpeg",
     },
     {
       title: "Open Stellar",
@@ -20,6 +21,7 @@ export function PortfolioSection() {
       tags: ["AI Agents", "x402", "Stellar", "Soroban", "Micropayments"],
       bgColor: "bg-[#6366F1]",
       tagColor: "bg-[#FFC224]",
+      logo: "/logos/open-stellar.jpeg",
     },
     {
       title: "Shield Stellar",
@@ -36,6 +38,7 @@ export function PortfolioSection() {
       tags: ["AI Agents", "Marketplace", "LLMs", "Routing"],
       bgColor: "bg-[#10B981]",
       tagColor: "bg-[#FF6B7A]",
+      logo: "/logos/nomos.jpeg",
     },
     {
       title: "Tralala Contracts",
@@ -44,22 +47,25 @@ export function PortfolioSection() {
       tags: ["Soroban", "Smart Contracts", "Education", "DevTooling"],
       bgColor: "bg-[#FFC224]",
       tagColor: "bg-[#0B0B0B]",
+      logo: "/logos/tralala-contracts.jpeg",
     },
     {
-      title: "ReFinance",
-      category: "Social Impact DeFi",
-      description: "Programmable transparency system for NGOs and social impact organizations using decentralized financial flows.",
-      tags: ["DeFi", "NGOs", "Transparency", "Impact"],
-      bgColor: "bg-[#8B5CF6]",
-      tagColor: "bg-[#10B981]",
+      title: "Bridjet",
+      category: "Cross-Chain Bridge",
+      description: "Hackathon project for simplified cross-chain asset transfers with streamlined UX for blockchain interoperability.",
+      tags: ["Bridge", "Cross-Chain", "DeFi", "UX"],
+      bgColor: "bg-[#0B0B0B]",
+      tagColor: "bg-[#2F81F7]",
+      logo: "/logos/bridjet.jpeg",
     },
     {
-      title: "Vinay",
+      title: "Open Vinito",
       category: "Blockchain Traceability",
       description: "Wine traceability and geolocation verification platform for blockchain-based supply-chain transparency.",
       tags: ["Hedera", "Traceability", "Wine", "Real-World Assets"],
       bgColor: "bg-[#EC4899]",
       tagColor: "bg-[#FFC224]",
+      logo: "/logos/open-vinito.jpeg",
     },
     {
       title: "PlatanPay",
@@ -68,6 +74,7 @@ export function PortfolioSection() {
       tags: ["AI Commerce", "Payments", "Scraping", "Approval Flows"],
       bgColor: "bg-[#F59E0B]",
       tagColor: "bg-[#2F81F7]",
+      logo: "/logos/platanpay-mascot.jpeg",
     },
   ]
 
@@ -97,10 +104,15 @@ export function PortfolioSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.05 }}
             >
-              <div className={`${project.bgColor} p-6 md:p-8`}>
+              <div className={`${project.bgColor} p-6 md:p-8 relative`}>
                 <span className={`${project.tagColor} text-white text-xs font-semibold px-4 py-1.5 rounded-full`}>
                   {project.category}
                 </span>
+                {project.logo && (
+                  <div className="absolute top-4 right-4 w-16 h-16 md:w-20 md:h-20 rounded-2xl border-3 border-white shadow-lg overflow-hidden bg-white">
+                    <img src={project.logo} alt={`${project.title} logo`} className="w-full h-full object-cover" />
+                  </div>
+                )}
               </div>
               
               <div className="p-6 md:p-8">

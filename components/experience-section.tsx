@@ -20,6 +20,7 @@ export function ExperienceSection() {
       company: "Cosmos Pay",
       description: "Experimental fintech infrastructure initiative focused on stablecoin payments, escrow systems and rapid commerce coordination for emerging markets.",
       color: "bg-[#FF6B7A]",
+      logo: "/logos/cosmos-icon.jpeg",
     },
     {
       period: "2026 - Present",
