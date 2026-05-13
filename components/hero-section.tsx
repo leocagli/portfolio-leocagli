@@ -46,14 +46,11 @@ export function HeroSection() {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <div className="relative w-full max-w-md aspect-square bg-[#2F81F7] border-4 border-black rounded-3xl overflow-hidden shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-center p-8">
-                <div className="w-32 h-32 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center border-4 border-black">
-                  <span className="text-4xl font-bold text-white">LC</span>
-                </div>
-                <p className="text-white/90 font-medium text-lg">Speaker / Builder / Strategist</p>
-              </div>
-            </div>
+            <img 
+              src="/images/profile.jpeg" 
+              alt="Leonardo Cagliero speaking at a blockchain conference"
+              className="w-full h-full object-cover object-top"
+            />
           </div>
         </motion.div>
       </div>
