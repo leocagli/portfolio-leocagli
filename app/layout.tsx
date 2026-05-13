@@ -19,8 +19,8 @@ const onest = Onest({
 })
 
 export const metadata: Metadata = {
-  title: "Paperfolio - Portfolio Landing Page",
-  description: "A playful portfolio landing page",
+  title: "Leonardo Cagliero | AI & Web3 Product Strategist",
+  description: "AI & Web3 Product Strategist, Fintech Infrastructure Builder, and Ecosystem Contributor from LATAM. Building programmable coordination systems using AI agents, stablecoin payments, and smart contracts.",
   generator: "v0.app",
 }
 
@@ -30,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="bg-white">
       <body className={`${onest.variable} font-sans antialiased overflow-x-hidden`}>{children}</body>
     </html>
   )

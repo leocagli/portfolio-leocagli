@@ -1,100 +1,138 @@
+"use client"
+
 import { ArrowRight } from "lucide-react"
-import Image from "next/image"
+import { motion } from "framer-motion"
 
 export function PortfolioSection() {
   const projects = [
     {
-      title: "Studio user research and analysis",
-      description:
-        "In ultricies viverra sed at hendrerit drogon nunc scelerisque nisl pellentesque et dignissim at aenean tempor adipiscing eget mi diam at tempus.",
-      tag: "UI/UX Design",
-      logo: "/images/studio-logo.svg",
-      bgColor: "bg-[#6366F1]",
-      illustration: "/images/studio-workspace.svg",
+      title: "Cosmos Pay",
+      category: "Fintech Infrastructure",
+      description: "Stablecoin-based payment and escrow infrastructure for LATAM commerce, logistics and marketplace coordination.",
+      tags: ["Stellar", "USDC", "Escrow", "Fintech", "LATAM"],
+      bgColor: "bg-[#2F81F7]",
+      tagColor: "bg-[#FF6B7A]",
     },
     {
-      title: "Venture Workspace web app redesign",
-      description:
-        "In ultricies viverra sed at hendrerit drogon nunc scelerisque nisl pellentesque et dignissim at aenean tempor adipiscing eget mi diam at tempus.",
-      tag: "UI/UX Design",
-      logo: "/images/venture-logo.svg",
-      bgColor: "bg-[#2F81F7]",
-      illustration: "/images/venture-workspace.svg",
+      title: "Open Stellar",
+      category: "Agentic AI Payments",
+      description: "Visual coordination layer where AI agents interact through programmable micropayments, escrow workflows and wallet-based actions.",
+      tags: ["AI Agents", "x402", "Stellar", "Soroban", "Micropayments"],
+      bgColor: "bg-[#6366F1]",
+      tagColor: "bg-[#FFC224]",
+    },
+    {
+      title: "Shield Stellar",
+      category: "AI Payment Security",
+      description: "Human approval firewall for AI-driven financial actions, autonomous payment governance and programmable transaction safety.",
+      tags: ["Human-in-the-loop", "AI Safety", "Payments", "Governance"],
+      bgColor: "bg-[#FF6B7A]",
+      tagColor: "bg-[#2F81F7]",
+    },
+    {
+      title: "Nomos",
+      category: "AI Agent Marketplace",
+      description: "Marketplace concept for coordinating specialized AI agent teams using local and distributed models to reduce costs and improve workflow execution.",
+      tags: ["AI Agents", "Marketplace", "LLMs", "Routing"],
+      bgColor: "bg-[#10B981]",
+      tagColor: "bg-[#FF6B7A]",
+    },
+    {
+      title: "Tralala Contracts",
+      category: "Developer Tooling",
+      description: "Visual smart-contract abstraction layer inspired by block-based programming to simplify blockchain onboarding and contract creation.",
+      tags: ["Soroban", "Smart Contracts", "Education", "DevTooling"],
+      bgColor: "bg-[#FFC224]",
+      tagColor: "bg-[#0B0B0B]",
+    },
+    {
+      title: "ReFinance",
+      category: "Social Impact DeFi",
+      description: "Programmable transparency system for NGOs and social impact organizations using decentralized financial flows.",
+      tags: ["DeFi", "NGOs", "Transparency", "Impact"],
+      bgColor: "bg-[#8B5CF6]",
+      tagColor: "bg-[#10B981]",
+    },
+    {
+      title: "Vinay",
+      category: "Blockchain Traceability",
+      description: "Wine traceability and geolocation verification platform for blockchain-based supply-chain transparency.",
+      tags: ["Hedera", "Traceability", "Wine", "Real-World Assets"],
+      bgColor: "bg-[#EC4899]",
+      tagColor: "bg-[#FFC224]",
+    },
+    {
+      title: "PlatanPay",
+      category: "Agentic Commerce",
+      description: "AI payment orchestration prototype where users delegate shopping tasks to agents with approval flows and programmable commerce logic.",
+      tags: ["AI Commerce", "Payments", "Scraping", "Approval Flows"],
+      bgColor: "bg-[#F59E0B]",
+      tagColor: "bg-[#2F81F7]",
     },
   ]
 
   return (
-    <section className="container mx-auto px-4 py-16 md:py-24">
+    <section id="portfolio" className="container mx-auto px-4 py-16 md:py-24">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
+        <motion.div 
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
             Take a look at my <br />
-            <span className="bg-[#FFC224] text-black px-3 py-1 inline-block">design portfolio</span>
+            <span className="bg-[#FFC224] text-black px-3 py-1 inline-block">project portfolio</span>
           </h2>
-        </div>
+        </motion.div>
 
-        <div className="space-y-8 mb-12">
+        <div className="grid md:grid-cols-2 gap-6 mb-12">
           {projects.map((project, index) => (
-            <div
+            <motion.div
               key={index}
-              className="group grid md:grid-cols-2 bg-white border-[3px] border-black rounded-[32px] overflow-hidden hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all"
+              className="group bg-white border-[3px] border-black rounded-[32px] overflow-hidden hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 hover:translate-y-[-4px]"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: index * 0.05 }}
             >
-              <div className="p-6 md:p-12 flex flex-col justify-center bg-white">
-                <div className="flex items-center gap-3 mb-6">
-                  <Image
-                    src={project.logo || "/placeholder.svg"}
-                    alt={`${project.title} logo`}
-                    width={120}
-                    height={32}
-                    className="h-6 md:h-8 w-auto"
-                  />
-                </div>
-
-                <span className="inline-block bg-black text-white text-xs font-semibold px-4 py-1.5 rounded-full mb-6 w-fit">
-                  {project.tag}
+              <div className={`${project.bgColor} p-6 md:p-8`}>
+                <span className={`${project.tagColor} text-white text-xs font-semibold px-4 py-1.5 rounded-full`}>
+                  {project.category}
                 </span>
-
-                <h3 className="text-xl md:text-[28px] font-bold mb-4 leading-tight md:leading-[40px] text-[#0B0B0B]">
+              </div>
+              
+              <div className="p-6 md:p-8">
+                <h3 className="text-xl md:text-[28px] font-bold mb-3 leading-tight text-[#0B0B0B]">
                   {project.title}
                 </h3>
 
-                <p className="text-base md:text-[18px] text-[#393939] mb-8 leading-relaxed md:leading-[30px] font-medium">
+                <p className="text-base md:text-[16px] text-[#393939] mb-6 leading-relaxed font-medium">
                   {project.description}
                 </p>
 
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {project.tags.map((tag, tagIndex) => (
+                    <span 
+                      key={tagIndex}
+                      className="bg-gray-100 text-[#393939] text-xs font-semibold px-3 py-1.5 rounded-full border border-gray-200"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
                 <a
                   href="#"
-                  className="flex items-center gap-2 font-semibold text-[#0B0B0B] hover:gap-3 transition-all text-sm md:text-base"
+                  className="flex items-center gap-2 font-semibold text-[#0B0B0B] hover:gap-3 transition-all text-sm md:text-base group-hover:text-[#2F81F7]"
                 >
                   View case study
                   <ArrowRight className="w-4 h-4" />
                 </a>
               </div>
-
-              <div className={`${project.bgColor} relative overflow-hidden min-h-[250px] md:min-h-[500px]`}>
-                <Image
-                  src={project.illustration || "/placeholder.svg"}
-                  alt={project.title}
-                  fill
-                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-110"
-                />
-              </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
-
-        <div className="flex justify-center">
-          <button className="bg-black text-white px-6 md:px-8 py-4 md:py-5 rounded-[12px] font-semibold hover:bg-gray-900 transition-colors flex items-center justify-center gap-2 w-full sm:w-auto text-sm md:text-base">
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-              />
-            </svg>
-            Browse all portfolio
-          </button>
         </div>
       </div>
     </section>

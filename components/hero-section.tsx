@@ -1,19 +1,27 @@
+"use client"
+
 import { Mail, FolderOpen } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { motion } from "framer-motion"
 
 export function HeroSection() {
   return (
     <section className="container mx-auto px-4 py-16 md:py-24">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-        <div className="space-y-6">
-          <h1 className="text-[42px] leading-[50px] md:text-[72px] font-bold md:leading-[85px]">
-            I'm <span className="bg-[#FF6B7A] text-white px-3 py-1 inline-block">John Carter</span>, a Web Designer from{" "}
-            <span className="bg-[#2F81F7] text-white px-3 py-1 inline-block">New York</span>
+        <motion.div 
+          className="space-y-6"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <h1 className="text-[38px] leading-[46px] md:text-[64px] font-bold md:leading-[76px]">
+            I&apos;m <span className="bg-[#FF6B7A] text-white px-3 py-1 inline-block">Leonardo Cagliero</span>, an{" "}
+            <span className="bg-[#2F81F7] text-white px-3 py-1 inline-block">AI & Web3 Product Strategist</span> from{" "}
+            <span className="bg-[#FFC224] text-black px-3 py-1 inline-block">LATAM</span>
           </h1>
 
           <p className="text-[#393939] text-[16px] md:text-[18px] font-medium leading-[28px] md:leading-[30px] max-w-xl">
-            Lacus, adipiscing lectus convallis purus aliquet cursus magnaol montes augue donec cras turpis ultrices
-            nulla sed doler.
+            I build and prototype programmable coordination systems using AI agents, stablecoin payments, smart contracts and Web3 infrastructure for emerging market use cases.
           </p>
 
           <div className="flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-7 pt-4">
@@ -29,17 +37,25 @@ export function HeroSection() {
               View portfolio
             </Button>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="flex justify-center md:justify-end">
-          <div className="relative w-full max-w-md aspect-square bg-[#FDB927] border-4 border-black rounded-3xl overflow-hidden shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-            <img
-              src="/images/design-mode/63407fbdc2d4ac5270385fd4_home-he.png"
-              alt="Illustrated character avatar"
-              className="w-full h-full object-cover"
-            />
+        <motion.div 
+          className="flex justify-center md:justify-end"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          <div className="relative w-full max-w-md aspect-square bg-[#2F81F7] border-4 border-black rounded-3xl overflow-hidden shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="text-center p-8">
+                <div className="w-32 h-32 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center border-4 border-black">
+                  <span className="text-4xl font-bold text-white">LC</span>
+                </div>
+                <p className="text-white/90 font-medium text-lg">Speaker / Builder / Strategist</p>
+              </div>
+            </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   )

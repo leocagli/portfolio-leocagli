@@ -1,54 +1,65 @@
-import { User } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import Image from "next/image"
+"use client"
+
+import { motion } from "framer-motion"
 
 export function AboutSection() {
+  const stats = [
+    { label: "14+ years across finance, operations and crypto", color: "bg-[#6366F1]" },
+    { label: "2017 Bitcoin.defi public brand", color: "bg-[#FF6B7A]" },
+    { label: "Multiple hackathon awards and ecosystem grants", color: "bg-[#FFC224]" },
+    { label: "Speaker at Web3 and crypto education events", color: "bg-[#2F81F7]" },
+    { label: "Builder across Stellar, Ethereum, Hedera and AI ecosystems", color: "bg-[#10B981]" },
+  ]
+
   return (
-    <section className="container mx-auto px-4 py-16 md:py-32">
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 md:gap-16 items-center">
-        <div className="flex justify-center">
-          <div className="relative w-full max-w-lg aspect-square border-[4px] border-black rounded-full overflow-hidden bg-[#FF6B6B] shadow-[-8px_8px_0px_0px_rgba(0,0,0,1)]">
-            <Image src="/images/about-me.svg" alt="About me illustration" fill className="object-cover" />
-          </div>
-        </div>
+    <section id="about" className="container mx-auto px-4 py-16 md:py-32">
+      <div className="max-w-7xl mx-auto">
+        <motion.div
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+            Who&apos;s behind all this <span className="bg-[#2F81F7] text-white px-3 py-1 inline-block">great work?</span>
+          </h2>
+        </motion.div>
 
-        <div className="space-y-6 md:space-y-8">
-          <div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-              Who's behind all this <span className="bg-[#2F81F7] text-white px-3 py-1 inline-block">great work?</span>
-            </h2>
-            <p className="text-gray-600 text-base md:text-lg leading-relaxed">
-              Eu pellentesque arcu ornare velit faucibus egestas gravida sed in purus enim molestie gravida imperdiet
-              integer.
+        <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-start">
+          <motion.div 
+            className="bg-[#FF6B7A] border-4 border-black rounded-[32px] p-8 md:p-10 shadow-[-8px_8px_0px_0px_rgba(0,0,0,1)]"
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <p className="text-white text-lg md:text-xl leading-relaxed font-medium">
+              Leonardo Cagliero is an Argentina-based AI/Web3 product strategist, builder and ecosystem contributor with a background in business administration, capital markets, operations, crypto and fintech. Through Bitcoin.defi, he explores programmable payments, AI coordination systems, smart contracts and emerging market infrastructure through public R&D, hackathons, talks and startup experiments.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="space-y-6">
-            <div className="flex gap-4 items-start">
-              <div className="w-5 h-5 bg-[#6366F1] border-2 border-black rounded-[5px] flex-shrink-0 mt-1"></div>
-              <div>
-                <h3 className="text-lg md:text-xl font-bold mb-2">15+ years of experience</h3>
-                <p className="text-gray-600 text-sm md:text-base">
-                  Eu pellentesque arcu ornare velit faucibus egestas me gravida sed in purus enim molestie gravida.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex gap-4 items-start">
-              <div className="w-5 h-5 bg-[#FF6B7A] border-2 border-black rounded-[5px] flex-shrink-0 mt-1"></div>
-              <div>
-                <h3 className="text-lg md:text-xl font-bold mb-2">100+ successfull projects</h3>
-                <p className="text-gray-600 text-sm md:text-base">
-                  Eu pellentesque arcu ornare velit faucibus egestas me gravida sed in purus enim molestie gravida.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <Button className="bg-[#0B0B0B] text-white hover:bg-black/90 rounded-lg py-5 px-8 md:py-[22px] md:px-[62px] text-base md:text-lg font-semibold h-auto w-full sm:w-auto sm:min-w-[240px]">
-            <User className="w-5 h-5" />
-            More about me
-          </Button>
+          <motion.div 
+            className="space-y-4"
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            {stats.map((stat, index) => (
+              <motion.div 
+                key={index}
+                className="flex gap-4 items-start"
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
+              >
+                <div className={`w-5 h-5 ${stat.color} border-2 border-black rounded-[5px] flex-shrink-0 mt-1`}></div>
+                <p className="text-[#0B0B0B] text-lg md:text-xl font-bold">{stat.label}</p>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </div>
     </section>
