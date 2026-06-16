@@ -28,6 +28,7 @@ export function AwardsSection() {
       description: "Winner with Cosmos — $5k USD each (3 winners) + 2 trips to Mexico",
       icon: Trophy,
       color: "bg-[#10B981]",
+      href: "#cosmos-pay",
     },
     {
       title: "Y-Hat Hackathon UBA Exactas",
@@ -68,6 +69,15 @@ export function AwardsSection() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             {awards.map((award, index) => {
               const IconComponent = award.icon
+              const cardContent = (
+                <>
+                  <div className={`w-16 h-16 ${award.color} border-2 border-black rounded-2xl flex items-center justify-center mx-auto mb-4`}>
+                    <IconComponent className="w-8 h-8 text-black" />
+                  </div>
+                  <h3 className="text-lg font-bold text-[#0B0B0B] mb-1">{award.title}</h3>
+                  <p className="text-[#393939] text-sm font-medium">{award.description}</p>
+                </>
+              )
               return (
                 <motion.div
                   key={index}
@@ -77,11 +87,13 @@ export function AwardsSection() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
                 >
-                  <div className={`w-16 h-16 ${award.color} border-2 border-black rounded-2xl flex items-center justify-center mx-auto mb-4`}>
-                    <IconComponent className="w-8 h-8 text-black" />
-                  </div>
-                  <h3 className="text-lg font-bold text-[#0B0B0B] mb-1">{award.title}</h3>
-                  <p className="text-[#393939] text-sm font-medium">{award.description}</p>
+                  {award.href ? (
+                    <a href={award.href} className="block">
+                      {cardContent}
+                    </a>
+                  ) : (
+                    cardContent
+                  )}
                 </motion.div>
               )
             })}
