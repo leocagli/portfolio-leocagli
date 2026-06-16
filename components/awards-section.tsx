@@ -29,6 +29,12 @@ export function AwardsSection() {
       icon: Trophy,
       color: "bg-[#10B981]",
     },
+    {
+      title: "Y-Hat Hackathon UBA Exactas",
+      description: "Finalist — AI Track with Provi.ia",
+      icon: Award,
+      color: "bg-[#EC4899]",
+    },
   ]
 
   const ecosystem = [
@@ -37,7 +43,7 @@ export function AwardsSection() {
     "Anthropic + Kaszek AI Hackathon",
     "Harvard Health Systems Innovation Lab Hackathon",
     "IBM Dev Day: AI Demystified",
-    "PunaTech Salta / Arkiv challenge organization",
+    "PunaTech Salta / Arkiv Network hackathon — mentor & co-organizer (opening & closing)",
     "Descentralizar / Bitcoin Argentina speaker",
     "Travel grants: Mexico City, Buenos Aires, Rio de Janeiro",
   ]
