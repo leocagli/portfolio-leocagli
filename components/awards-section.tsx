@@ -24,8 +24,8 @@ export function AwardsSection() {
       color: "bg-[#6366F1]",
     },
     {
-      title: "Platanus Hack",
-      description: "PlatanPay Project",
+      title: "Instawards",
+      description: "Winner with Cosmos — $5k USD each (3 winners) + 2 trips to Mexico",
       icon: Trophy,
       color: "bg-[#10B981]",
     },
