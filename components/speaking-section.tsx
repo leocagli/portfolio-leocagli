@@ -29,6 +29,12 @@ export function SpeakingSection() {
       type: "Demo",
       icon: Video,
     },
+    {
+      title: "Arkiv Network Hackathon — PunaTech Salta",
+      venue: "Mentor & co-organizer · opening & closing",
+      type: "Organizer",
+      icon: Mic,
+    },
   ]
 
   const media = [
