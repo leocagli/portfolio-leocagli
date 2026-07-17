@@ -7,13 +7,13 @@ export function AwardsSection() {
   const awards = [
     {
       title: "ETHGlobal Buenos Aires",
-      description: "Yellow Track Prize",
+      description: "3er lugar — Yellow Track con Previate · $3k USD",
       icon: Trophy,
       color: "bg-[#FFC224]",
     },
     {
       title: "Stellar Give Hackathon",
-      description: "Winning Team",
+      description: "1er lugar · $2k USD",
       icon: Trophy,
       color: "bg-[#2F81F7]",
     },

@@ -19,10 +19,10 @@ export default function Home() {
       <LogoMarquee />
       <ServicesSection />
       <AboutSection />
+      <AwardsSection />
       <PortfolioSection />
       <ExperienceSection />
       <EducationSection />
-      <AwardsSection />
       <SpeakingSection />
       <ArticlesSection />
       <Footer />
