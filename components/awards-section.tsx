@@ -25,7 +25,7 @@ export function AwardsSection() {
     },
     {
       title: "Código Alebrije",
-      description: "Instaward ganado con Cosmos — programa con aceleradora de Stellar · $15k USD ($5k/mes × 3 meses) + 2 viajes a México",
+      description: "Instaward ganado con Cosmos — programa con aceleradora de Stellar · $15k USD ($5k/mes × 3 meses) + 2 viajes a CDMX",
       icon: Trophy,
       color: "bg-[#10B981]",
       href: "#cosmos-pay",
@@ -38,7 +38,7 @@ export function AwardsSection() {
     },
     {
       title: "Stellar / Nearx Pulso Hackathon",
-      description: "Instawards $15k USD + viaje a São Paulo Stellar Summit",
+      description: "Instaward ganado con Cosmos — $15k USD ($5k/mes × 3 meses) + viaje a São Paulo Stellar Summit",
       icon: Trophy,
       color: "bg-[#F59E0B]",
     },
