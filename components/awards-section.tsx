@@ -38,7 +38,7 @@ export function AwardsSection() {
     },
     {
       title: "Stellar / Nearx Pulso Hackathon",
-      description: "Ganador con Cosmos Pay (también ganador de Instawards) · Finalista con Ponte Pay & Passpay",
+      description: "Instawards $15k USD + viaje a São Paulo Stellar Summit",
       icon: Trophy,
       color: "bg-[#F59E0B]",
     },
