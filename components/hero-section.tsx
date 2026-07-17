@@ -4,6 +4,36 @@ import { Mail, FolderOpen, ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { motion, AnimatePresence } from "framer-motion"
 import { useState, useEffect, useCallback } from "react"
+import { useLang } from "@/lib/i18n"
+
+const content = {
+  en: {
+    headingPre: "I'm",
+    headingRole: "AI & Web3 Product Strategist",
+    headingConnector: ", an",
+    headingFrom: "from",
+    intro:
+      "I build and prototype programmable coordination systems using AI agents, stablecoin payments, smart contracts and Web3 infrastructure for emerging market use cases.",
+    getInTouch: "Get in touch",
+    viewPortfolio: "View portfolio",
+    prevPhoto: "Previous photo",
+    nextPhoto: "Next photo",
+    goToPhoto: "Go to photo",
+  },
+  es: {
+    headingPre: "Soy",
+    headingRole: "estratega de producto en IA y Web3",
+    headingConnector: ",",
+    headingFrom: "desde",
+    intro:
+      "Construyo y prototipo sistemas de coordinación programables con agentes de IA, pagos con stablecoins, contratos inteligentes e infraestructura Web3 para casos de uso de mercados emergentes.",
+    getInTouch: "Contactame",
+    viewPortfolio: "Ver portfolio",
+    prevPhoto: "Foto anterior",
+    nextPhoto: "Foto siguiente",
+    goToPhoto: "Ir a la foto",
+  },
+} as const
 
 const profilePhotos = [
   {
@@ -18,6 +48,8 @@ const profilePhotos = [
 
 export function HeroSection() {
   const [current, setCurrent] = useState(0)
+  const { lang } = useLang()
+  const t = content[lang]
 
   const goTo = useCallback((index: number) => {
     setCurrent((index + profilePhotos.length) % profilePhotos.length)
@@ -40,13 +72,14 @@ export function HeroSection() {
           transition={{ duration: 0.6 }}
         >
           <h1 className="text-[38px] leading-[46px] md:text-[64px] font-bold md:leading-[76px]">
-            I&apos;m <span className="bg-[#FF6B7A] text-white px-3 py-1 inline-block">Leonardo Cagliero</span>, an{" "}
-            <span className="bg-[#2F81F7] text-white px-3 py-1 inline-block">AI & Web3 Product Strategist</span> from{" "}
+            {t.headingPre} <span className="bg-[#FF6B7A] text-white px-3 py-1 inline-block">Leonardo Cagliero</span>
+            {t.headingConnector}{" "}
+            <span className="bg-[#2F81F7] text-white px-3 py-1 inline-block">{t.headingRole}</span> {t.headingFrom}{" "}
             <span className="bg-[#FFC224] text-black px-3 py-1 inline-block">LATAM</span>
           </h1>
 
           <p className="text-[#393939] text-[16px] md:text-[18px] font-medium leading-[28px] md:leading-[30px] max-w-xl">
-            I build and prototype programmable coordination systems using AI agents, stablecoin payments, smart contracts and Web3 infrastructure for emerging market use cases.
+            {t.intro}
           </p>
 
           <div className="flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-7 pt-4">
@@ -56,7 +89,7 @@ export function HeroSection() {
             >
               <a href="#contact">
                 <Mail className="w-5 h-5" />
-                Get in touch
+                {t.getInTouch}
               </a>
             </Button>
             <Button
@@ -65,7 +98,7 @@ export function HeroSection() {
               onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}
             >
               <FolderOpen className="w-5 h-5" />
-              View portfolio
+              {t.viewPortfolio}
             </Button>
           </div>
         </motion.div>
@@ -94,7 +127,7 @@ export function HeroSection() {
               <button
                 type="button"
                 onClick={() => goTo(current - 1)}
-                aria-label="Previous photo"
+                aria-label={t.prevPhoto}
                 className="absolute left-3 top-1/2 -translate-y-1/2 w-11 h-11 flex items-center justify-center bg-white border-2 border-black rounded-full shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[calc(-50%-2px)] transition-transform"
               >
                 <ChevronLeft className="w-5 h-5 text-black" />
@@ -102,7 +135,7 @@ export function HeroSection() {
               <button
                 type="button"
                 onClick={() => goTo(current + 1)}
-                aria-label="Next photo"
+                aria-label={t.nextPhoto}
                 className="absolute right-3 top-1/2 -translate-y-1/2 w-11 h-11 flex items-center justify-center bg-white border-2 border-black rounded-full shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[calc(-50%-2px)] transition-transform"
               >
                 <ChevronRight className="w-5 h-5 text-black" />
@@ -115,7 +148,7 @@ export function HeroSection() {
                   key={photo.src}
                   type="button"
                   onClick={() => goTo(index)}
-                  aria-label={`Go to photo ${index + 1}`}
+                  aria-label={`${t.goToPhoto} ${index + 1}`}
                   aria-current={index === current}
                   className={`h-3 rounded-full border-2 border-black transition-all ${
                     index === current ? "w-8 bg-[#FFC224]" : "w-3 bg-white"

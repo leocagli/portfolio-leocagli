@@ -2,81 +2,123 @@
 
 import { ArrowRight } from "lucide-react"
 import { motion } from "framer-motion"
+import { useLang } from "@/lib/i18n"
+
+const projectStyles: { title: string; bgColor: string; tagColor: string; logo?: string }[] = [
+  { title: "Cosmos Pay", bgColor: "bg-[#2F81F7]", tagColor: "bg-[#FF6B7A]", logo: "/logos/cosmos-icon.jpeg" },
+  { title: "Open Stellar", bgColor: "bg-[#6366F1]", tagColor: "bg-[#FFC224]", logo: "/logos/open-stellar.jpeg" },
+  { title: "Shield Stellar", bgColor: "bg-[#FF6B7A]", tagColor: "bg-[#2F81F7]" },
+  { title: "Nomos", bgColor: "bg-[#10B981]", tagColor: "bg-[#FF6B7A]", logo: "/logos/nomos.jpeg" },
+  { title: "Tralala Contracts", bgColor: "bg-[#FFC224]", tagColor: "bg-[#0B0B0B]", logo: "/logos/tralala-contracts.jpeg" },
+  { title: "Bridjet", bgColor: "bg-[#0B0B0B]", tagColor: "bg-[#2F81F7]", logo: "/logos/bridjet.jpeg" },
+  { title: "Open Vinito", bgColor: "bg-[#EC4899]", tagColor: "bg-[#FFC224]", logo: "/logos/open-vinito.jpeg" },
+  { title: "PlatanPay", bgColor: "bg-[#F59E0B]", tagColor: "bg-[#2F81F7]", logo: "/logos/platanpay-mascot.jpeg" },
+]
+
+const content = {
+  en: {
+    headingPre: "Take a look at my",
+    headingHighlight: "project portfolio",
+    caseStudy: "View case study",
+    projects: [
+      {
+        category: "Fintech Infrastructure",
+        description: "Stablecoin-based payment and escrow infrastructure for LATAM commerce, logistics and marketplace coordination.",
+        tags: ["Stellar", "USDC", "Escrow", "Fintech", "LATAM"],
+      },
+      {
+        category: "Agentic AI Payments",
+        description: "Visual coordination layer where AI agents interact through programmable micropayments, escrow workflows and wallet-based actions.",
+        tags: ["AI Agents", "x402", "Stellar", "Soroban", "Micropayments"],
+      },
+      {
+        category: "AI Payment Security",
+        description: "Human approval firewall for AI-driven financial actions, autonomous payment governance and programmable transaction safety.",
+        tags: ["Human-in-the-loop", "AI Safety", "Payments", "Governance"],
+      },
+      {
+        category: "AI Agent Marketplace",
+        description: "Marketplace concept for coordinating specialized AI agent teams using local and distributed models to reduce costs and improve workflow execution.",
+        tags: ["AI Agents", "Marketplace", "LLMs", "Routing"],
+      },
+      {
+        category: "Developer Tooling",
+        description: "Visual smart-contract abstraction layer inspired by block-based programming to simplify blockchain onboarding and contract creation.",
+        tags: ["Soroban", "Smart Contracts", "Education", "DevTooling"],
+      },
+      {
+        category: "Cross-Chain Bridge",
+        description: "Hackathon project for simplified cross-chain asset transfers with streamlined UX for blockchain interoperability.",
+        tags: ["Bridge", "Cross-Chain", "DeFi", "UX"],
+      },
+      {
+        category: "Blockchain Traceability",
+        description: "Wine traceability and geolocation verification platform for blockchain-based supply-chain transparency.",
+        tags: ["Hedera", "Traceability", "Wine", "Real-World Assets"],
+      },
+      {
+        category: "Agentic Commerce",
+        description: "AI payment orchestration prototype where users delegate shopping tasks to agents with approval flows and programmable commerce logic.",
+        tags: ["AI Commerce", "Payments", "Scraping", "Approval Flows"],
+      },
+    ],
+  },
+  es: {
+    headingPre: "Mirá mi",
+    headingHighlight: "portfolio de proyectos",
+    caseStudy: "Ver caso de estudio",
+    projects: [
+      {
+        category: "Infraestructura fintech",
+        description: "Infraestructura de pagos y escrow basada en stablecoins para comercio, logística y coordinación de marketplaces en LATAM.",
+        tags: ["Stellar", "USDC", "Escrow", "Fintech", "LATAM"],
+      },
+      {
+        category: "Pagos agénticos con IA",
+        description: "Capa de coordinación visual donde agentes de IA interactúan mediante micropagos programables, flujos de escrow y acciones basadas en wallets.",
+        tags: ["Agentes IA", "x402", "Stellar", "Soroban", "Micropagos"],
+      },
+      {
+        category: "Seguridad en pagos con IA",
+        description: "Firewall de aprobación humana para acciones financieras impulsadas por IA, gobernanza de pagos autónomos y seguridad transaccional programable.",
+        tags: ["Human-in-the-loop", "Seguridad IA", "Pagos", "Gobernanza"],
+      },
+      {
+        category: "Marketplace de agentes IA",
+        description: "Concepto de marketplace para coordinar equipos de agentes de IA especializados usando modelos locales y distribuidos, reduciendo costos y mejorando la ejecución de flujos de trabajo.",
+        tags: ["Agentes IA", "Marketplace", "LLMs", "Ruteo"],
+      },
+      {
+        category: "Herramientas para desarrolladores",
+        description: "Capa visual de abstracción de contratos inteligentes inspirada en la programación por bloques para simplificar el onboarding blockchain y la creación de contratos.",
+        tags: ["Soroban", "Contratos inteligentes", "Educación", "DevTooling"],
+      },
+      {
+        category: "Puente cross-chain",
+        description: "Proyecto de hackathon para transferencias de activos entre cadenas simplificadas, con una UX ágil para la interoperabilidad blockchain.",
+        tags: ["Bridge", "Cross-Chain", "DeFi", "UX"],
+      },
+      {
+        category: "Trazabilidad blockchain",
+        description: "Plataforma de trazabilidad de vinos y verificación por geolocalización para transparencia de la cadena de suministro basada en blockchain.",
+        tags: ["Hedera", "Trazabilidad", "Vino", "Activos del mundo real"],
+      },
+      {
+        category: "Comercio agéntico",
+        description: "Prototipo de orquestación de pagos con IA donde los usuarios delegan compras a agentes con flujos de aprobación y lógica de comercio programable.",
+        tags: ["Comercio IA", "Pagos", "Scraping", "Flujos de aprobación"],
+      },
+    ],
+  },
+} as const
 
 export function PortfolioSection() {
-  const projects = [
-    {
-      title: "Cosmos Pay",
-      category: "Fintech Infrastructure",
-      description: "Stablecoin-based payment and escrow infrastructure for LATAM commerce, logistics and marketplace coordination.",
-      tags: ["Stellar", "USDC", "Escrow", "Fintech", "LATAM"],
-      bgColor: "bg-[#2F81F7]",
-      tagColor: "bg-[#FF6B7A]",
-      logo: "/logos/cosmos-icon.jpeg",
-    },
-    {
-      title: "Open Stellar",
-      category: "Agentic AI Payments",
-      description: "Visual coordination layer where AI agents interact through programmable micropayments, escrow workflows and wallet-based actions.",
-      tags: ["AI Agents", "x402", "Stellar", "Soroban", "Micropayments"],
-      bgColor: "bg-[#6366F1]",
-      tagColor: "bg-[#FFC224]",
-      logo: "/logos/open-stellar.jpeg",
-    },
-    {
-      title: "Shield Stellar",
-      category: "AI Payment Security",
-      description: "Human approval firewall for AI-driven financial actions, autonomous payment governance and programmable transaction safety.",
-      tags: ["Human-in-the-loop", "AI Safety", "Payments", "Governance"],
-      bgColor: "bg-[#FF6B7A]",
-      tagColor: "bg-[#2F81F7]",
-    },
-    {
-      title: "Nomos",
-      category: "AI Agent Marketplace",
-      description: "Marketplace concept for coordinating specialized AI agent teams using local and distributed models to reduce costs and improve workflow execution.",
-      tags: ["AI Agents", "Marketplace", "LLMs", "Routing"],
-      bgColor: "bg-[#10B981]",
-      tagColor: "bg-[#FF6B7A]",
-      logo: "/logos/nomos.jpeg",
-    },
-    {
-      title: "Tralala Contracts",
-      category: "Developer Tooling",
-      description: "Visual smart-contract abstraction layer inspired by block-based programming to simplify blockchain onboarding and contract creation.",
-      tags: ["Soroban", "Smart Contracts", "Education", "DevTooling"],
-      bgColor: "bg-[#FFC224]",
-      tagColor: "bg-[#0B0B0B]",
-      logo: "/logos/tralala-contracts.jpeg",
-    },
-    {
-      title: "Bridjet",
-      category: "Cross-Chain Bridge",
-      description: "Hackathon project for simplified cross-chain asset transfers with streamlined UX for blockchain interoperability.",
-      tags: ["Bridge", "Cross-Chain", "DeFi", "UX"],
-      bgColor: "bg-[#0B0B0B]",
-      tagColor: "bg-[#2F81F7]",
-      logo: "/logos/bridjet.jpeg",
-    },
-    {
-      title: "Open Vinito",
-      category: "Blockchain Traceability",
-      description: "Wine traceability and geolocation verification platform for blockchain-based supply-chain transparency.",
-      tags: ["Hedera", "Traceability", "Wine", "Real-World Assets"],
-      bgColor: "bg-[#EC4899]",
-      tagColor: "bg-[#FFC224]",
-      logo: "/logos/open-vinito.jpeg",
-    },
-    {
-      title: "PlatanPay",
-      category: "Agentic Commerce",
-      description: "AI payment orchestration prototype where users delegate shopping tasks to agents with approval flows and programmable commerce logic.",
-      tags: ["AI Commerce", "Payments", "Scraping", "Approval Flows"],
-      bgColor: "bg-[#F59E0B]",
-      tagColor: "bg-[#2F81F7]",
-      logo: "/logos/platanpay-mascot.jpeg",
-    },
-  ]
+  const { lang } = useLang()
+  const t = content[lang]
+  const projects = t.projects.map((project, index) => ({
+    ...project,
+    ...projectStyles[index],
+  }))
 
   return (
     <section id="portfolio" className="container mx-auto px-4 py-16 md:py-24">
@@ -89,8 +131,8 @@ export function PortfolioSection() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            Take a look at my <br />
-            <span className="bg-[#FFC224] text-black px-3 py-1 inline-block">project portfolio</span>
+            {t.headingPre} <br />
+            <span className="bg-[#FFC224] text-black px-3 py-1 inline-block">{t.headingHighlight}</span>
           </h2>
         </motion.div>
 
@@ -140,7 +182,7 @@ export function PortfolioSection() {
                   href="#"
                   className="flex items-center gap-2 font-semibold text-[#0B0B0B] hover:gap-3 transition-all text-sm md:text-base group-hover:text-[#2F81F7]"
                 >
-                  View case study
+                  {t.caseStudy}
                   <ArrowRight className="w-4 h-4" />
                 </a>
               </div>

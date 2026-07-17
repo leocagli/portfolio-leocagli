@@ -2,64 +2,77 @@
 
 import { Trophy, Award, MapPin, Mic } from "lucide-react"
 import { motion } from "framer-motion"
+import { useLang } from "@/lib/i18n"
+
+const awardStyles: { title: string; icon: typeof Trophy; color: string; href?: string }[] = [
+  { title: "ETHGlobal Buenos Aires", icon: Trophy, color: "bg-[#FFC224]" },
+  { title: "Stellar Give Hackathon", icon: Trophy, color: "bg-[#2F81F7]" },
+  { title: "Meridian Rio", icon: Award, color: "bg-[#6366F1]" },
+  { title: "Código Alebrije", icon: Trophy, color: "bg-[#10B981]", href: "#cosmos-pay" },
+  { title: "Y-Hat Hackathon UBA Exactas", icon: Award, color: "bg-[#EC4899]" },
+  { title: "Stellar / Nearx Pulso Hackathon", icon: Trophy, color: "bg-[#F59E0B]" },
+  { title: "Aleph Hackathon", icon: Award, color: "bg-[#8B5CF6]" },
+]
+
+const content = {
+  en: {
+    headingPre: "Hackathons, grants &",
+    headingHighlight: "ecosystem",
+    ecosystemTitle: "Ecosystem Participation",
+    awards: [
+      "3rd place — Yellow Track with Previate · $3k USD",
+      "1st place · $2k USD",
+      "Top 5 with Tralala Contracts",
+      "Instaward won with Cosmos (app) — Stellar accelerator program · $15k USD ($5k/month × 3 months) + 2 trips to CDMX",
+      "3rd place — AI Track with Provi.ia",
+      "Instaward won with Cosmos Pay — $15k USD ($5k/month × 3 months) + trip to São Paulo Stellar Summit",
+      "3rd place — Citrea Track with True Block",
+    ],
+    ecosystem: [
+      "Codigo Alebrije / Stellar ecosystem",
+      "Stellar House Mexico City",
+      "Anthropic + Kaszek AI Hackathon",
+      "Harvard Health Systems Innovation Lab Hackathon",
+      "IBM Dev Day: AI Demystified",
+      "PunaTech Salta / Arkiv Network hackathon — mentor & co-organizer (opening & closing)",
+      "Descentralizar / Bitcoin Argentina speaker",
+      "Travel grants: Mexico City, Buenos Aires, Rio de Janeiro",
+    ],
+  },
+  es: {
+    headingPre: "Hackathons, grants y",
+    headingHighlight: "ecosistema",
+    ecosystemTitle: "Participación en ecosistemas",
+    awards: [
+      "3er puesto — Yellow Track con Previate · USD 3k",
+      "1er puesto · USD 2k",
+      "Top 5 con Tralala Contracts",
+      "Instaward ganado con Cosmos (app) — programa con aceleradora de Stellar · USD 15k (USD 5k/mes × 3 meses) + 2 viajes a CDMX",
+      "3er puesto — AI Track con Provi.ia",
+      "Instaward ganado con Cosmos Pay — USD 15k (USD 5k/mes × 3 meses) + viaje al São Paulo Stellar Summit",
+      "3er puesto — Track Citrea con True Block",
+    ],
+    ecosystem: [
+      "Código Alebrije / ecosistema Stellar",
+      "Stellar House Ciudad de México",
+      "Anthropic + Kaszek AI Hackathon",
+      "Harvard Health Systems Innovation Lab Hackathon",
+      "IBM Dev Day: AI Demystified",
+      "Hackathon PunaTech Salta / Arkiv Network — mentor y co-organizador (apertura y cierre)",
+      "Orador en Descentralizar / Bitcoin Argentina",
+      "Grants de viaje: Ciudad de México, Buenos Aires, Río de Janeiro",
+    ],
+  },
+} as const
 
 export function AwardsSection() {
-  const awards = [
-    {
-      title: "ETHGlobal Buenos Aires",
-      description: "3er lugar — Yellow Track con Previate · $3k USD",
-      icon: Trophy,
-      color: "bg-[#FFC224]",
-    },
-    {
-      title: "Stellar Give Hackathon",
-      description: "1er lugar · $2k USD",
-      icon: Trophy,
-      color: "bg-[#2F81F7]",
-    },
-    {
-      title: "Meridian Rio",
-      description: "Top 5 with Tralala Contracts",
-      icon: Award,
-      color: "bg-[#6366F1]",
-    },
-    {
-      title: "Código Alebrije",
-      description: "Instaward ganado con Cosmos (app) — programa con aceleradora de Stellar · $15k USD ($5k/mes × 3 meses) + 2 viajes a CDMX",
-      icon: Trophy,
-      color: "bg-[#10B981]",
-      href: "#cosmos-pay",
-    },
-    {
-      title: "Y-Hat Hackathon UBA Exactas",
-      description: "3er puesto — AI Track with Provi.ia",
-      icon: Award,
-      color: "bg-[#EC4899]",
-    },
-    {
-      title: "Stellar / Nearx Pulso Hackathon",
-      description: "Instaward ganado con Cosmos Pay — $15k USD ($5k/mes × 3 meses) + viaje a São Paulo Stellar Summit",
-      icon: Trophy,
-      color: "bg-[#F59E0B]",
-    },
-    {
-      title: "Aleph Hackathon",
-      description: "3er puesto — Track Citrea con True Block",
-      icon: Award,
-      color: "bg-[#8B5CF6]",
-    },
-  ]
-
-  const ecosystem = [
-    "Codigo Alebrije / Stellar ecosystem",
-    "Stellar House Mexico City",
-    "Anthropic + Kaszek AI Hackathon",
-    "Harvard Health Systems Innovation Lab Hackathon",
-    "IBM Dev Day: AI Demystified",
-    "PunaTech Salta / Arkiv Network hackathon — mentor & co-organizer (opening & closing)",
-    "Descentralizar / Bitcoin Argentina speaker",
-    "Travel grants: Mexico City, Buenos Aires, Rio de Janeiro",
-  ]
+  const { lang } = useLang()
+  const t = content[lang]
+  const awards = awardStyles.map((style, index) => ({
+    ...style,
+    description: t.awards[index],
+  }))
+  const ecosystem = t.ecosystem
 
   return (
     <section className="bg-white py-16 md:py-24">
@@ -73,7 +86,7 @@ export function AwardsSection() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-              Hackathons, grants & <span className="bg-[#FFC224] text-black px-3 py-1 inline-block">ecosystem</span>
+              {t.headingPre} <span className="bg-[#FFC224] text-black px-3 py-1 inline-block">{t.headingHighlight}</span>
             </h2>
           </motion.div>
 
@@ -119,7 +132,7 @@ export function AwardsSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="text-2xl font-bold text-white mb-6">Ecosystem Participation</h3>
+            <h3 className="text-2xl font-bold text-white mb-6">{t.ecosystemTitle}</h3>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {ecosystem.map((item, index) => (
                 <motion.div

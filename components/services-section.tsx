@@ -3,46 +3,95 @@
 import { Mail, Brain, Wallet, Building2, Trophy, GraduationCap, MessageSquare } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
+import { useLang } from "@/lib/i18n"
+
+const serviceStyles = [
+  { icon: Brain, bgColor: "bg-[#2F81F7]" },
+  { icon: Wallet, bgColor: "bg-[#FF6B7A]" },
+  { icon: Building2, bgColor: "bg-[#FFC224]" },
+  { icon: Trophy, bgColor: "bg-[#6366F1]" },
+  { icon: GraduationCap, bgColor: "bg-[#10B981]" },
+  { icon: MessageSquare, bgColor: "bg-[#F59E0B]" },
+]
+
+const content = {
+  en: {
+    headingPre: "My broad",
+    headingHighlight: "set of services",
+    subtitle: "Strategy, prototyping and ecosystem execution across AI, fintech and Web3 infrastructure.",
+    ctaTitle: "Looking for another service?",
+    ctaText: "Get in touch with me, there is a high chance that I will be able to help!",
+    ctaButton: "Get in touch",
+    services: [
+      {
+        title: "AI & Web3 Product Strategy",
+        description: "Product direction for emerging technologies, translating complex infrastructure into usable systems, narratives and MVPs.",
+      },
+      {
+        title: "Agentic Payment Systems",
+        description: "Concepts and prototypes for AI agents, programmable payments, approval flows, micropayments and human-in-the-loop financial actions.",
+      },
+      {
+        title: "Fintech & Stablecoin Infrastructure",
+        description: "Payment flows, escrow logic, USDC rails, marketplace coordination and operational trust systems for LATAM use cases.",
+      },
+      {
+        title: "Ecosystem & Hackathon Execution",
+        description: "Rapid prototyping, live demos, team coordination and ecosystem validation through international hackathons and accelerator programs.",
+      },
+      {
+        title: "Blockchain Onboarding & Education",
+        description: "Workshops, talks and tooling concepts to make smart contracts, DeFi and Web3 infrastructure more accessible.",
+      },
+      {
+        title: "Technical Communication",
+        description: "Speaking, content, demos and public documentation for AI/Web3 projects, communities and ecosystem initiatives.",
+      },
+    ],
+  },
+  es: {
+    headingPre: "Mi amplio",
+    headingHighlight: "abanico de servicios",
+    subtitle: "Estrategia, prototipado y ejecución de ecosistema en IA, fintech e infraestructura Web3.",
+    ctaTitle: "¿Buscás otro servicio?",
+    ctaText: "Escribime: hay muchas chances de que pueda ayudarte.",
+    ctaButton: "Contactame",
+    services: [
+      {
+        title: "Estrategia de producto en IA y Web3",
+        description: "Dirección de producto para tecnologías emergentes, traduciendo infraestructura compleja en sistemas usables, narrativas y MVPs.",
+      },
+      {
+        title: "Sistemas de pagos agénticos",
+        description: "Conceptos y prototipos para agentes de IA, pagos programables, flujos de aprobación, micropagos y acciones financieras con supervisión humana.",
+      },
+      {
+        title: "Infraestructura fintech y de stablecoins",
+        description: "Flujos de pago, lógica de escrow, rieles de USDC, coordinación de marketplaces y sistemas de confianza operativa para casos de uso de LATAM.",
+      },
+      {
+        title: "Ejecución en ecosistemas y hackathons",
+        description: "Prototipado rápido, demos en vivo, coordinación de equipos y validación de ecosistema en hackathons internacionales y programas de aceleración.",
+      },
+      {
+        title: "Onboarding y educación blockchain",
+        description: "Talleres, charlas y conceptos de herramientas para hacer más accesibles los contratos inteligentes, DeFi y la infraestructura Web3.",
+      },
+      {
+        title: "Comunicación técnica",
+        description: "Charlas, contenido, demos y documentación pública para proyectos de IA/Web3, comunidades e iniciativas de ecosistema.",
+      },
+    ],
+  },
+} as const
 
 export function ServicesSection() {
-  const services = [
-    {
-      title: "AI & Web3 Product Strategy",
-      description: "Product direction for emerging technologies, translating complex infrastructure into usable systems, narratives and MVPs.",
-      icon: Brain,
-      bgColor: "bg-[#2F81F7]",
-    },
-    {
-      title: "Agentic Payment Systems",
-      description: "Concepts and prototypes for AI agents, programmable payments, approval flows, micropayments and human-in-the-loop financial actions.",
-      icon: Wallet,
-      bgColor: "bg-[#FF6B7A]",
-    },
-    {
-      title: "Fintech & Stablecoin Infrastructure",
-      description: "Payment flows, escrow logic, USDC rails, marketplace coordination and operational trust systems for LATAM use cases.",
-      icon: Building2,
-      bgColor: "bg-[#FFC224]",
-    },
-    {
-      title: "Ecosystem & Hackathon Execution",
-      description: "Rapid prototyping, live demos, team coordination and ecosystem validation through international hackathons and accelerator programs.",
-      icon: Trophy,
-      bgColor: "bg-[#6366F1]",
-    },
-    {
-      title: "Blockchain Onboarding & Education",
-      description: "Workshops, talks and tooling concepts to make smart contracts, DeFi and Web3 infrastructure more accessible.",
-      icon: GraduationCap,
-      bgColor: "bg-[#10B981]",
-    },
-    {
-      title: "Technical Communication",
-      description: "Speaking, content, demos and public documentation for AI/Web3 projects, communities and ecosystem initiatives.",
-      icon: MessageSquare,
-      bgColor: "bg-[#F59E0B]",
-    },
-  ]
+  const { lang } = useLang()
+  const t = content[lang]
+  const services = t.services.map((service, index) => ({
+    ...service,
+    ...serviceStyles[index],
+  }))
 
   return (
     <section id="services" className="bg-white py-16 md:py-24">
@@ -56,10 +105,10 @@ export function ServicesSection() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-4xl md:text-[52px] md:leading-[60px] font-bold mb-4">
-              My broad <span className="bg-[#FF6B7A] text-white px-3 py-1 inline-block">set of services</span>
+              {t.headingPre} <span className="bg-[#FF6B7A] text-white px-3 py-1 inline-block">{t.headingHighlight}</span>
             </h2>
             <p className="text-[#393939] text-base md:text-lg font-medium leading-relaxed md:leading-[30px] max-w-2xl mx-auto">
-              Strategy, prototyping and ecosystem execution across AI, fintech and Web3 infrastructure.
+              {t.subtitle}
             </p>
           </motion.div>
 
@@ -97,15 +146,15 @@ export function ServicesSection() {
             transition={{ duration: 0.6 }}
           >
             <div className="text-center md:text-left">
-              <h3 className="text-[28px] leading-[40px] font-bold mb-2 text-white">Looking for another service?</h3>
+              <h3 className="text-[28px] leading-[40px] font-bold mb-2 text-white">{t.ctaTitle}</h3>
               <p className="text-[18px] leading-[30px] font-medium text-gray-300">
-                Get in touch with me, there is a high chance that I will be able to help!
+                {t.ctaText}
               </p>
             </div>
             <Button asChild className="bg-white text-black hover:bg-gray-100 rounded-[16px] px-12 py-6 font-medium text-[18px] h-[64px] flex-shrink-0">
               <a href="#contact">
                 <Mail className="w-5 h-5 mr-2" />
-                Get in touch
+                {t.ctaButton}
               </a>
             </Button>
           </motion.div>

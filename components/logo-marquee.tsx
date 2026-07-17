@@ -1,23 +1,49 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { useLang } from "@/lib/i18n"
+
+const content = {
+  en: {
+    items: [
+      "AI Agents",
+      "Web3",
+      "Fintech",
+      "Stablecoins",
+      "Soroban",
+      "Stellar",
+      "Strategy",
+      "Hackathons",
+      "Product",
+      "Ecosystem",
+      "Payments",
+      "Smart Contracts",
+      "LATAM",
+    ],
+  },
+  es: {
+    items: [
+      "Agentes IA",
+      "Web3",
+      "Fintech",
+      "Stablecoins",
+      "Soroban",
+      "Stellar",
+      "Estrategia",
+      "Hackathons",
+      "Producto",
+      "Ecosistema",
+      "Pagos",
+      "Contratos inteligentes",
+      "LATAM",
+    ],
+  },
+} as const
 
 export function LogoMarquee() {
-  const items = [
-    "AI Agents",
-    "Web3",
-    "Fintech",
-    "Stablecoins",
-    "Soroban",
-    "Stellar",
-    "Strategy",
-    "Hackathons",
-    "Product",
-    "Ecosystem",
-    "Payments",
-    "Smart Contracts",
-    "LATAM",
-  ]
+  const { lang } = useLang()
+  const t = content[lang]
+  const items = t.items
 
   return (
     <div className="overflow-hidden">

@@ -3,6 +3,8 @@ import type { Metadata } from "next"
 
 import "./globals.css"
 
+import { LanguageProvider } from "@/lib/i18n"
+
 import { Onest, Geist_Mono as V0_Font_Geist_Mono } from "next/font/google"
 
 // Initialize fonts
@@ -49,7 +51,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="bg-white">
-      <body className={`${onest.variable} font-sans antialiased overflow-x-hidden`}>{children}</body>
+      <body className={`${onest.variable} font-sans antialiased overflow-x-hidden`}>
+        <LanguageProvider>{children}</LanguageProvider>
+      </body>
     </html>
   )
 }
