@@ -25,7 +25,7 @@ export function AwardsSection() {
     },
     {
       title: "Instawards",
-      description: "Winner with Cosmos — $5k USD each (3 winners) + 2 trips to Mexico",
+      description: "Winner with Cosmos — $15k USD ($5k/month × 3 months) + 2 trips to Mexico",
       icon: Trophy,
       color: "bg-[#10B981]",
       href: "#cosmos-pay",
@@ -38,7 +38,7 @@ export function AwardsSection() {
     },
     {
       title: "Stellar / Nearx Pulso Hackathon",
-      description: "Ganador con Cosmos Pay · Finalista con Ponte Pay & Passpay",
+      description: "Ganador con Cosmos Pay (también ganador de Instawards) · Finalista con Ponte Pay & Passpay",
       icon: Trophy,
       color: "bg-[#F59E0B]",
     },
