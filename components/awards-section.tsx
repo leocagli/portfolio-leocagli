@@ -32,9 +32,15 @@ export function AwardsSection() {
     },
     {
       title: "Y-Hat Hackathon UBA Exactas",
-      description: "Finalist — AI Track with Provi.ia",
+      description: "3er puesto — AI Track with Provi.ia",
       icon: Award,
       color: "bg-[#EC4899]",
+    },
+    {
+      title: "Stellar / Nearx Pulso Hackathon",
+      description: "Ganador con Cosmos Pay · Finalista con Ponte Pay & Passpay",
+      icon: Trophy,
+      color: "bg-[#F59E0B]",
     },
   ]
 
