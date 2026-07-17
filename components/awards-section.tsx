@@ -42,6 +42,12 @@ export function AwardsSection() {
       icon: Trophy,
       color: "bg-[#F59E0B]",
     },
+    {
+      title: "Aleph Hackathon",
+      description: "3er puesto — Track Citrea con True Block",
+      icon: Award,
+      color: "bg-[#8B5CF6]",
+    },
   ]
 
   const ecosystem = [
