@@ -25,7 +25,7 @@ export function AwardsSection() {
     },
     {
       title: "Instawards",
-      description: "Ganador con Cosmos en el hackathon Código Alebrije (Stellar) — $15k USD ($5k/mes × 3 meses) + 2 viajes a México",
+      description: "Ganador con Cosmos en Código Alebrije, programa con aceleradora de Stellar — $15k USD ($5k/mes × 3 meses) + 2 viajes a México",
       icon: Trophy,
       color: "bg-[#10B981]",
       href: "#cosmos-pay",
