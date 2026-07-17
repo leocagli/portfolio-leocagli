@@ -29,6 +29,18 @@ export function AwardsSection() {
       icon: Trophy,
       color: "bg-[#10B981]",
     },
+    {
+      title: "Y-Hat UBA Cs. Exactas",
+      description: "3er puesto Track IA con Provi.IA",
+      icon: Award,
+      color: "bg-[#F59E0B]",
+    },
+    {
+      title: "Stellar / Nearx Pulso Hackathon",
+      description: "Ganador con Cosmos Pay · Finalista con Ponte Pay & Passpay",
+      icon: Trophy,
+      color: "bg-[#EC4899]",
+    },
   ]
 
   const ecosystem = [
