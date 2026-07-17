@@ -1,10 +1,35 @@
 "use client"
 
-import { Mail, FolderOpen } from "lucide-react"
+import { Mail, FolderOpen, ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
+import { useState, useEffect, useCallback } from "react"
+
+const profilePhotos = [
+  {
+    src: "/images/profile.jpeg",
+    alt: "Leonardo Cagliero speaking at a blockchain conference",
+  },
+  {
+    src: "/images/profile-puna-tech.jpeg",
+    alt: "Leonardo Cagliero speaking as staff at PunaTech 2026 in Salta, Argentina",
+  },
+]
 
 export function HeroSection() {
+  const [current, setCurrent] = useState(0)
+
+  const goTo = useCallback((index: number) => {
+    setCurrent((index + profilePhotos.length) % profilePhotos.length)
+  }, [])
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % profilePhotos.length)
+    }, 4000)
+    return () => clearInterval(timer)
+  }, [])
+
   return (
     <section className="container mx-auto px-4 py-16 md:py-24">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
@@ -51,12 +76,53 @@ export function HeroSection() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <div className="relative w-full max-w-md aspect-square bg-[#2F81F7] border-4 border-black rounded-3xl overflow-hidden shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-            <img 
-              src="/images/profile.jpeg" 
-              alt="Leonardo Cagliero speaking at a blockchain conference"
-              className="w-full h-full object-cover object-top"
-            />
+          <div className="relative w-full max-w-md">
+            <div className="relative aspect-square bg-[#2F81F7] border-4 border-black rounded-3xl overflow-hidden shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={current}
+                  src={profilePhotos[current].src}
+                  alt={profilePhotos[current].alt}
+                  className="absolute inset-0 w-full h-full object-cover object-top"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5 }}
+                />
+              </AnimatePresence>
+
+              <button
+                type="button"
+                onClick={() => goTo(current - 1)}
+                aria-label="Previous photo"
+                className="absolute left-3 top-1/2 -translate-y-1/2 w-11 h-11 flex items-center justify-center bg-white border-2 border-black rounded-full shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[calc(-50%-2px)] transition-transform"
+              >
+                <ChevronLeft className="w-5 h-5 text-black" />
+              </button>
+              <button
+                type="button"
+                onClick={() => goTo(current + 1)}
+                aria-label="Next photo"
+                className="absolute right-3 top-1/2 -translate-y-1/2 w-11 h-11 flex items-center justify-center bg-white border-2 border-black rounded-full shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[calc(-50%-2px)] transition-transform"
+              >
+                <ChevronRight className="w-5 h-5 text-black" />
+              </button>
+            </div>
+
+            <div className="flex justify-center gap-3 mt-4">
+              {profilePhotos.map((photo, index) => (
+                <button
+                  key={photo.src}
+                  type="button"
+                  onClick={() => goTo(index)}
+                  aria-label={`Go to photo ${index + 1}`}
+                  aria-current={index === current}
+                  className={`h-3 rounded-full border-2 border-black transition-all ${
+                    index === current ? "w-8 bg-[#FFC224]" : "w-3 bg-white"
+                  }`}
+                />
+              ))}
+            </div>
           </div>
         </motion.div>
       </div>

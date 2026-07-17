@@ -24,12 +24,6 @@ export function AwardsSection() {
       color: "bg-[#6366F1]",
     },
     {
-      title: "Platanus Hack",
-      description: "PlatanPay Project",
-      icon: Trophy,
-      color: "bg-[#10B981]",
-    },
-    {
       title: "Y-Hat UBA Cs. Exactas",
       description: "3er puesto Track IA con Provi.IA",
       icon: Award,
