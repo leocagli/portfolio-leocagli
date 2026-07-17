@@ -91,7 +91,7 @@ export function Footer() {
               <h3 className="font-bold mb-4">Navigation</h3>
               <ul className="space-y-2 text-gray-400 text-sm">
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
+                  <a href="/" className="hover:text-white transition-colors">
                     Home
                   </a>
                 </li>
@@ -122,27 +122,27 @@ export function Footer() {
               <h3 className="font-bold mb-4">Projects</h3>
               <ul className="space-y-2 text-gray-400 text-sm">
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
+                  <a href="#portfolio" className="hover:text-white transition-colors">
                     Cosmos Pay
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
+                  <a href="#portfolio" className="hover:text-white transition-colors">
                     Open Stellar
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
+                  <a href="#portfolio" className="hover:text-white transition-colors">
                     Shield Stellar
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
+                  <a href="#portfolio" className="hover:text-white transition-colors">
                     Tralala Contracts
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
+                  <a href="#portfolio" className="hover:text-white transition-colors">
                     PlatanPay
                   </a>
                 </li>

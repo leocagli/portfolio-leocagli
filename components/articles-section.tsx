@@ -89,7 +89,9 @@ export function ArticlesSection() {
                   {article.excerpt}
                 </p>
                 <a
-                  href="#"
+                  href="https://x.com/leocagli"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-2 font-semibold text-[#0B0B0B] hover:gap-3 transition-all text-sm group-hover:text-[#2F81F7]"
                 >
                   Read more

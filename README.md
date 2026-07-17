@@ -1,49 +1,66 @@
-# Cooked this Paperfolio template with V0 | Here’s the template you can use for free
+# Leonardo Cagliero — Portfolio
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://v0.link/nikhil-shukla)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.link/paperfolio)
+[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://portfolio-leocagli.vercel.app)
+[![Next.js 15](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js)](https://nextjs.org)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-38BDF8?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 
-![Paperfolio Template Preview](https://global.discourse-cdn.com/vercel/original/2X/e/e8a5d554ecf92e4adb4a718138c60ad7e0c7510e.png)
+Personal portfolio of **Leonardo Cagliero** — AI & Web3 Product Strategist, Fintech Infrastructure Builder, and Ecosystem Contributor from LATAM. Building programmable coordination systems using AI agents, stablecoin payments, and smart contracts on Stellar/Soroban.
 
-I’ve been experimenting with **V0 - by Vercel**, and I rebuilt the popular **Paperfolio** layout originally created by **Brix Templates**.
-This is a community-made clone — all ownership of the original design stays with @brixtemplatesbrixtemplates.
-My goal was simply to recreate it in V0 so anyone can use or remix it.
-
----
-
-## Live Demo & Template Access
-
-**→  Template (Clone / Remix):** https://v0.link/paperfolio
-
-**→  Live Preview:** https://v0-paperfolio.vercel.app
+**Live:** https://portfolio-leocagli.vercel.app
 
 ---
 
-## Video Walkthrough
+## Highlights
 
-**→ Watch the walkthrough on X:**
-[https://x.com/i/status/1994130537464910310](https://x.com/i/status/1994130537464910310)
+- 🏆 **Hackathon wins**: ETHGlobal Buenos Aires (Yellow Track), Stellar Give Hackathon, Meridian Rio (Top 5 with Tralala Contracts), Instawards ($15k USD with Cosmos), Y-Hat UBA Exactas (3er puesto — AI Track with Provi.ia), Stellar/Nearx Pulso Hackathon (Instawards $15k + São Paulo Stellar Summit trip)
+- 🌎 **Ecosystem**: Open Stellar, Cosmos LATAM, Codigo Alebrije, Stellar House Mexico City, PunaTech Salta / Arkiv (mentor & co-organizer), Descentralizar / Bitcoin Argentina (speaker)
+- 🛠️ **Projects**: Cosmos Pay, Open Stellar, Shield Stellar, Tralala Contracts, PlatanPay, and more — see the [portfolio section](https://portfolio-leocagli.vercel.app/#portfolio)
+
+## Tech Stack
+
+| Layer | Tools |
+|---|---|
+| Framework | Next.js 15 (App Router) + React 19 + TypeScript |
+| Styling | Tailwind CSS 4 + custom neo-brutalist design system |
+| UI | Radix UI primitives + shadcn/ui + lucide-react icons |
+| Animation | Framer Motion (scroll-triggered reveals, marquee, photo carousel) |
+| Fonts | Onest (via `next/font`) |
+| Analytics | Vercel Analytics |
+| Deploy | Vercel (auto-deploy from `main`) |
+
+## Sections
+
+`Hero` (photo carousel) · `Logo marquee` · `Services` · `About` · `Portfolio` · `Experience` · `Education` · `Awards & ecosystem` · `Speaking` · `Articles` · `Footer`
+
+Each section is a standalone component in [`components/`](components/) — content lives inline as typed arrays, so updating projects/awards is a one-file edit.
+
+## Development
+
+```bash
+pnpm install
+pnpm dev        # http://localhost:3000
+pnpm build      # production build
+pnpm lint
+```
+
+## Structure
+
+```
+app/            # App Router: layout (fonts + SEO metadata) and single page
+components/     # One component per section + ui/ primitives
+public/
+  images/       # profile photos
+  logos/        # project logos (Cosmos, Open Stellar, Tralala, PlatanPay, ...)
+lib/            # utils (cn)
+```
+
+## Contact
+
+- GitHub: [@leocagli](https://github.com/leocagli)
+- X: [@leocagli](https://x.com/leocagli)
+- LinkedIn: [leocagli](https://linkedin.com/in/leocagli)
+- Email: leocagli@gmail.com
 
 ---
 
-## What’s Inside the Template
-
-* Clean portfolio with hero section and highlight-style text blocks
-* Minimal, bold layout focused on showcasing your work
-* Reusable components built directly in V0
-* Easy to customize for personal portfolios or client sites
-
----
-
-## How to Use It
-
-1. Open the template → https://v0.link/paperfolio
-2. Click on “Open in V0”
-3. Make your styling tweaks
-4. Deploy on Vercel
-
-That’s it — you have a clean, modern portfolio site ready to ship.
-
----
-
-If you end up customizing this, I’d like to see what you build.
+<sub>Design based on the community **Paperfolio** template (original design by Brix Templates), rebuilt with [v0](https://v0.app) and heavily customized.</sub>
