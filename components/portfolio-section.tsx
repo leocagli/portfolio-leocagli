@@ -6,13 +6,13 @@ import { useLang } from "@/lib/i18n"
 
 const projectStyles: { title: string; bgColor: string; tagColor: string; logo?: string; link?: string }[] = [
   { title: "Cosmos Pay", bgColor: "bg-[#2F81F7]", tagColor: "bg-[#FF6B7A]", logo: "/logos/cosmos-icon.jpeg", link: "https://cosmospay.lat" },
-  { title: "Open Stellar", bgColor: "bg-[#6366F1]", tagColor: "bg-[#FFC224]", logo: "/logos/open-stellar.jpeg", link: "https://github.com/leocagli" },
+  { title: "Open Stellar", bgColor: "bg-[#6366F1]", tagColor: "bg-[#FFC224]", logo: "/logos/open-stellar.jpeg", link: "https://github.com/Bitcoindefi/Open-Stellar" },
   { title: "Shield Stellar", bgColor: "bg-[#FF6B7A]", tagColor: "bg-[#2F81F7]", link: "https://github.com/leocagli" },
-  { title: "Nomos", bgColor: "bg-[#10B981]", tagColor: "bg-[#FF6B7A]", logo: "/logos/nomos.jpeg", link: "https://github.com/leocagli" },
-  { title: "Tralala Contracts", bgColor: "bg-[#FFC224]", tagColor: "bg-[#0B0B0B]", logo: "/logos/tralala-contracts.jpeg", link: "https://github.com/leocagli" },
-  { title: "Bridjet", bgColor: "bg-[#0B0B0B]", tagColor: "bg-[#2F81F7]", logo: "/logos/bridjet.jpeg", link: "https://github.com/leocagli" },
-  { title: "Open Vinito", bgColor: "bg-[#EC4899]", tagColor: "bg-[#FFC224]", logo: "/logos/open-vinito.jpeg", link: "https://github.com/leocagli" },
-  { title: "PlatanPay", bgColor: "bg-[#F59E0B]", tagColor: "bg-[#2F81F7]", logo: "/logos/platanpay-mascot.jpeg", link: "https://github.com/leocagli" },
+  { title: "Nomos", bgColor: "bg-[#10B981]", tagColor: "bg-[#FF6B7A]", logo: "/logos/nomos.jpeg", link: "https://github.com/leocagli/nomos" },
+  { title: "Tralala Contracts", bgColor: "bg-[#FFC224]", tagColor: "bg-[#0B0B0B]", logo: "/logos/tralala-contracts.jpeg", link: "https://github.com/leocagli/TralalaContracts" },
+  { title: "Bridjet", bgColor: "bg-[#0B0B0B]", tagColor: "bg-[#2F81F7]", logo: "/logos/bridjet.jpeg", link: "https://github.com/Emanuel250YT/bridjet-dev-preview" },
+  { title: "Open Vinito", bgColor: "bg-[#EC4899]", tagColor: "bg-[#FFC224]", logo: "/logos/open-vinito.jpeg", link: "https://github.com/leocagli/open-vinito-test" },
+  { title: "PlatanPay", bgColor: "bg-[#F59E0B]", tagColor: "bg-[#2F81F7]", logo: "/logos/platanpay-mascot.jpeg", link: "https://github.com/leocagli/platanpay-integrated-demo" },
 ]
 
 const content = {
