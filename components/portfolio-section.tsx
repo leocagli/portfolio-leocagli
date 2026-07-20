@@ -13,6 +13,9 @@ const projectStyles: { title: string; bgColor: string; tagColor: string; logo?: 
   { title: "Bridjet", bgColor: "bg-[#0B0B0B]", tagColor: "bg-[#2F81F7]", logo: "/logos/bridjet.jpeg", link: "https://github.com/Emanuel250YT/bridjet-dev-preview" },
   { title: "Open Vinito", bgColor: "bg-[#EC4899]", tagColor: "bg-[#FFC224]", logo: "/logos/open-vinito.jpeg", link: "https://v0-open-vinito.vercel.app/" },
   { title: "PlatanPay", bgColor: "bg-[#F59E0B]", tagColor: "bg-[#2F81F7]", logo: "/logos/platanpay-mascot.jpeg", link: "https://github.com/leocagli/platanpay-integrated-demo" },
+  { title: "Sereno", bgColor: "bg-[#0EA5E9]", tagColor: "bg-[#0B0B0B]", link: "https://sereno-kappa-eight.vercel.app" },
+  { title: "Open Stellar Passport", bgColor: "bg-[#8B5CF6]", tagColor: "bg-[#FFC224]", link: "https://bitcoindefi.github.io/open-stellar-passport/" },
+  { title: "Nomos Data", bgColor: "bg-[#14B8A6]", tagColor: "bg-[#FF6B7A]", link: "https://nomosdata.vercel.app" },
 ]
 
 const content = {
@@ -61,6 +64,21 @@ const content = {
         description: "AI payment orchestration prototype where users delegate shopping tasks to agents with approval flows and programmable commerce logic.",
         tags: ["AI Commerce", "Payments", "Scraping", "Approval Flows"],
       },
+      {
+        category: "Private Payments",
+        description: "Private remittance rails with accountable edges on Midnight Network: shielded transfers with selective disclosure for compliance-aware cross-border payments.",
+        tags: ["Midnight", "ZK", "Remittances", "Privacy", "Compliance"],
+      },
+      {
+        category: "ZK Identity",
+        description: "ZK-gated AI-agent payments on Stellar: a zero-knowledge passport that proves agent authorization without revealing identity, enabling trusted autonomous transactions.",
+        tags: ["ZK", "AI Agents", "Stellar", "Identity", "Payments"],
+      },
+      {
+        category: "AI Infrastructure",
+        description: "Queryable execution receipts for AI agent teams on Arkiv: verifiable records of what agents did, when and why, for auditable multi-agent workflows.",
+        tags: ["Arkiv", "AI Agents", "Auditability", "Data"],
+      },
     ],
   },
   es: {
@@ -107,6 +125,21 @@ const content = {
         category: "Comercio agéntico",
         description: "Prototipo de orquestación de pagos con IA donde los usuarios delegan compras a agentes con flujos de aprobación y lógica de comercio programable.",
         tags: ["Comercio IA", "Pagos", "Scraping", "Flujos de aprobación"],
+      },
+      {
+        category: "Pagos privados",
+        description: "Rieles de remesas privadas con bordes auditables sobre Midnight Network: transferencias protegidas con revelación selectiva para pagos transfronterizos compatibles con compliance.",
+        tags: ["Midnight", "ZK", "Remesas", "Privacidad", "Compliance"],
+      },
+      {
+        category: "Identidad ZK",
+        description: "Pagos de agentes IA con acceso ZK sobre Stellar: un pasaporte de conocimiento cero que prueba la autorización del agente sin revelar identidad, habilitando transacciones autónomas confiables.",
+        tags: ["ZK", "Agentes IA", "Stellar", "Identidad", "Pagos"],
+      },
+      {
+        category: "Infraestructura IA",
+        description: "Receipts de ejecución consultables para equipos de agentes IA sobre Arkiv: registros verificables de qué hicieron los agentes, cuándo y por qué, para flujos multiagente auditables.",
+        tags: ["Arkiv", "Agentes IA", "Auditabilidad", "Datos"],
       },
     ],
   },
