@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 import { useState } from "react"
 import { useLang } from "@/lib/i18n"
 
-const educationFlags = [true, true, false, false, false, false, false, false]
+const educationFlags = [true, false, false, false, false, false, false, false]
 
 const content = {
   en: {
