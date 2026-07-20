@@ -16,6 +16,10 @@ const projectStyles: { title: string; bgColor: string; tagColor: string; logo?: 
   { title: "Sereno", bgColor: "bg-[#0EA5E9]", tagColor: "bg-[#0B0B0B]", link: "https://sereno-kappa-eight.vercel.app" },
   { title: "Open Stellar Passport", bgColor: "bg-[#8B5CF6]", tagColor: "bg-[#FFC224]", link: "https://bitcoindefi.github.io/open-stellar-passport/" },
   { title: "Nomos Data", bgColor: "bg-[#14B8A6]", tagColor: "bg-[#FF6B7A]", link: "https://nomosdata.vercel.app" },
+  { title: "Passpay", bgColor: "bg-[#22C55E]", tagColor: "bg-[#0B0B0B]", link: "https://passpay-one.vercel.app" },
+  { title: "Human vs Bots", bgColor: "bg-[#EF4444]", tagColor: "bg-[#FFC224]", link: "https://github.com/Bitcoindefi/Human-vs-bots" },
+  { title: "Agente Smith", bgColor: "bg-[#0B3D2E]", tagColor: "bg-[#22C55E]", link: "https://github.com/Bitcoindefi/agente-smith" },
+  { title: "En Masa", bgColor: "bg-[#F97316]", tagColor: "bg-[#2F81F7]", link: "https://github.com/leocagli/en-masa-hackathon" },
 ]
 
 const content = {
@@ -79,6 +83,26 @@ const content = {
         description: "Queryable execution receipts for AI agent teams on Arkiv: verifiable records of what agents did, when and why, for auditable multi-agent workflows.",
         tags: ["Arkiv", "AI Agents", "Auditability", "Data"],
       },
+      {
+        category: "Payment Orchestration",
+        description: "Charge in pesos, save in dollars: connects Argentina's Transferencias 3.0 interoperable QR rail with Stellar, settling merchant payments on-chain in USDC within seconds.",
+        tags: ["Stellar", "Transferencias 3.0", "USDC", "QR", "Argentina"],
+      },
+      {
+        category: "Web3 Gaming",
+        description: "Turn-based hex-map strategy game on Stellar with ZK, where humans battle LLM opponents — or watch LLM vs LLM simulations — with visible difficulty profiles.",
+        tags: ["Godot", "Stellar", "ZK", "LLMs", "Gaming"],
+      },
+      {
+        category: "Legal AI",
+        description: "Generalist AI lawyer for Argentine law built on Claude Code, covering 11 practice areas with live access to 899K+ SAIJ legal documents across multiple jurisdictions.",
+        tags: ["Claude Code", "Legal Tech", "Argentina", "AI Agents"],
+      },
+      {
+        category: "Agentic B2B Commerce",
+        description: "B2B food-service procurement MVP with agentic AI: purchasing mandates that let AI agents source and coordinate restaurant supply orders.",
+        tags: ["AI Agents", "B2B", "Procurement", "Commerce"],
+      },
     ],
   },
   es: {
@@ -140,6 +164,26 @@ const content = {
         category: "Infraestructura IA",
         description: "Receipts de ejecución consultables para equipos de agentes IA sobre Arkiv: registros verificables de qué hicieron los agentes, cuándo y por qué, para flujos multiagente auditables.",
         tags: ["Arkiv", "Agentes IA", "Auditabilidad", "Datos"],
+      },
+      {
+        category: "Orquestación de pagos",
+        description: "Cobrá en pesos, ahorrá en dólares: conecta el rail interoperable de Transferencias 3.0 de Argentina con Stellar, liquidando los cobros del comercio on-chain en USDC en segundos.",
+        tags: ["Stellar", "Transferencias 3.0", "USDC", "QR", "Argentina"],
+      },
+      {
+        category: "Gaming Web3",
+        description: "Juego de estrategia por turnos en mapa hexagonal sobre Stellar con ZK, donde humanos enfrentan a oponentes LLM — o miran simulaciones LLM vs LLM — con perfiles de dificultad visibles.",
+        tags: ["Godot", "Stellar", "ZK", "LLMs", "Gaming"],
+      },
+      {
+        category: "IA Legal",
+        description: "Abogado generalista de IA para el derecho argentino construido sobre Claude Code, cubriendo 11 áreas de práctica con acceso en vivo a más de 899 mil documentos legales de SAIJ en múltiples jurisdicciones.",
+        tags: ["Claude Code", "Legal Tech", "Argentina", "Agentes IA"],
+      },
+      {
+        category: "Comercio B2B agéntico",
+        description: "MVP de abastecimiento B2B gastronómico con IA agentic: mandatos de compra que permiten a agentes de IA cotizar y coordinar pedidos de insumos para restaurantes.",
+        tags: ["Agentes IA", "B2B", "Abastecimiento", "Comercio"],
       },
     ],
   },
