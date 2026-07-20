@@ -28,8 +28,8 @@ const content = {
       },
       {
         period: "2025 - Present",
-        title: "Founder",
-        description: "Experimental fintech infrastructure initiative focused on stablecoin payments, escrow systems and rapid commerce coordination for emerging markets.",
+        title: "Founder & CEO",
+        description: "Non-custodial USDC payment gateway on Stellar for LATAM: fiat on/off-ramps in six currencies, integrated KYC/KYB, SEP-7 payment links, QR and alias-based payments, plus a developer SDK. Winner of the Stellar Pulso Instaward and Codigo Alebrije accelerator grants.",
       },
       {
         period: "2026 - Present",
@@ -66,8 +66,8 @@ const content = {
       },
       {
         period: "2025 - Actualidad",
-        title: "Fundador",
-        description: "Iniciativa experimental de infraestructura fintech enfocada en pagos con stablecoins, sistemas de escrow y coordinación ágil de comercio para mercados emergentes.",
+        title: "Fundador & CEO",
+        description: "Gateway de pagos USDC no custodial sobre Stellar para LATAM: rampas fiat en seis monedas, KYC/KYB integrado, links de pago SEP-7, QR y pagos por alias, más un SDK para desarrolladores. Ganador del Instaward de Stellar Pulso y de los grants del acelerador Código Alebrije.",
       },
       {
         period: "2026 - Actualidad",
