@@ -23,7 +23,7 @@ const content = {
       {
         title: "Machine Learning",
         institution: "Talento Tech / Buenos Aires City Government",
-        period: "2026 - Present",
+        period: "Completed July 2026",
         status: "Python, scikit-learn, model evaluation, data preprocessing, applied ML workflows",
       },
       {
@@ -79,7 +79,7 @@ const content = {
       {
         title: "Machine Learning",
         institution: "Talento Tech / Gobierno de la Ciudad de Buenos Aires",
-        period: "2026 - Actualidad",
+        period: "Completado en julio 2026",
         status: "Python, scikit-learn, evaluación de modelos, preprocesamiento de datos, flujos de ML aplicado",
       },
       {
