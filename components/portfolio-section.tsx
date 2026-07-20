@@ -20,6 +20,8 @@ const projectStyles: { title: string; bgColor: string; tagColor: string; logo?: 
   { title: "Human vs Bots", bgColor: "bg-[#EF4444]", tagColor: "bg-[#FFC224]", link: "https://github.com/Bitcoindefi/Human-vs-bots" },
   { title: "Agente Smith", bgColor: "bg-[#0B3D2E]", tagColor: "bg-[#22C55E]", link: "https://github.com/Bitcoindefi/agente-smith" },
   { title: "En Masa", bgColor: "bg-[#F97316]", tagColor: "bg-[#2F81F7]", link: "https://github.com/leocagli/en-masa-hackathon" },
+  { title: "Piggy City", bgColor: "bg-[#EC4899]", tagColor: "bg-[#FFC224]", link: "https://v0-piggy-city.vercel.app" },
+  { title: "Predicción Mundial 2026", bgColor: "bg-[#3B82F6]", tagColor: "bg-[#10B981]", link: "https://github.com/Bitcoindefi/prediccion-mundial-2026-ml" },
 ]
 
 const content = {
@@ -103,6 +105,16 @@ const content = {
         description: "B2B food-service procurement MVP with agentic AI: purchasing mandates that let AI agents source and coordinate restaurant supply orders.",
         tags: ["AI Agents", "B2B", "Procurement", "Commerce"],
       },
+      {
+        category: "Consumer Fintech",
+        description: "Consumer wallet concept exploring savings and everyday payments UX for LATAM users, prototyped and deployed as an interactive web experience.",
+        tags: ["Wallet", "Savings", "UX", "LATAM"],
+      },
+      {
+        category: "Machine Learning",
+        description: "Supervised 1X2 classification model trained on real international matches to forecast remaining 2026 World Cup games, weighing recent team and player performance.",
+        tags: ["Python", "scikit-learn", "Classification", "Football"],
+      },
     ],
   },
   es: {
@@ -184,6 +196,16 @@ const content = {
         category: "Comercio B2B agéntico",
         description: "MVP de abastecimiento B2B gastronómico con IA agentic: mandatos de compra que permiten a agentes de IA cotizar y coordinar pedidos de insumos para restaurantes.",
         tags: ["Agentes IA", "B2B", "Abastecimiento", "Comercio"],
+      },
+      {
+        category: "Fintech de consumo",
+        description: "Concepto de wallet de consumo que explora la UX de ahorro y pagos cotidianos para usuarios de LATAM, prototipado y deployado como experiencia web interactiva.",
+        tags: ["Wallet", "Ahorro", "UX", "LATAM"],
+      },
+      {
+        category: "Machine Learning",
+        description: "Modelo de clasificación supervisada 1X2 entrenado con partidos internacionales reales para pronosticar los partidos restantes del Mundial 2026, ponderando el rendimiento reciente de equipos y jugadores.",
+        tags: ["Python", "scikit-learn", "Clasificación", "Fútbol"],
       },
     ],
   },
