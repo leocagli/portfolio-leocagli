@@ -2,6 +2,7 @@
 
 import { GraduationCap, BookOpen, CheckCircle } from "lucide-react"
 import { motion } from "framer-motion"
+import { useState } from "react"
 import { useLang } from "@/lib/i18n"
 
 const educationFlags = [true, true, false, false, false, false, false, false]
@@ -10,6 +11,8 @@ const content = {
   en: {
     headingPre: "Education &",
     headingHighlight: "Training",
+    seeMore: "See all education",
+    seeLess: "Show less",
     education: [
       {
         title: "Bachelor's Degree in Business Administration",
@@ -64,6 +67,8 @@ const content = {
   es: {
     headingPre: "Educación y",
     headingHighlight: "formación",
+    seeMore: "Ver toda la formación",
+    seeLess: "Ver menos",
     education: [
       {
         title: "Licenciatura en Administración de Empresas",
@@ -120,6 +125,7 @@ const content = {
 export function EducationSection() {
   const { lang } = useLang()
   const t = content[lang]
+  const [showAll, setShowAll] = useState(false)
   const education = t.education.map((item, index) => ({
     ...item,
     inProgress: educationFlags[index],
@@ -142,7 +148,7 @@ export function EducationSection() {
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {education.map((item, index) => (
+            {(showAll ? education : education.slice(0, 3)).map((item, index) => (
               <motion.div
                 key={index}
                 className={`bg-white border-[3px] border-black rounded-[24px] p-6 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 ${item.inProgress ? 'ring-2 ring-[#2F81F7] ring-offset-2' : ''}`}
@@ -173,6 +179,14 @@ export function EducationSection() {
               </motion.div>
             ))}
           </div>
+            <div className="flex justify-center mt-8">
+              <button
+                onClick={() => setShowAll(!showAll)}
+                className="bg-[#0B0B0B] text-white hover:bg-white hover:text-black font-semibold px-8 py-3 rounded-full border-[3px] border-black hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all"
+              >
+                {showAll ? t.seeLess : t.seeMore}
+              </button>
+            </div>
         </div>
       </div>
     </section>

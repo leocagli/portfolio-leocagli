@@ -2,6 +2,7 @@
 
 import { Trophy, Award, MapPin, Mic } from "lucide-react"
 import { motion } from "framer-motion"
+import { useState } from "react"
 import { useLang } from "@/lib/i18n"
 
 const awardStyles: { title: string; icon: typeof Trophy; color: string; href?: string }[] = [
@@ -19,6 +20,8 @@ const content = {
     headingPre: "Hackathons, grants &",
     headingHighlight: "ecosystem",
     ecosystemTitle: "Ecosystem Participation",
+    seeMore: "See all awards",
+    seeLess: "Show less",
     awards: [
       "3rd place — Yellow Track with Previate · $3k USD",
       "1st place · $2k USD",
@@ -43,6 +46,8 @@ const content = {
     headingPre: "Hackathons, grants y",
     headingHighlight: "ecosistema",
     ecosystemTitle: "Participación en ecosistemas",
+    seeMore: "Ver todos los premios",
+    seeLess: "Ver menos",
     awards: [
       "3er puesto — Yellow Track con Previate · USD 3k",
       "1er puesto · USD 2k",
@@ -68,6 +73,7 @@ const content = {
 export function AwardsSection() {
   const { lang } = useLang()
   const t = content[lang]
+  const [showAll, setShowAll] = useState(false)
   const awards = awardStyles.map((style, index) => ({
     ...style,
     description: t.awards[index],
@@ -92,13 +98,21 @@ export function AwardsSection() {
 
           {/* Awards Grid */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            {awards.map((award, index) => {
+            {(showAll ? awards : awards.slice(0, 4)).map((award, index) => {
               const IconComponent = award.icon
               const cardContent = (
                 <>
                   <div className={`w-16 h-16 ${award.color} border-2 border-black rounded-2xl flex items-center justify-center mx-auto mb-4`}>
                     <IconComponent className="w-8 h-8 text-black" />
                   </div>
+            <div className="flex justify-center mt-8">
+              <button
+                onClick={() => setShowAll(!showAll)}
+                className="bg-white text-black hover:bg-[#FFC224] font-semibold px-8 py-3 rounded-full border-[3px] border-white transition-all"
+              >
+                {showAll ? t.seeLess : t.seeMore}
+              </button>
+            </div>
                   <h3 className="text-lg font-bold text-[#0B0B0B] mb-1">{award.title}</h3>
                   <p className="text-[#393939] text-sm font-medium">{award.description}</p>
                 </>

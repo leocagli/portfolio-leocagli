@@ -3,6 +3,7 @@
 import { FileText } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
+import { useState } from "react"
 import { useLang } from "@/lib/i18n"
 
 const experienceStyles: { company: string; color: string; logo?: string }[] = [
@@ -20,6 +21,8 @@ const content = {
     headingHighlight: "experience",
     subtitle: "A hybrid profile spanning finance, operations, crypto, AI and Web3 ecosystem building across 14+ years of professional experience.",
     resumeButton: "See full resume",
+    seeMore: "See full history",
+    seeLess: "Show less",
     experiences: [
       {
         period: "2017 - Present",
@@ -58,6 +61,8 @@ const content = {
     headingHighlight: "experiencia",
     subtitle: "Un perfil híbrido que abarca finanzas, operaciones, cripto, IA y construcción de ecosistemas Web3 a lo largo de más de 14 años de experiencia profesional.",
     resumeButton: "Ver CV completo",
+    seeMore: "Ver historial completo",
+    seeLess: "Ver menos",
     experiences: [
       {
         period: "2017 - Actualidad",
@@ -96,6 +101,7 @@ const content = {
 export function ExperienceSection() {
   const { lang } = useLang()
   const t = content[lang]
+  const [showAll, setShowAll] = useState(false)
   const experiences = t.experiences.map((exp, index) => ({
     ...exp,
     ...experienceStyles[index],
@@ -125,7 +131,7 @@ export function ExperienceSection() {
           </motion.div>
 
           <div className="space-y-6">
-            {experiences.map((exp, index) => (
+            {(showAll ? experiences : experiences.slice(0, 3)).map((exp, index) => (
               <motion.div 
                 key={index} 
                 className="bg-white border-4 border-black rounded-3xl min-h-[220px] md:min-h-[240px]"
@@ -163,6 +169,14 @@ export function ExperienceSection() {
               </motion.div>
             ))}
           </div>
+            <div className="flex justify-center mt-8">
+              <button
+                onClick={() => setShowAll(!showAll)}
+                className="bg-[#0B0B0B] text-white hover:bg-white hover:text-black font-semibold px-8 py-3 rounded-full border-[3px] border-black hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all"
+              >
+                {showAll ? t.seeLess : t.seeMore}
+              </button>
+            </div>
         </div>
       </div>
     </section>
