@@ -25,6 +25,16 @@ export function PortfolioSection() {
       href: "https://github.com/Bitcoindefi/runa",
     },
     {
+      title: "Agente Smith",
+      category: "LegalTech · AI Agent",
+      description: "Agente abogado generalista para el derecho argentino, con búsqueda en vivo en SAIJ, análisis de casos y cómputo de plazos por jurisdicción.",
+      tags: ["Claude Code", "SAIJ", "LegalTech", "Argentina", "AI Agent"],
+      bgColor: "bg-[#0B3D2E]",
+      tagColor: "bg-[#10B981]",
+      logo: "/images/agente-smith-project.jpeg",
+      href: "https://github.com/Bitcoindefi/agente-smith",
+    },
+    {
       title: "Open Stellar",
       category: "Agentic AI Payments",
       description: "Visual coordination layer where AI agents interact through programmable micropayments, escrow workflows and wallet-based actions.",
