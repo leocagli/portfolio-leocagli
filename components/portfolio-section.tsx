@@ -15,6 +15,16 @@ export function PortfolioSection() {
       logo: "/logos/cosmos-icon.jpeg",
     },
     {
+      title: "Passpay",
+      category: "Stellar · Fintech Infrastructure",
+      description: "Capa de pagos para Argentina que conecta Transferencias 3.0 con Stellar: cobra en pesos por QR y liquida el valor on-chain en USDC o XLM.",
+      tags: ["Stellar", "USDC", "Transferencias 3.0", "Fintech", "Argentina"],
+      bgColor: "bg-[#0B1F3A]",
+      tagColor: "bg-[#2F81F7]",
+      logo: "/images/passpay-project.jpeg",
+      href: "https://github.com/Bitcoindefi/Passpay",
+    },
+    {
       title: "RUNA",
       category: "ASCII RPG · Aleph Hackathon 2026",
       description: "Un RPG ASCII para terminal donde exploras una ciudad, recorres la pradera y escribes las reglas de combate de tu personaje.",
