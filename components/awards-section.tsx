@@ -32,15 +32,22 @@ export function AwardsSection() {
     },
     {
       title: "Y-Hat Hackathon UBA Exactas",
-      description: "3er puesto — AI Track with Provi.ia",
+      description: "3er puesto — Track IA En Masa con Provi.IA",
       icon: Award,
       color: "bg-[#EC4899]",
+      image: "/images/y-hat-provi-certificate.jpeg",
     },
     {
-      title: "Stellar / Nearx Pulso Hackathon",
-      description: "Instawards $15k USD + viaje a São Paulo Stellar Summit",
+      title: "Pulso Hackathón by Stellar",
+      description: "Ganador con Cosmos Pay",
       icon: Trophy,
       color: "bg-[#F59E0B]",
+    },
+    {
+      title: "Aleph Hackathon 2026",
+      description: "Ganador — General Track con RUNA",
+      icon: Trophy,
+      color: "bg-[#2F81F7]",
     },
   ]
 
@@ -80,6 +87,13 @@ export function AwardsSection() {
                   <div className={`w-16 h-16 ${award.color} border-2 border-black rounded-2xl flex items-center justify-center mx-auto mb-4`}>
                     <IconComponent className="w-8 h-8 text-black" />
                   </div>
+                  {award.image && (
+                    <img
+                      src={award.image}
+                      alt="Certificado del tercer puesto de Y-Hat para Provi.IA"
+                      className="w-full h-28 object-cover object-center border-2 border-black rounded-xl mb-4"
+                    />
+                  )}
                   <h3 className="text-lg font-bold text-[#0B0B0B] mb-1">{award.title}</h3>
                   <p className="text-[#393939] text-sm font-medium">{award.description}</p>
                 </>
