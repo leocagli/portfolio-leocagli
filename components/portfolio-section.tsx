@@ -145,9 +145,9 @@ export function PortfolioSection() {
     },
     {
       title: "Open Vinito",
-      category: "Blockchain Traceability",
-      description: "Wine traceability and geolocation verification platform for blockchain-based supply-chain transparency.",
-      tags: ["Hedera", "Traceability", "Wine", "Real-World Assets"],
+      category: "Gamified Orchestrator",
+      description: "Gamified orchestrator that coordinates traceability and geolocation verification workflows for blockchain-based supply-chain transparency.",
+      tags: ["Hedera", "Orchestration", "Gamification", "Traceability"],
       bgColor: "bg-[#EC4899]",
       tagColor: "bg-[#FFC224]",
       logo: "/logos/open-vinito.jpeg",
