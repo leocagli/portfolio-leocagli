@@ -15,6 +15,16 @@ export function PortfolioSection() {
       logo: "/logos/cosmos-icon.jpeg",
     },
     {
+      title: "RUNA",
+      category: "ASCII RPG · Aleph Hackathon 2026",
+      description: "Un RPG ASCII para terminal donde exploras una ciudad, recorres la pradera y escribes las reglas de combate de tu personaje.",
+      tags: ["Aleph", "ASCII RPG", "Terminal", "Bare", "bare-tui"],
+      bgColor: "bg-[#0B0B0B]",
+      tagColor: "bg-[#2F81F7]",
+      logo: "/images/runa-project.jpeg",
+      href: "https://github.com/Bitcoindefi/runa",
+    },
+    {
       title: "Open Stellar",
       category: "Agentic AI Payments",
       description: "Visual coordination layer where AI agents interact through programmable micropayments, escrow workflows and wallet-based actions.",
@@ -137,10 +147,12 @@ export function PortfolioSection() {
                 </div>
 
                 <a
-                  href="#"
+                  href={"href" in project ? project.href : "#"}
+                  target={"href" in project ? "_blank" : undefined}
+                  rel={"href" in project ? "noreferrer" : undefined}
                   className="flex items-center gap-2 font-semibold text-[#0B0B0B] hover:gap-3 transition-all text-sm md:text-base group-hover:text-[#2F81F7]"
                 >
-                  View case study
+                  {"href" in project ? "View on GitHub" : "View case study"}
                   <ArrowRight className="w-4 h-4" />
                 </a>
               </div>
