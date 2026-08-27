@@ -1,9 +1,19 @@
 "use client"
 
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react"
 import { motion } from "framer-motion"
+import { useRef } from "react"
 
 export function PortfolioSection() {
+  const carouselRef = useRef<HTMLDivElement>(null)
+
+  const scrollProjects = (direction: "prev" | "next") => {
+    carouselRef.current?.scrollBy({
+      left: direction === "next" ? carouselRef.current.clientWidth : -carouselRef.current.clientWidth,
+      behavior: "smooth",
+    })
+  }
+
   const projects = [
     {
       title: "Cosmos Pay",
@@ -180,12 +190,31 @@ export function PortfolioSection() {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6 mb-12">
+        <div className="flex items-center justify-end gap-3 mb-5">
+          <button
+            type="button"
+            onClick={() => scrollProjects("prev")}
+            aria-label="Previous project"
+            className="w-11 h-11 flex items-center justify-center rounded-full border-[3px] border-black bg-white hover:bg-[#FFC224] transition-colors"
+          >
+            <ChevronLeft className="w-5 h-5 text-black" />
+          </button>
+          <button
+            type="button"
+            onClick={() => scrollProjects("next")}
+            aria-label="Next project"
+            className="w-11 h-11 flex items-center justify-center rounded-full border-[3px] border-black bg-white hover:bg-[#FFC224] transition-colors"
+          >
+            <ChevronRight className="w-5 h-5 text-black" />
+          </button>
+        </div>
+
+        <div ref={carouselRef} className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-6 mb-6 scrollbar-hide">
           {projects.map((project, index) => (
             <motion.div
               key={index}
               id={project.title === "Cosmos Pay" ? "cosmos-pay" : undefined}
-              className="group bg-white border-[3px] border-black rounded-[32px] overflow-hidden hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 hover:translate-y-[-4px] scroll-mt-24"
+              className="group shrink-0 basis-[calc(100%-2rem)] md:basis-[calc(50%-0.75rem)] snap-start bg-white border-[3px] border-black rounded-[32px] overflow-hidden hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 hover:translate-y-[-4px] scroll-mt-24"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
