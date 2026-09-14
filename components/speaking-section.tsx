@@ -2,46 +2,93 @@
 
 import { Play, Mic, Video, ExternalLink } from "lucide-react"
 import { motion } from "framer-motion"
+import { useLang } from "@/lib/i18n"
+
+const speakingIcons = [Mic, Mic, Mic, Video, Mic]
+
+const content = {
+  en: {
+    headingPre: "Speaking, workshops &",
+    headingHighlight: "public demos",
+    speaking: [
+      {
+        title: "DeFi Workshop",
+        venue: "Descentralizar / ONG Bitcoin Argentina",
+        type: "Workshop",
+      },
+      {
+        title: "The Power of Decentralization",
+        venue: "Panel Debate",
+        type: "Debate",
+      },
+      {
+        title: "Stellar Ecosystem Presentations",
+        venue: "Various Events",
+        type: "Talk",
+      },
+      {
+        title: "Public AI/Web3 Demos",
+        venue: "Hackathons & Events",
+        type: "Demo",
+      },
+      {
+        title: "Arkiv Network Hackathon — PunaTech Salta",
+        venue: "Mentor & co-organizer · opening & closing",
+        type: "Organizer",
+      },
+    ],
+    media: [
+      { platform: "TikTok", label: "Highlights" },
+      { platform: "YouTube", label: "Demos" },
+      { platform: "LinkedIn", label: "Content" },
+    ],
+  },
+  es: {
+    headingPre: "Charlas, talleres y",
+    headingHighlight: "demos públicas",
+    speaking: [
+      {
+        title: "Taller de DeFi",
+        venue: "Descentralizar / ONG Bitcoin Argentina",
+        type: "Taller",
+      },
+      {
+        title: "El poder de la descentralización",
+        venue: "Panel de debate",
+        type: "Debate",
+      },
+      {
+        title: "Presentaciones del ecosistema Stellar",
+        venue: "Varios eventos",
+        type: "Charla",
+      },
+      {
+        title: "Demos públicas de IA/Web3",
+        venue: "Hackathons y eventos",
+        type: "Demo",
+      },
+      {
+        title: "Hackathon Arkiv Network — PunaTech Salta",
+        venue: "Mentor y co-organizador · apertura y cierre",
+        type: "Organizador",
+      },
+    ],
+    media: [
+      { platform: "TikTok", label: "Destacados" },
+      { platform: "YouTube", label: "Demos" },
+      { platform: "LinkedIn", label: "Contenido" },
+    ],
+  },
+} as const
 
 export function SpeakingSection() {
-  const speaking = [
-    {
-      title: "DeFi Workshop",
-      venue: "Descentralizar / ONG Bitcoin Argentina",
-      type: "Workshop",
-      icon: Mic,
-    },
-    {
-      title: "The Power of Decentralization",
-      venue: "Panel Debate",
-      type: "Debate",
-      icon: Mic,
-    },
-    {
-      title: "Stellar Ecosystem Presentations",
-      venue: "Various Events",
-      type: "Talk",
-      icon: Mic,
-    },
-    {
-      title: "Public AI/Web3 Demos",
-      venue: "Hackathons & Events",
-      type: "Demo",
-      icon: Video,
-    },
-    {
-      title: "Arkiv Network Hackathon — PunaTech Salta",
-      venue: "Mentor & co-organizer · opening & closing",
-      type: "Organizer",
-      icon: Mic,
-    },
-  ]
-
-  const media = [
-    { platform: "TikTok", label: "Highlights" },
-    { platform: "YouTube", label: "Demos" },
-    { platform: "LinkedIn", label: "Content" },
-  ]
+  const { lang } = useLang()
+  const t = content[lang]
+  const speaking = t.speaking.map((item, index) => ({
+    ...item,
+    icon: speakingIcons[index],
+  }))
+  const media = t.media
 
   return (
     <section className="bg-[#6366F1] py-16 md:py-24">
@@ -55,7 +102,7 @@ export function SpeakingSection() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-white">
-              Speaking, workshops & <span className="bg-white text-[#6366F1] px-3 py-1 inline-block">public demos</span>
+              {t.headingPre} <span className="bg-white text-[#6366F1] px-3 py-1 inline-block">{t.headingHighlight}</span>
             </h2>
           </motion.div>
 

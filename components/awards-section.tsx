@@ -2,8 +2,76 @@
 
 import { Trophy, Award, MapPin, Mic } from "lucide-react"
 import { motion } from "framer-motion"
+import { useState } from "react"
+import { useLang } from "@/lib/i18n"
+
+const awardStyles: { title: string; icon: typeof Trophy; color: string; href?: string }[] = [
+  { title: "ETHGlobal Buenos Aires", icon: Trophy, color: "bg-[#FFC224]" },
+  { title: "Stellar Give Hackathon", icon: Trophy, color: "bg-[#2F81F7]" },
+  { title: "Meridian Rio", icon: Award, color: "bg-[#6366F1]" },
+  { title: "Código Alebrije", icon: Trophy, color: "bg-[#10B981]", href: "#cosmos-pay" },
+  { title: "Y-Hat Hackathon UBA Exactas", icon: Award, color: "bg-[#EC4899]" },
+  { title: "Stellar / Nearx Pulso Hackathon", icon: Trophy, color: "bg-[#F59E0B]" },
+  { title: "Aleph Hackathon", icon: Award, color: "bg-[#8B5CF6]" },
+]
+
+const content = {
+  en: {
+    headingPre: "Hackathons, grants &",
+    headingHighlight: "ecosystem",
+    ecosystemTitle: "Ecosystem Participation",
+    seeMore: "See all awards",
+    seeLess: "Show less",
+    awards: [
+      "3rd place — Yellow Track with Previate · $3k USD",
+      "1st place · $2k USD",
+      "Top 5 with Tralala Contracts",
+      "Instaward won with Cosmos (app) — Stellar accelerator program · $15k USD ($5k/month × 3 months) + 2 trips to CDMX",
+      "3rd place — AI Track with Provi.ia",
+      "Instaward won with Cosmos Pay — $15k USD ($5k/month × 3 months) + trip to São Paulo Stellar Summit",
+      "3rd place — Citrea Track with True Block",
+    ],
+    ecosystem: [
+      "Codigo Alebrije / Stellar ecosystem",
+      "Stellar House Mexico City",
+      "Anthropic + Kaszek AI Hackathon",
+      "Harvard Health Systems Innovation Lab Hackathon",
+      "IBM Dev Day: AI Demystified",
+      "PunaTech Salta / Arkiv Network hackathon — mentor & co-organizer (opening & closing)",
+      "Descentralizar / Bitcoin Argentina speaker",
+      "Travel grants: Mexico City, Buenos Aires, Rio de Janeiro",
+    ],
+  },
+  es: {
+    headingPre: "Hackathons, grants y",
+    headingHighlight: "ecosistema",
+    ecosystemTitle: "Participación en ecosistemas",
+    seeMore: "Ver todos los premios",
+    seeLess: "Ver menos",
+    awards: [
+      "3er puesto — Yellow Track con Previate · USD 3k",
+      "1er puesto · USD 2k",
+      "Top 5 con Tralala Contracts",
+      "Instaward ganado con Cosmos (app) — programa con aceleradora de Stellar · USD 15k (USD 5k/mes × 3 meses) + 2 viajes a CDMX",
+      "3er puesto — AI Track con Provi.ia",
+      "Instaward ganado con Cosmos Pay — USD 15k (USD 5k/mes × 3 meses) + viaje al São Paulo Stellar Summit",
+      "3er puesto — Track Citrea con True Block",
+    ],
+    ecosystem: [
+      "Código Alebrije / ecosistema Stellar",
+      "Stellar House Ciudad de México",
+      "Anthropic + Kaszek AI Hackathon",
+      "Harvard Health Systems Innovation Lab Hackathon",
+      "IBM Dev Day: AI Demystified",
+      "Hackathon PunaTech Salta / Arkiv Network — mentor y co-organizador (apertura y cierre)",
+      "Orador en Descentralizar / Bitcoin Argentina",
+      "Grants de viaje: Ciudad de México, Buenos Aires, Río de Janeiro",
+    ],
+  },
+} as const
 
 export function AwardsSection() {
+<<<<<<< HEAD
   const awards = [
     {
       title: "ETHGlobal Buenos Aires",
@@ -61,6 +129,16 @@ export function AwardsSection() {
     "Descentralizar / Bitcoin Argentina speaker",
     "Travel grants: Mexico City, Buenos Aires, Rio de Janeiro",
   ]
+=======
+  const { lang } = useLang()
+  const t = content[lang]
+  const [showAll, setShowAll] = useState(false)
+  const awards = awardStyles.map((style, index) => ({
+    ...style,
+    description: t.awards[index],
+  }))
+  const ecosystem = t.ecosystem
+>>>>>>> 584db22546685ce8b07be0f06b7e1ee2de8819b6
 
   return (
     <section className="bg-white py-16 md:py-24">
@@ -74,19 +152,20 @@ export function AwardsSection() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-              Hackathons, grants & <span className="bg-[#FFC224] text-black px-3 py-1 inline-block">ecosystem</span>
+              {t.headingPre} <span className="bg-[#FFC224] text-black px-3 py-1 inline-block">{t.headingHighlight}</span>
             </h2>
           </motion.div>
 
           {/* Awards Grid */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            {awards.map((award, index) => {
+            {(showAll ? awards : awards.slice(0, 4)).map((award, index) => {
               const IconComponent = award.icon
               const cardContent = (
                 <>
                   <div className={`w-16 h-16 ${award.color} border-2 border-black rounded-2xl flex items-center justify-center mx-auto mb-4`}>
                     <IconComponent className="w-8 h-8 text-black" />
                   </div>
+<<<<<<< HEAD
                   {award.image && (
                     <img
                       src={award.image}
@@ -94,6 +173,16 @@ export function AwardsSection() {
                       className="w-full h-28 object-cover object-center border-2 border-black rounded-xl mb-4"
                     />
                   )}
+=======
+            <div className="flex justify-center mt-8">
+              <button
+                onClick={() => setShowAll(!showAll)}
+                className="bg-white text-black hover:bg-[#FFC224] font-semibold px-8 py-3 rounded-full border-[3px] border-white transition-all"
+              >
+                {showAll ? t.seeLess : t.seeMore}
+              </button>
+            </div>
+>>>>>>> 584db22546685ce8b07be0f06b7e1ee2de8819b6
                   <h3 className="text-lg font-bold text-[#0B0B0B] mb-1">{award.title}</h3>
                   <p className="text-[#393939] text-sm font-medium">{award.description}</p>
                 </>
@@ -127,7 +216,7 @@ export function AwardsSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="text-2xl font-bold text-white mb-6">Ecosystem Participation</h3>
+            <h3 className="text-2xl font-bold text-white mb-6">{t.ecosystemTitle}</h3>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {ecosystem.map((item, index) => (
                 <motion.div
