@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 export function AboutSection() {
   const stats = [
     { label: "14+ years across finance, operations and crypto", color: "bg-[#6366F1]" },
-    { label: "2017 Bitcoin.defi public brand", color: "bg-[#FF6B7A]" },
+    { label: "Founder of Cosmosapp and Bitcoin.defi", color: "bg-[#FF6B7A]" },
     { label: "Multiple hackathon awards and ecosystem grants", color: "bg-[#FFC224]" },
     { label: "Speaker at Web3 and crypto education events", color: "bg-[#2F81F7]" },
     { label: "Builder across Stellar, Ethereum, Hedera and AI ecosystems", color: "bg-[#10B981]" },
@@ -35,7 +35,7 @@ export function AboutSection() {
             transition={{ duration: 0.6 }}
           >
             <p className="text-white text-lg md:text-xl leading-relaxed font-medium">
-              Leonardo Cagliero is an Argentina-based AI/Web3 product strategist, builder and ecosystem contributor with a background in business administration, capital markets, operations, crypto and fintech. Through Bitcoin.defi, he explores programmable payments, AI coordination systems, smart contracts and emerging market infrastructure through public R&D, hackathons, talks and startup experiments.
+              Leonardo Cagliero is an Argentina-based founder, product strategist and builder focused on making stablecoin payments useful in Latin America. Through Cosmosapp and the Bitcoin.defi lab, he combines finance, operations, AI agents and Web3 infrastructure to turn messy coordination problems into products, pilots and public experiments.
             </p>
           </motion.div>
 

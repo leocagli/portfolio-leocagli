@@ -210,7 +210,7 @@ export function PortfolioSection() {
         </div>
 
         <div ref={carouselRef} className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-6 mb-6 scrollbar-hide">
-          {projects.map((project, index) => (
+          {projects.filter((project) => ["Cosmos Pay", "Passpay", "RUNA", "Agente Smith", "Open Stellar"].includes(project.title)).map((project, index) => (
             <motion.div
               key={index}
               id={project.title === "Cosmos Pay" ? "cosmos-pay" : undefined}

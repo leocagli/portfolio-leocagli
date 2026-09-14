@@ -47,7 +47,7 @@ export function Footer() {
                 <span className="text-lg md:text-xl font-bold">Bitcoin.defi</span>
               </div>
               <p className="text-gray-400 mb-6 text-sm leading-relaxed">
-                AI/Web3 product strategy, fintech infrastructure and programmable coordination systems from LATAM.
+                Cosmosapp, stablecoin payment rails and programmable coordination systems for LATAM.
               </p>
               <div className="flex gap-3">
                 <a

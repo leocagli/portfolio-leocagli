@@ -19,8 +19,8 @@ const onest = Onest({
 })
 
 export const metadata: Metadata = {
-  title: "Leonardo Cagliero | AI & Web3 Product Strategist",
-  description: "AI & Web3 Product Strategist, Fintech Infrastructure Builder, and Ecosystem Contributor from LATAM. Building programmable coordination systems using AI agents, stablecoin payments, and smart contracts.",
+  title: "Leonardo Cagliero | Cosmosapp Founder & AI/Web3 Builder",
+  description: "Leonardo Cagliero builds Cosmosapp, stablecoin payment rails and programmable coordination systems for LATAM commerce and financial infrastructure.",
   generator: "v0.app",
 }
 

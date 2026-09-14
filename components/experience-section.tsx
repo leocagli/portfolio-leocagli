@@ -8,9 +8,9 @@ export function ExperienceSection() {
   const experiences = [
     {
       period: "2017 - Present",
-      title: "Founder / AI & Web3 Product Strategist",
+      title: "Founder / Product Strategist",
       company: "Bitcoin.defi",
-      description: "Public AI/Web3 experimentation lab and personal brand focused on fintech infrastructure, programmable trust systems, ecosystem content and live prototypes.",
+      description: "Public R&D lab and builder platform exploring stablecoin payments, AI agents, smart contracts and practical Web3 infrastructure through prototypes, talks and ecosystem work.",
       color: "bg-[#2F81F7]",
       logo: "/logos/bitcoin-defi.jpeg",
     },
@@ -18,7 +18,7 @@ export function ExperienceSection() {
       period: "2025 - Present",
       title: "Founder",
       company: "Cosmos Pay",
-      description: "Experimental fintech infrastructure initiative focused on stablecoin payments, escrow systems and rapid commerce coordination for emerging markets.",
+      description: "Founder-led product focused on stablecoin payment rails, escrow and commerce coordination for Latin American businesses and emerging-market use cases.",
       color: "bg-[#FF6B7A]",
       logo: "/logos/cosmos-icon.jpeg",
     },

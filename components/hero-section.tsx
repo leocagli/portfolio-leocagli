@@ -40,13 +40,13 @@ export function HeroSection() {
           transition={{ duration: 0.6 }}
         >
           <h1 className="text-[38px] leading-[46px] md:text-[64px] font-bold md:leading-[76px]">
-            I&apos;m <span className="bg-[#FF6B7A] text-white px-3 py-1 inline-block">Leonardo Cagliero</span>, an{" "}
-            <span className="bg-[#2F81F7] text-white px-3 py-1 inline-block">AI & Web3 Product Strategist</span> from{" "}
-            <span className="bg-[#FFC224] text-black px-3 py-1 inline-block">LATAM</span>
+            I&apos;m <span className="bg-[#FF6B7A] text-white px-3 py-1 inline-block">Leonardo Cagliero</span>, founder of{" "}
+            <span className="bg-[#2F81F7] text-white px-3 py-1 inline-block">Cosmosapp</span> and an{" "}
+            <span className="bg-[#FFC224] text-black px-3 py-1 inline-block">AI & Web3 builder</span> from LATAM
           </h1>
 
           <p className="text-[#393939] text-[16px] md:text-[18px] font-medium leading-[28px] md:leading-[30px] max-w-xl">
-            I build and prototype programmable coordination systems using AI agents, stablecoin payments, smart contracts and Web3 infrastructure for emerging market use cases.
+            I build stablecoin payment rails and programmable coordination systems for LATAM, turning complex financial infrastructure into practical products, partnerships and onchain experiences.
           </p>
 
           <div className="flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-7 pt-4">

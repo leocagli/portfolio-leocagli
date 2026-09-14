@@ -59,7 +59,7 @@ export function ServicesSection() {
               My broad <span className="bg-[#FF6B7A] text-white px-3 py-1 inline-block">set of services</span>
             </h2>
             <p className="text-[#393939] text-base md:text-lg font-medium leading-relaxed md:leading-[30px] max-w-2xl mx-auto">
-              Strategy, prototyping and ecosystem execution across AI, fintech and Web3 infrastructure.
+              Product strategy and execution for stablecoin payments, AI coordination and Web3 infrastructure in LATAM.
             </p>
           </motion.div>
 
