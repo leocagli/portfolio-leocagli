@@ -3,8 +3,16 @@ __v0_runtime_loader.js
 __v0_devtools.tsx
 __v0_jsx-dev-runtime.ts
 
-# Common ignores
+# Dependencies and build
 node_modules
 .next/
+out/
+.vercel
+*.tsbuildinfo
+
+# Env
+.env
 .env*.local
-.DS_Store*.tsbuildinfo
+
+# OS
+.DS_Store

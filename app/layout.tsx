@@ -1,23 +1,18 @@
 import type React from "react"
 import type { Metadata } from "next"
+import { Analytics } from "@vercel/analytics/react"
 
 import "./globals.css"
 
 import { LanguageProvider } from "@/lib/i18n"
 
-import { Onest, Geist_Mono as V0_Font_Geist_Mono } from "next/font/google"
+import { Onest } from "next/font/google"
 
-// Initialize fonts
-const _geistMono = V0_Font_Geist_Mono({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-})
-
-// Initialize Onest font with weights 500 and 700
 const onest = Onest({
   subsets: ["latin"],
   weight: ["500", "700"],
   variable: "--font-onest",
+  display: "swap",
 })
 
 export const metadata: Metadata = {
@@ -26,6 +21,9 @@ export const metadata: Metadata = {
   description: "AI & Web3 Product Strategist, Fintech Infrastructure Builder, and Ecosystem Contributor from LATAM. Building programmable coordination systems using AI agents, stablecoin payments, and smart contracts.",
   keywords: ["Web3", "AI agents", "Stellar", "Soroban", "stablecoins", "fintech", "LATAM", "smart contracts", "hackathons"],
   authors: [{ name: "Leonardo Cagliero", url: "https://github.com/leocagli" }],
+  icons: {
+    icon: "/icon.svg",
+  },
   openGraph: {
     title: "Leonardo Cagliero | AI & Web3 Product Strategist",
     description: "Building programmable coordination systems using AI agents, stablecoin payments, and smart contracts. Hackathon winner across the Stellar ecosystem.",
@@ -53,6 +51,7 @@ export default function RootLayout({
     <html lang="en" className="bg-white">
       <body className={`${onest.variable} font-sans antialiased overflow-x-hidden`}>
         <LanguageProvider>{children}</LanguageProvider>
+        <Analytics />
       </body>
     </html>
   )
