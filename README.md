@@ -27,6 +27,7 @@ Personal portfolio of **Leonardo Cagliero** — AI & Web3 Product Strategist, Fi
 | Fonts | Onest (via `next/font`) |
 | Analytics | Vercel Analytics |
 | Deploy | Vercel (auto-deploy from `main`) |
+| CI | GitHub Actions (`pnpm typecheck` + `pnpm build`) |
 
 ## Sections
 
@@ -39,9 +40,11 @@ Each section is a standalone component in [`components/`](components/) — conte
 ```bash
 pnpm install
 pnpm dev        # http://localhost:3000
+pnpm typecheck  # tsc --noEmit (also aliased as pnpm lint)
 pnpm build      # production build
-pnpm lint
 ```
+
+Requires Node 20+ and pnpm 10. Native postinstall scripts for `@tailwindcss/oxide` and `sharp` are allowlisted in `package.json` / `pnpm-workspace.yaml` so Vercel and CI can compile them.
 
 ## Structure
 
@@ -51,7 +54,7 @@ components/     # One component per section + ui/ primitives
 public/
   images/       # profile photos
   logos/        # project logos (Cosmos, Open Stellar, Tralala, PlatanPay, ...)
-lib/            # utils (cn)
+lib/            # utils (cn) + i18n
 ```
 
 ## Contact
