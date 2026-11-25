@@ -4,7 +4,7 @@
 [![Next.js 15](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js)](https://nextjs.org)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-38BDF8?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 
-Personal portfolio of **Leonardo Cagliero** — AI & Web3 Product Strategist, Fintech Infrastructure Builder, and Ecosystem Contributor from LATAM. Building programmable coordination systems using AI agents, stablecoin payments, and smart contracts on Stellar/Soroban.
+Personal portfolio of **Leonardo Cagliero** — from Salta, Argentina. I build products, analyze data and automate work with AI. Founder of Cosmos Pay and Argentina.dev, with about 5 years of work experience in finance, payments and logistics. Open to junior Product, Data Analyst and AI Automation roles.
 
 **Live:** https://portfolio-leocagli.vercel.app
 
@@ -12,9 +12,9 @@ Personal portfolio of **Leonardo Cagliero** — AI & Web3 Product Strategist, Fi
 
 ## Highlights
 
-- 🏆 **Hackathon wins**: ETHGlobal Buenos Aires (Yellow Track), Stellar Give Hackathon, Meridian Rio (Top 5 with Tralala Contracts), Instawards ($15k USD with Cosmos), Y-Hat UBA Exactas (3er puesto — AI Track with Provi.ia), Stellar/Nearx Pulso Hackathon (Instawards $15k + São Paulo Stellar Summit trip)
-- 🌎 **Ecosystem**: Open Stellar, Cosmos LATAM, Codigo Alebrije, Stellar House Mexico City, PunaTech Salta / Arkiv (mentor & co-organizer), Descentralizar / Bitcoin Argentina (speaker)
-- 🛠️ **Projects**: Cosmos Pay, Open Stellar, Shield Stellar, Tralala Contracts, PlatanPay, and more — see the [portfolio section](https://portfolio-leocagli.vercel.app/#portfolio)
+- 🏆 **Hackathons & grants**: ETHGlobal Buenos Aires (Yellow Track with Previate), Stellar Give Hackathon (1st place), Meridian Rio (Top 5 with Tralala Contracts), Instawards (US$10k, no equity — with Cosmos Pay), Y-Hat UBA Exactas (3rd — AI Track with Provi.ia), Pulso Hackathon by Stellar, Aleph Hackathon (with Runa)
+- 🌎 **Community**: Judge & mentor at Stellar Meridian 2026, Argentina.dev hackathon on the Tren Solar, GMI Cloud Clouder ambassador, PunaTech Salta / Arkiv (mentor & co-organizer), Descentralizar / Bitcoin Argentina (workshop)
+- 🛠️ **Projects**: Cosmos Pay, Argentina.dev, Runa, Agentic City — and more on [GitHub](https://github.com/Bitcoindefi)
 
 ## Tech Stack
 
@@ -30,7 +30,7 @@ Personal portfolio of **Leonardo Cagliero** — AI & Web3 Product Strategist, Fi
 
 ## Sections
 
-`Hero` (photo carousel) · `Logo marquee` · `Services` · `About` · `Portfolio` · `Experience` · `Education` · `Awards & ecosystem` · `Speaking` · `Articles` · `Footer`
+`Hero` (photo carousel) · `Latest` · `Experience` · `Projects` · `Education` · `Community & teaching` · `Footer`
 
 Each section is a standalone component in [`components/`](components/) — content lives inline as typed arrays, so updating projects/awards is a one-file edit.
 

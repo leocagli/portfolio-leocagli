@@ -3,8 +3,6 @@ import type { Metadata } from "next"
 
 import "./globals.css"
 
-import { LanguageProvider } from "@/lib/i18n"
-
 import { Onest, Geist_Mono as V0_Font_Geist_Mono } from "next/font/google"
 
 // Initialize fonts
@@ -21,19 +19,15 @@ const onest = Onest({
 })
 
 export const metadata: Metadata = {
-<<<<<<< HEAD
-  title: "Leonardo Cagliero | Cosmosapp Founder & AI/Web3 Builder",
-  description: "Leonardo Cagliero builds Cosmosapp, stablecoin payment rails and programmable coordination systems for LATAM commerce and financial infrastructure.",
-  generator: "v0.app",
-=======
   metadataBase: new URL("https://portfolio-leocagli.vercel.app"),
-  title: "Leonardo Cagliero | AI & Web3 Product Strategist",
-  description: "AI & Web3 Product Strategist, Fintech Infrastructure Builder, and Ecosystem Contributor from LATAM. Building programmable coordination systems using AI agents, stablecoin payments, and smart contracts.",
-  keywords: ["Web3", "AI agents", "Stellar", "Soroban", "stablecoins", "fintech", "LATAM", "smart contracts", "hackathons"],
+  title: "Leonardo Cagliero | Product, Data and AI Automation",
+  description:
+    "Leonardo Cagliero, from Salta, Argentina. I build products, analyze data and automate work with AI. Founder of Cosmos Pay and Argentina.dev. Open to junior Product, Data Analyst and AI Automation roles.",
   authors: [{ name: "Leonardo Cagliero", url: "https://github.com/leocagli" }],
   openGraph: {
-    title: "Leonardo Cagliero | AI & Web3 Product Strategist",
-    description: "Building programmable coordination systems using AI agents, stablecoin payments, and smart contracts. Hackathon winner across the Stellar ecosystem.",
+    title: "Leonardo Cagliero | Product, Data and AI Automation",
+    description:
+      "I build products, analyze data and automate work with AI. Founder of Cosmos Pay and Argentina.dev. Open to junior Product, Data Analyst and AI Automation roles.",
     url: "https://portfolio-leocagli.vercel.app",
     siteName: "Leonardo Cagliero",
     images: [{ url: "/images/profile.jpeg", width: 800, height: 800, alt: "Leonardo Cagliero" }],
@@ -42,12 +36,12 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    title: "Leonardo Cagliero | AI & Web3 Product Strategist",
-    description: "AI & Web3 Product Strategist, Fintech Infrastructure Builder, and Ecosystem Contributor from LATAM.",
+    title: "Leonardo Cagliero | Product, Data and AI Automation",
+    description:
+      "I build products, analyze data and automate work with AI. Founder of Cosmos Pay and Argentina.dev.",
     creator: "@leocagli",
     images: ["/images/profile.jpeg"],
   },
->>>>>>> 584db22546685ce8b07be0f06b7e1ee2de8819b6
 }
 
 export default function RootLayout({
@@ -57,9 +51,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="bg-white">
-      <body className={`${onest.variable} font-sans antialiased overflow-x-hidden`}>
-        <LanguageProvider>{children}</LanguageProvider>
-      </body>
+      <body className={`${onest.variable} font-sans antialiased overflow-x-hidden`}>{children}</body>
     </html>
   )
 }
