@@ -1,29 +1,23 @@
 "use client"
 
-// Single page-level WebGL background. This is the ONLY module that imports
-// three / @react-three/fiber, and it is only ever reached through next/dynamic
-// (see site-background-mount.tsx), so three stays out of the main bundle.
-//
-// Performance contract:
-// - frameloop="demand": nothing renders unless we invalidate
-// - 30fps cap via DemandLoop
-// - dpr 1 on mobile, max 1.5 desktop
-// - no shadows, no postprocessing, flat tone mapping, low-power GL, low poly
-// - rendering pauses when the tab is hidden or when every section that can
-//   reveal the background (hero / projects / awards) is scrolled off-screen.
+// Single page-level WebGL background. Only module that imports three.
+// Loaded exclusively via next/dynamic (ssr:false) from site-background-mount.tsx.
 
 import { Canvas, useFrame, useThree } from "@react-three/fiber"
 import { useEffect, useMemo, useRef, useState } from "react"
 import * as THREE from "three"
 import { backgroundDpr } from "./env"
 
-const PALETTE = {
-  terrain: "#dbe7fb",
-  blue: "#2F81F7",
-  yellow: "#FFC224",
-  pink: "#FF6B7A",
-  green: "#10B981",
-} as const
+const PALETTE = [
+  new THREE.Color("#2563eb"),
+  new THREE.Color("#4f46e5"),
+  new THREE.Color("#7c3aed"),
+  new THREE.Color("#0d9488"),
+  new THREE.Color("#0369a1"),
+  new THREE.Color("#db2777"),
+  new THREE.Color("#d97706"),
+  new THREE.Color("#1e3a8a"),
+]
 
 function DemandLoop({ fps }: { fps: number }) {
   const invalidate = useThree((s) => s.invalidate)
@@ -43,69 +37,80 @@ function DemandLoop({ fps }: { fps: number }) {
   return null
 }
 
-// Low-poly solids scattered toward the edges so they stay clear of headline text.
-// Keep solids in the far corners so they don't sit on headline or body text.
-const SOLIDS = [
-  { kind: "ico", color: PALETTE.blue, pos: [-6.4, 2.8, -3.2] as const, size: 0.55, opacity: 0.2 },
-  { kind: "octa", color: PALETTE.yellow, pos: [6.6, 3.0, -3.4] as const, size: 0.62, opacity: 0.2 },
-  { kind: "tetra", color: PALETTE.pink, pos: [6.2, -3.2, -3] as const, size: 0.58, opacity: 0.18 },
-  { kind: "dodeca", color: PALETTE.green, pos: [-6.0, -3.4, -3.2] as const, size: 0.48, opacity: 0.2 },
-] as const
+function makeTerrain() {
+  const geo = new THREE.PlaneGeometry(56, 36, 24, 16)
+  const pos = geo.attributes.position
+  for (let i = 0; i < pos.count; i++) {
+    const x = pos.getX(i)
+    const y = pos.getY(i)
+    pos.setZ(
+      i,
+      Math.sin(x * 0.2) * 1.8 + Math.cos(y * 0.16) * 1.5 + Math.sin((x + y) * 0.12) * 1.1,
+    )
+  }
+  const faceted = geo.toNonIndexed()
+  geo.dispose()
+  const p = faceted.attributes.position
+  const colors = new Float32Array(p.count * 3)
+  for (let i = 0; i < p.count; i += 3) {
+    const z = (p.getZ(i) + p.getZ(i + 1) + p.getZ(i + 2)) / 3
+    const cx = p.getX(i)
+    const idx = Math.abs(Math.floor(cx * 2.2 + p.getY(i) * 1.7 + z * 3.1)) % PALETTE.length
+    const col = PALETTE[idx]
+    for (let k = 0; k < 3; k++) {
+      colors[(i + k) * 3] = col.r
+      colors[(i + k) * 3 + 1] = col.g
+      colors[(i + k) * 3 + 2] = col.b
+    }
+  }
+  faceted.setAttribute("color", new THREE.BufferAttribute(colors, 3))
+  return faceted
+}
 
 function Scene({ scroll }: { scroll: { current: number } }) {
   const group = useRef<THREE.Group>(null)
   const terrain = useRef<THREE.Mesh>(null)
-  const solids = useRef<THREE.Group>(null)
+  const baseZ = useRef<Float32Array | null>(null)
 
-  const terrainGeo = useMemo(() => {
-    const g = new THREE.PlaneGeometry(28, 16, 18, 10)
+  const geometry = useMemo(() => {
+    const g = makeTerrain()
+    baseZ.current = new Float32Array(g.attributes.position.count)
     const pos = g.attributes.position
-    for (let i = 0; i < pos.count; i++) {
-      const x = pos.getX(i)
-      const y = pos.getY(i)
-      pos.setZ(i, Math.sin(x * 0.5) * 0.45 + Math.cos(y * 0.6) * 0.32)
-    }
+    for (let i = 0; i < pos.count; i++) baseZ.current[i] = pos.getZ(i)
     return g
   }, [])
 
-  useEffect(() => () => terrainGeo.dispose(), [terrainGeo])
+  useEffect(() => () => geometry.dispose(), [geometry])
 
   useFrame(({ clock }) => {
     const t = clock.elapsedTime
-    const s = scroll.current // 0..1 across the page
+    const s = scroll.current
     if (group.current) {
-      // Gentle parallax: the whole scene drifts up a little as you scroll.
-      group.current.position.y = s * 3.2
-      group.current.rotation.z = Math.sin(t * 0.05) * 0.025
+      group.current.position.y = s * 4.2
+      group.current.rotation.z = Math.sin(t * 0.08) * 0.04
     }
-    if (terrain.current) {
-      terrain.current.rotation.z = t * 0.012
-    }
-    if (solids.current) {
-      solids.current.rotation.y = t * 0.05 + s * 0.8
-      solids.current.children.forEach((child, i) => {
-        child.rotation.x = t * (0.08 + i * 0.01) * (i % 2 ? 1 : -1)
-        child.rotation.y = t * 0.07
-      })
+    if (terrain.current && baseZ.current) {
+      const pos = terrain.current.geometry.attributes.position
+      const bases = baseZ.current
+      for (let i = 0; i < pos.count; i++) {
+        const x = pos.getX(i)
+        const y = pos.getY(i)
+        pos.setZ(i, bases[i] + Math.sin(t * 0.35 + x * 0.2 + y * 0.15) * 0.18)
+      }
+      pos.needsUpdate = true
     }
   })
 
   return (
     <group ref={group}>
-      <mesh ref={terrain} geometry={terrainGeo} rotation={[-1.05, 0, 0]} position={[0, -3.4, -4]}>
-        <meshBasicMaterial color={PALETTE.terrain} wireframe transparent opacity={0.4} />
+      <mesh
+        ref={terrain}
+        geometry={geometry}
+        rotation={[-0.95, 0, 0]}
+        position={[0, -4.2, -6]}
+      >
+        <meshBasicMaterial vertexColors={true} />
       </mesh>
-      <group ref={solids}>
-        {SOLIDS.map((item, i) => (
-          <mesh key={i} position={item.pos}>
-            {item.kind === "ico" && <icosahedronGeometry args={[item.size, 0]} />}
-            {item.kind === "octa" && <octahedronGeometry args={[item.size, 0]} />}
-            {item.kind === "tetra" && <tetrahedronGeometry args={[item.size, 0]} />}
-            {item.kind === "dodeca" && <dodecahedronGeometry args={[item.size, 0]} />}
-            <meshBasicMaterial color={item.color} wireframe transparent opacity={item.opacity} />
-          </mesh>
-        ))}
-      </group>
     </group>
   )
 }
@@ -124,32 +129,17 @@ export default function SiteBackground() {
     }
     updateScroll()
 
-    // Only run the loop while the background can actually be seen: the tab is
-    // visible AND at least one revealing section is near the viewport.
-    const revealers = ["top", "latest", "projects", "awards", "talks"]
-      .map((id) => document.getElementById(id))
-      .filter((el): el is HTMLElement => el !== null)
-    const onScreen = new Set<Element>()
-    const io = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) onScreen.add(entry.target)
-          else onScreen.delete(entry.target)
-        }
-        setActive(!document.hidden && onScreen.size > 0)
-      },
-      { rootMargin: "100px" },
-    )
-    revealers.forEach((el) => io.observe(el))
+    const onVisibility = () => setActive(!document.hidden)
+    const onScroll = () => {
+      updateScroll()
+    }
 
-    const onVisibility = () => setActive(!document.hidden && onScreen.size > 0)
-
-    window.addEventListener("scroll", updateScroll, { passive: true })
+    window.addEventListener("scroll", onScroll, { passive: true })
     window.addEventListener("resize", updateScroll)
     document.addEventListener("visibilitychange", onVisibility)
+    setActive(!document.hidden)
     return () => {
-      io.disconnect()
-      window.removeEventListener("scroll", updateScroll)
+      window.removeEventListener("scroll", onScroll)
       window.removeEventListener("resize", updateScroll)
       document.removeEventListener("visibilitychange", onVisibility)
     }
@@ -163,14 +153,15 @@ export default function SiteBackground() {
         flat
         gl={{
           antialias: false,
-          alpha: true,
+          alpha: false,
           powerPreference: "low-power",
           stencil: false,
           depth: true,
         }}
-        camera={{ position: [0, 0, 8], fov: 45, near: 0.1, far: 40 }}
+        camera={{ position: [0, 0.6, 9], fov: 48, near: 0.1, far: 60 }}
         onCreated={({ gl }) => {
           gl.shadowMap.enabled = false
+          gl.setClearColor(0x0a1020, 1)
         }}
         className="!h-full !w-full"
       >

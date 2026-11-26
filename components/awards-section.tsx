@@ -80,7 +80,7 @@ export function AwardsSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-3">
             Hackathons, grants &amp;{" "}
             <span className="bg-[#FFC224] text-black px-3 py-1 inline-block">awards</span>
           </h2>
@@ -90,16 +90,16 @@ export function AwardsSection() {
           {awards.map((award, index) => {
             const IconComponent = award.icon
             return (
-              <TiltCard key={award.title} className="h-full" max={7}>
+              <TiltCard key={award.title} className="h-full card-frame rounded-[24px]" max={7}>
               <motion.article
-                className="bg-white border-[3px] border-black rounded-[24px] p-6 text-center hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-shadow h-full"
+                className="card-glass rounded-[23px] p-6 text-center h-full hover:shadow-[0_20px_50px_rgba(0,0,0,0.45)] transition-shadow"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: Math.min(index * 0.05, 0.3) }}
               >
                 <div
-                  className={`w-16 h-16 ${award.color} border-2 border-black rounded-2xl flex items-center justify-center mx-auto mb-4`}
+                  className={`w-16 h-16 ${award.color} rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg`}
                 >
                   <IconComponent className="w-8 h-8 text-black" />
                 </div>
@@ -107,11 +107,11 @@ export function AwardsSection() {
                   <img
                     src={award.image}
                     alt={`${award.title}`}
-                    className="w-full h-28 object-cover object-center border-2 border-black rounded-xl mb-4"
+                    className="w-full h-28 object-cover object-center border border-white/20 rounded-xl mb-4"
                   />
                 )}
-                <h3 className="text-lg font-bold text-[#0B0B0B] mb-1">{award.title}</h3>
-                <p className="text-[#393939] text-sm font-medium">{award.description}</p>
+                <h3 className="text-lg font-bold text-white mb-1">{award.title}</h3>
+                <p className="text-slate-300 text-sm font-medium">{award.description}</p>
                 {award.href && (
                   <a
                     href={award.href}

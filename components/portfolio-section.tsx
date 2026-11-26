@@ -81,7 +81,7 @@ const projects: Project[] = [
     ],
     tags: ["Innova Labs", "LOTBA", "Buenos Aires"],
     bgColor: "bg-[#10B981]",
-    tagColor: "bg-[#0B0B0B]",
+    tagColor: "bg-[#334155]",
     youtubeId: "roGEFiwATeI",
     youtubeTitle: "BA Protege plus",
     links: [{ href: "https://youtu.be/roGEFiwATeI", label: "Watch on YouTube" }],
@@ -118,7 +118,7 @@ const projects: Project[] = [
       "An ASCII RPG for the terminal, with a 3D city you can play in the browser. Every 3D model was generated with Tripo. Best Game at Tripothon S1 in São Paulo (Demo Day).",
     ],
     tags: ["Game", "Tripo", "Tripothon", "RPG"],
-    bgColor: "bg-[#0B0B0B]",
+    bgColor: "bg-[#334155]",
     tagColor: "bg-[#2F81F7]",
     logo: "/images/runa-project.jpeg",
     href: "https://playruna.vercel.app",
@@ -165,7 +165,7 @@ const projects: Project[] = [
     ],
     tags: ["Community", "Hackathons", "Argentina", "Developers"],
     bgColor: "bg-[#10B981]",
-    tagColor: "bg-[#0B0B0B]",
+    tagColor: "bg-[#334155]",
     media: [
       {
         src: "/images/tren-solar-mentor-pass.webp",
@@ -209,21 +209,21 @@ export function PortfolioSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-3">
             Featured <br className="hidden md:block" />
             <span className="bg-[#FFC224] text-black px-3 py-1 inline-block">projects</span>
           </h2>
-          <p className="text-[#393939] text-base md:text-lg font-medium max-w-2xl mx-auto">
+          <p className="text-slate-300 text-base md:text-lg font-medium max-w-2xl mx-auto">
             Each project lives in one place, with its story, photos and links.
           </p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-6 mb-12">
           {projects.map((project, index) => (
-            <TiltCard key={project.id} className="h-full">
+            <TiltCard key={project.id} className="h-full card-frame rounded-[32px]">
             <motion.article
               id={project.id}
-              className="group bg-white border-[3px] border-black rounded-[32px] overflow-hidden hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-shadow scroll-mt-28 h-full"
+              className="group card-glass rounded-[31px] overflow-hidden transition-shadow scroll-mt-28 h-full"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -241,11 +241,11 @@ export function PortfolioSection() {
               </div>
 
               <div className="p-6 md:p-8">
-                <h3 className="text-xl md:text-[28px] font-bold mb-3 leading-tight text-[#0B0B0B]">{project.title}</h3>
+                <h3 className="text-xl md:text-[28px] font-bold mb-3 leading-tight text-white">{project.title}</h3>
 
                 <div className="space-y-3 mb-6">
                   {project.paragraphs.map((p) => (
-                    <p key={p.slice(0, 48)} className="text-base text-[#393939] leading-relaxed font-medium">
+                    <p key={p.slice(0, 48)} className="text-base text-slate-300 leading-relaxed font-medium">
                       {p}
                     </p>
                   ))}
@@ -267,7 +267,7 @@ export function PortfolioSection() {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="bg-gray-100 text-[#393939] text-xs font-semibold px-3 py-1.5 rounded-full border border-gray-200"
+                      className="bg-white/10 text-slate-200 text-xs font-semibold px-3 py-1.5 rounded-full border border-white/15"
                     >
                       {tag}
                     </span>
@@ -282,7 +282,7 @@ export function PortfolioSection() {
                         href={link.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 font-semibold text-[#0B0B0B] hover:gap-3 transition-all text-sm md:text-base"
+                        className="flex items-center gap-2 font-semibold text-white hover:gap-3 transition-all text-sm md:text-base"
                       >
                         {link.label}
                         <ArrowRight className="w-4 h-4" />
@@ -295,7 +295,7 @@ export function PortfolioSection() {
                       href={project.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 font-semibold text-[#0B0B0B] hover:gap-3 transition-all text-sm md:text-base"
+                      className="flex items-center gap-2 font-semibold text-white hover:gap-3 transition-all text-sm md:text-base"
                     >
                       Visit project
                       <ArrowRight className="w-4 h-4" />
@@ -309,7 +309,7 @@ export function PortfolioSection() {
         </div>
 
         <motion.div
-          className="bg-[#0B0B0B] border-[3px] border-black rounded-[32px] p-8 md:p-10 mb-8"
+          className="card-glass rounded-[32px] p-8 md:p-10 mb-8"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -321,7 +321,7 @@ export function PortfolioSection() {
               href="https://github.com/Bitcoindefi"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-white text-black font-semibold px-6 py-3 rounded-full border-[3px] border-black hover:bg-[#FFC224] transition-colors self-start"
+              className="inline-flex items-center gap-2 bg-white text-[#0a1020] font-semibold px-6 py-3 rounded-full hover:bg-[#FFC224] transition-colors self-start"
             >
               <Github className="w-5 h-5" />
               See more on GitHub

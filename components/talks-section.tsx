@@ -59,7 +59,7 @@ const talks: Talk[] = [
   {
     title: "Talk at UTN Córdoba — “Cómo descentralizamos”",
     detail: "Panel on stage with the NGO Bitcoin Argentina. Title: “Cómo descentralizamos” (How do we decentralize?).",
-    color: "bg-[#0B0B0B]",
+    color: "bg-[#334155]",
     media: [
       {
         src: "/images/utn-cordoba-bitcoin-argentina-talk.webp",
@@ -93,7 +93,7 @@ const talks: Talk[] = [
 
 export function TalksSection() {
   return (
-    <section id="talks" className="bg-[#F5F5F5] py-14 md:py-20">
+    <section id="talks" className="bg-transparent py-14 md:py-20">
       <div className="container mx-auto px-4">
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -103,28 +103,28 @@ export function TalksSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-3">
               Talks &amp; <span className="bg-[#6366F1] text-white px-3 py-1 inline-block">workshops</span>
             </h2>
-            <p className="text-[#393939] text-base md:text-lg font-medium">
+            <p className="text-slate-300 text-base md:text-lg font-medium">
               Mentoring, talks and workshops that are not tied to a single project.
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 gap-6">
             {talks.map((talk, index) => (
-              <TiltCard key={talk.title} className="h-full" max={5}>
+              <TiltCard key={talk.title} className="h-full card-frame rounded-[32px]" max={5}>
               <motion.article
-                className="bg-white border-[3px] border-black rounded-[32px] overflow-hidden hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-shadow h-full"
+                className="card-glass rounded-[31px] overflow-hidden h-full hover:shadow-[0_20px_50px_rgba(0,0,0,0.45)] transition-shadow"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: Math.min(index * 0.04, 0.2) }}
               >
-                <div className={`${talk.color} h-3 border-b-[3px] border-black`} />
+                <div className={`${talk.color} h-2`} />
                 <div className="p-6 md:p-8">
-                  <h3 className="text-xl md:text-2xl font-bold mb-2 text-[#0B0B0B]">{talk.title}</h3>
-                  <p className="text-[#393939] font-medium leading-relaxed mb-4">{talk.detail}</p>
+                  <h3 className="text-xl md:text-2xl font-bold mb-2 text-white">{talk.title}</h3>
+                  <p className="text-slate-300 font-medium leading-relaxed mb-4">{talk.detail}</p>
                   {talk.media && talk.media.length > 0 && (
                     <div className="mb-4">
                       <MediaCarousel items={talk.media} />

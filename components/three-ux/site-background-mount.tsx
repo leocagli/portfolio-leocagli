@@ -1,9 +1,5 @@
 "use client"
 
-// Lives in the main page graph (imported by page.tsx) but pulls three ONLY
-// through next/dynamic with ssr:false, so three never enters the main bundle.
-// On reduced-motion / Save-Data / low-end devices it renders nothing.
-
 import dynamic from "next/dynamic"
 import { useEffect, useState } from "react"
 import { shouldUseMotion } from "./env"
@@ -17,6 +13,10 @@ export function SiteBackgroundMount() {
     setEnabled(shouldUseMotion())
   }, [])
 
-  if (!enabled) return null
-  return <SiteBackground />
+  return (
+    <>
+      <div className="site-bg-fallback" aria-hidden="true" />
+      {enabled ? <SiteBackground /> : null}
+    </>
+  )
 }

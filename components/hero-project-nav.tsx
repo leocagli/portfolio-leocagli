@@ -64,7 +64,7 @@ function ProjectGrid() {
         <a
           key={project.href}
           href={project.href}
-          className="group bg-white border-[3px] border-black rounded-2xl overflow-hidden hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] transition-shadow"
+          className="group card-glass rounded-2xl overflow-hidden hover:shadow-[0_16px_40px_rgba(0,0,0,0.4)] transition-shadow"
         >
           <img src={project.src} alt={project.alt} className="w-full h-28 md:h-32 object-cover object-center" />
           <p className="text-sm font-bold text-center py-2 px-2">{project.label}</p>
@@ -165,7 +165,7 @@ export function HeroProjectNav() {
   return (
     <div ref={wrapRef} className="mt-12 md:mt-16">
       <h2 className="text-2xl md:text-3xl font-bold text-center mb-2">Explore projects</h2>
-      <p className="text-[#393939] text-sm md:text-base font-medium text-center mb-5 max-w-xl mx-auto">
+      <p className="text-slate-300 text-sm md:text-base font-medium text-center mb-5 max-w-xl mx-auto">
         {motionOn
           ? "Browse the cards, then open a project to read the full story."
           : "Open a project to read the full story in one place."}
@@ -174,7 +174,7 @@ export function HeroProjectNav() {
       {motionOn ? (
         <div className="relative mb-5">
           <div
-            className="relative h-[250px] md:h-[320px] rounded-[24px] border-[3px] border-black bg-white/50 overflow-hidden touch-pan-y"
+            className="relative h-[250px] md:h-[320px] rounded-[24px] border border-white/15 bg-white/5 overflow-hidden touch-pan-y"
             onPointerMove={(e) => {
               onPointerMove(e)
               onPointerDrag(e)
@@ -222,7 +222,7 @@ export function HeroProjectNav() {
                           go(i)
                         }
                       }}
-                      className="absolute left-1/2 top-[46%] w-[190px] md:w-[250px] -ml-[95px] md:-ml-[125px] -mt-[70px] md:-mt-[88px] bg-white border-[3px] border-black rounded-2xl overflow-hidden shadow-[5px_5px_0px_0px_rgba(0,0,0,0.12)]"
+                      className="absolute left-1/2 top-[46%] w-[190px] md:w-[250px] -ml-[95px] md:-ml-[125px] -mt-[70px] md:-mt-[88px] card-glass rounded-2xl overflow-hidden shadow-[0_16px_40px_rgba(0,0,0,0.4)]"
                       style={{
                         transform: `translate3d(${x}px, 0, ${z}px) rotateY(${rotY}deg) scale(${scale})`,
                         opacity,
@@ -237,7 +237,7 @@ export function HeroProjectNav() {
                         className="w-full h-[132px] md:h-[168px] object-cover object-center pointer-events-none"
                         draggable={false}
                       />
-                      <p className="text-sm md:text-base font-bold text-center py-2 px-2 bg-white">{project.label}</p>
+                      <p className="text-sm md:text-base font-bold text-center py-2 px-2 bg-black/40 text-white">{project.label}</p>
                     </a>
                   )
                 })}
@@ -247,7 +247,7 @@ export function HeroProjectNav() {
               type="button"
               aria-label="Previous project"
               onClick={() => go(Math.round(target) - 1)}
-              className="absolute left-2 md:left-3 top-1/2 -translate-y-1/2 z-30 w-10 h-10 flex items-center justify-center bg-white border-2 border-black rounded-full shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"
+              className="absolute left-2 md:left-3 top-1/2 -translate-y-1/2 z-30 w-10 h-10 flex items-center justify-center bg-white/90 border border-white/30 rounded-full shadow-lg"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
@@ -255,7 +255,7 @@ export function HeroProjectNav() {
               type="button"
               aria-label="Next project"
               onClick={() => go(Math.round(target) + 1)}
-              className="absolute right-2 md:right-3 top-1/2 -translate-y-1/2 z-30 w-10 h-10 flex items-center justify-center bg-white border-2 border-black rounded-full shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"
+              className="absolute right-2 md:right-3 top-1/2 -translate-y-1/2 z-30 w-10 h-10 flex items-center justify-center bg-white/90 border border-white/30 rounded-full shadow-lg"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
@@ -268,8 +268,8 @@ export function HeroProjectNav() {
                 aria-label={`Show ${project.label}`}
                 aria-current={wrapIndex(Math.round(target)) === i}
                 onClick={() => go(i)}
-                className={`h-2.5 rounded-full border-2 border-black transition-all ${
-                  wrapIndex(Math.round(target)) === i ? "w-7 bg-[#FFC224]" : "w-2.5 bg-white"
+                className={`h-2.5 rounded-full border border-white/30 transition-all ${
+                  wrapIndex(Math.round(target)) === i ? "w-7 bg-[#FFC224]" : "w-2.5 bg-white/70"
                 }`}
               />
             ))}

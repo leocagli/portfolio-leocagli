@@ -14,7 +14,7 @@ export function ProjectNavLinks({ className = "" }: { className?: string }) {
         <a
           key={link.href}
           href={link.href}
-          className="text-sm font-semibold px-3 py-2 rounded-full border-2 border-black bg-white hover:bg-[#FFC224] transition-colors"
+          className="text-sm font-semibold px-3 py-2 rounded-full border border-white/20 bg-white/10 text-white hover:bg-[#FFC224] hover:text-[#0a1020] transition-colors"
         >
           {link.label}
         </a>
