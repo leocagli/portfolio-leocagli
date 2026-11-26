@@ -1,21 +1,38 @@
 "use client"
 
-import { Award, Cloud, Flag, Mic, Trophy, Users, MapPin } from "lucide-react"
+import { Award, Cloud, Flag, Mic, Trophy, Users, MapPin, ArrowUpRight } from "lucide-react"
 import { motion } from "framer-motion"
+
+type CommunityLink = {
+  href: string
+  label: string
+}
 
 type CommunityItem = {
   title: string
   detail: string
   icon: typeof Award
   color: string
+  links?: CommunityLink[]
 }
 
 const community: CommunityItem[] = [
   {
-    title: "Judge & mentor — Stellar Meridian 2026",
-    detail: "Evaluated and mentored teams at Stellar's flagship event.",
+    title: "Mentor & judge — HackMeridian 2026 (Stellar)",
+    detail:
+      "Lisbon, 25–26 Oct 2026. Mentored Scale-track teams for Cosmos Pay and helped judge 165 projects from 350+ builders.",
     icon: Award,
     color: "bg-[#6366F1]",
+    links: [
+      {
+        href: "https://es.linkedin.com/posts/leocagli_fui-mentor-y-juez-en-hack-meridian-de-stellar-activity-7525497358118313985-FKo6",
+        label: "LinkedIn post",
+      },
+      {
+        href: "https://www.hackmeridian.com/2026",
+        label: "Event recap",
+      },
+    ],
   },
   {
     title: "Argentina.dev hackathon on the Tren Solar",
@@ -143,6 +160,22 @@ export function CommunitySection() {
                   </div>
                   <h3 className="text-lg font-bold text-[#0B0B0B] mb-1">{item.title}</h3>
                   <p className="text-[#393939] text-sm font-medium">{item.detail}</p>
+                  {item.links && (
+                    <div className="flex flex-wrap gap-x-4 gap-y-2 mt-3">
+                      {item.links.map((link) => (
+                        <a
+                          key={link.href}
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-1 font-semibold text-[#2F81F7] hover:gap-2 transition-all text-sm"
+                        >
+                          {link.label}
+                          <ArrowUpRight className="w-4 h-4" />
+                        </a>
+                      ))}
+                    </div>
+                  )}
                 </motion.div>
               )
             })}

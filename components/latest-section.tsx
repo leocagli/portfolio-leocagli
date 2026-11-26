@@ -3,12 +3,18 @@
 import { ArrowUpRight } from "lucide-react"
 import { motion } from "framer-motion"
 
+type LatestLink = {
+  href: string
+  label: string
+}
+
 type LatestItem = {
   date: string
   text: string
   color: string
   href?: string
   linkLabel?: string
+  links?: LatestLink[]
 }
 
 const latest: LatestItem[] = [
@@ -35,6 +41,21 @@ const latest: LatestItem[] = [
     color: "bg-[#10B981]",
   },
   {
+    date: "25–26 Oct 2026",
+    text: "Mentor and judge, HackMeridian 2026 (Stellar), Lisbon, Oct 25–26 2026: mentored Scale-track teams for Cosmos Pay and helped judge 165 projects from 350+ builders.",
+    color: "bg-[#EC4899]",
+    links: [
+      {
+        href: "https://es.linkedin.com/posts/leocagli_fui-mentor-y-juez-en-hack-meridian-de-stellar-activity-7525497358118313985-FKo6",
+        label: "LinkedIn post",
+      },
+      {
+        href: "https://www.hackmeridian.com/2026",
+        label: "Event recap",
+      },
+    ],
+  },
+  {
     date: "Oct 2026",
     text: "Submitted Agentic City to Superteam Earn / Colosseum.",
     color: "bg-[#F59E0B]",
@@ -49,9 +70,11 @@ const latest: LatestItem[] = [
     linkLabel: "View PR #138",
   },
   {
-    date: "2026",
-    text: "Judge and mentor at Stellar Meridian 2026.",
-    color: "bg-[#EC4899]",
+    date: "17 Sep 2026",
+    text: "With Cosmos Pay, gave the kick-off of the SDF + BAF Buildathon, explained NearX Stellar Apex, and mentored SaltaDev and jujuy.dev with Emanuel Guzman.",
+    color: "bg-[#2F81F7]",
+    href: "https://es.linkedin.com/posts/leocagli_con-cosmos-pay-wallet-payments-gateway-activity-7506175864540200960-PD7w",
+    linkLabel: "LinkedIn post",
   },
 ]
 
@@ -99,6 +122,22 @@ export function LatestSection() {
                     {item.linkLabel ?? "View"}
                     <ArrowUpRight className="w-4 h-4" />
                   </a>
+                )}
+                {item.links && (
+                  <div className="flex flex-col gap-2 self-start sm:self-auto">
+                    {item.links.map((link) => (
+                      <a
+                        key={link.href}
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1 font-semibold text-[#2F81F7] hover:gap-2 transition-all text-sm whitespace-nowrap"
+                      >
+                        {link.label}
+                        <ArrowUpRight className="w-4 h-4" />
+                      </a>
+                    ))}
+                  </div>
                 )}
               </motion.div>
             ))}

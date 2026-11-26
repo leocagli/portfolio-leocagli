@@ -14,6 +14,8 @@ language (bold type, color blocks, black borders, rounded cards, Onest font) was
 - **New page order:** Navigation → Hero → Latest → Experience → Projects → Education →
   Community & teaching → Footer.
 - **New "Latest" section** with confirmed recent activity (newest first).
+- Latest also includes the Sep 2026 SDF + BAF Buildathon kick-off with Cosmos Pay, from Leo's public
+  LinkedIn post.
 - **Experience moved above Projects.** Shows Cosmos Pay (founder), El Depo, Food Packaging,
   Congress Rental and Nature & Fitness with their existing duties. Removed the "14+ years"
   subtitle and the Bitcoin.defi "2017 – Present" professional-tenure card.
@@ -36,7 +38,8 @@ language (bold type, color blocks, black borders, rounded cards, Onest font) was
 
 ## 2. Facts Leo must still confirm before they can be added to the site
 
-- [ ] **Stellar Meridian 2026** — city, date, and number of teams evaluated.
+- [x] **Stellar Meridian 2026** — confirmed as HackMeridian 2026 (Stellar), Lisbon, 25–26 Oct 2026;
+      mentored Scale-track teams for Cosmos Pay and helped judge 165 projects from 350+ builders.
 - [ ] **Tren Solar hackathon (Argentina.dev, 22 Nov 2026)** — attendance / number of participants.
 - [ ] **Argentina.dev** — member count.
 - [ ] **Agentic City** — a confirmed one-line product description (currently only stated as a
