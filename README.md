@@ -13,7 +13,7 @@ Personal portfolio of **Leonardo Cagliero** — from Salta, Argentina. I build p
 ## Highlights
 
 - 🏆 **Hackathons & grants**: ETHGlobal Buenos Aires (Yellow Track with Previate), Stellar Give Hackathon (1st place), Meridian Rio (Top 5 with Tralala Contracts), Instawards (US$10k, no equity — with Cosmos Pay), Y-Hat UBA Exactas (3rd — AI Track with Provi.ia), Pulso Hackathon by Stellar, Aleph Hackathon (with Runa)
-- 🌎 **Community**: Judge & mentor at Stellar Meridian 2026, Argentina.dev hackathon on the Tren Solar, GMI Cloud Clouder ambassador, PunaTech Salta / Arkiv (mentor & co-organizer), Descentralizar / Bitcoin Argentina (workshop)
+- 🌎 **Community**: Mentor & judge at HackMeridian 2026 (Stellar), Lisbon, 25–26 Oct 2026, Argentina.dev hackathon on the Tren Solar, GMI Cloud Clouder ambassador, PunaTech Salta / Arkiv (mentor & co-organizer), Descentralizar / Bitcoin Argentina (workshop)
 - 🛠️ **Projects**: Cosmos Pay, Argentina.dev, Runa, Agentic City — and more on [GitHub](https://github.com/Bitcoindefi)
 
 ## Tech Stack
