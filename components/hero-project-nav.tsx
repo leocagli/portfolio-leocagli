@@ -164,8 +164,8 @@ export function HeroProjectNav() {
 
   return (
     <div ref={wrapRef} className="mt-12 md:mt-16">
-      <h2 className="text-2xl md:text-3xl font-bold text-center mb-2">Explore projects</h2>
-      <p className="text-slate-300 text-sm md:text-base font-medium text-center mb-5 max-w-xl mx-auto">
+      <h2 className="text-2xl md:text-3xl font-bold text-center mb-2 text-white text-on-terrain">Explore projects</h2>
+      <p className="text-slate-100 text-sm md:text-base font-medium text-center mb-5 max-w-xl mx-auto text-on-terrain">
         {motionOn
           ? "Browse the cards, then open a project to read the full story."
           : "Open a project to read the full story in one place."}

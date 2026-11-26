@@ -79,7 +79,7 @@ export function ExperienceSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-6 md:mb-8 leading-[1.3]">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-6 md:mb-8 leading-[1.3] text-on-terrain">
               Take a look at my <span className="bg-[#6366F1] text-white px-3 py-1 inline-block">experience</span>
             </h2>
             <p className="text-gray-400 mb-6 leading-relaxed text-base md:text-lg">

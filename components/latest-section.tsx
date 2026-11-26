@@ -91,6 +91,13 @@ const latest: LatestItem[] = [
     href: "#cosmos-pay",
     linkLabel: "See Cosmos Pay",
   },
+  {
+    date: "28–30 May 2026",
+    text: "Organized the Arkiv x Puna Tech hackathon track and hosted the closing sunset event, with Cerveza Salta.",
+    color: "bg-[#F59E0B]",
+    href: "#argentina-dev",
+    linkLabel: "See Argentina.dev",
+  },
 ]
 
 export function LatestSection() {
@@ -105,10 +112,10 @@ export function LatestSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-3">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-3 text-on-terrain">
               <span className="bg-[#2F81F7] text-white px-3 py-1 inline-block">Latest</span>
             </h2>
-            <p className="text-slate-300 text-base md:text-lg font-medium">
+            <p className="text-slate-100 text-base md:text-lg font-medium text-on-terrain">
               A short timeline. Open a project or talk to read the full story.
             </p>
           </motion.div>
