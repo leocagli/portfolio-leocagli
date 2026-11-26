@@ -10,6 +10,8 @@ type Experience = {
   description: string
   color: string
   logo?: string
+  href?: string
+  linkLabel?: string
 }
 
 const experiences: Experience[] = [
@@ -17,18 +19,20 @@ const experiences: Experience[] = [
     period: "Present",
     title: "Builder",
     company: "BA Protege Plus",
-    description:
-      "Building BA Protege Plus with Innova Labs, the innovation lab of the City of Buenos Aires, and working with LOTBA (Lotería de la Ciudad de Buenos Aires).",
+    description: "Current work with Innova Labs and LOTBA. Full story in Projects.",
     color: "bg-[#10B981]",
+    href: "#ba-protege-plus",
+    linkLabel: "See BA Protege Plus",
   },
   {
     period: "Mar 2025 - Present",
     title: "Founder",
     company: "Cosmos Pay",
-    description:
-      "Non-custodial USDC payments for LATAM. SEP-7 payment links. About 200 weekly active users. Team of 2. The CosmosPay skill was merged into stellar/stellar-dev-skill (PR #138). Won US$10k at Instawards, no equity.",
+    description: "Founder. Full story in Projects.",
     color: "bg-[#FF6B7A]",
     logo: "/logos/cosmos-icon.jpeg",
+    href: "#cosmos-pay",
+    linkLabel: "See Cosmos Pay",
   },
   {
     period: "2026 - Present",
@@ -124,6 +128,14 @@ export function ExperienceSection() {
                   <p className="text-[#393939] text-base md:text-[18px] leading-relaxed md:leading-[28px]">
                     {exp.description}
                   </p>
+                  {exp.href && (
+                    <a
+                      href={exp.href}
+                      className="inline-flex items-center gap-1 text-[#2F81F7] font-semibold mt-3 text-sm md:text-base"
+                    >
+                      {exp.linkLabel ?? "See project"}
+                    </a>
+                  )}
                 </div>
               </motion.div>
             ))}

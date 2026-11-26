@@ -2,227 +2,143 @@
 
 import { ArrowUpRight } from "lucide-react"
 import { motion } from "framer-motion"
-import { MediaCarousel, YouTubeEmbed, type MediaSlide } from "@/components/media-carousel"
-
-type LatestLink = {
-  href: string
-  label: string
-}
 
 type LatestItem = {
   date: string
   text: string
   color: string
-  href?: string
-  linkLabel?: string
-  links?: LatestLink[]
-  media?: MediaSlide[]
-  youtubeId?: string
-  youtubeTitle?: string
+  href: string
+  linkLabel: string
+  external?: boolean
 }
 
 const latest: LatestItem[] = [
   {
     date: "Present",
-    text: "Building BA Protege Plus with Innova Labs, the innovation lab of the City of Buenos Aires, and working with LOTBA (Lotería de la Ciudad de Buenos Aires).",
+    text: "Building BA Protege Plus with Innova Labs and LOTBA.",
     color: "bg-[#10B981]",
-    youtubeId: "roGEFiwATeI",
-    youtubeTitle: "BA Protege plus",
-    href: "https://youtu.be/roGEFiwATeI",
-    linkLabel: "Watch on YouTube",
+    href: "#ba-protege-plus",
+    linkLabel: "See project",
   },
   {
     date: "22 Nov 2026",
-    text: "Mentor and judge at Cursor Hackathon Jujuy on the Tren Solar de la Quebrada, departing Estación Volcán. Organized with jujuy.dev / Argentina.dev, Cursor, SpaceXAI community, Nodo and Argentina Space. 70 attendees.",
+    text: "Mentor and judge at Cursor Hackathon Jujuy on the Tren Solar.",
     color: "bg-[#FF6B7A]",
-    media: [
-      {
-        src: "/images/tren-solar-mentor-pass.webp",
-        alt: "Boarding-pass card for Cursor Hackathon Jujuy on the Tren Solar de la Quebrada. Passenger Leo Cagliero Shictong, role Mentor, 22 Nov 2026, Estación Volcán.",
-      },
-      {
-        type: "video",
-        src: "/video/tren-solar.mp4",
-        poster: "/images/tren-solar-poster.webp",
-        alt: "Video from Cursor Hackathon Jujuy on the Tren Solar de la Quebrada.",
-      },
-    ],
-  },
-  {
-    date: "13 Nov 2026",
-    text: "Submitted Runa to the Tripo Agentic Canvas Workflow Challenge in Japan.",
-    color: "bg-[#2F81F7]",
-    links: [
-      { href: "https://playruna.vercel.app", label: "Play Runa" },
-      { href: "https://github.com/Bitcoindefi/runa", label: "View Runa on GitHub" },
-    ],
+    href: "#argentina-dev",
+    linkLabel: "See Argentina.dev",
   },
   {
     date: "6 Nov 2026",
-    text: "Gave the workshop “IA para llegar al MVP” (AI to reach your MVP) at NASA Space Apps Salta. Friday 6 Nov 2026, 14:00–16:00, UCASAL, Aula 6, Edificio 9.",
+    text: "Workshop “IA para llegar al MVP” at NASA Space Apps Salta.",
     color: "bg-[#6366F1]",
-    media: [
-      {
-        src: "/images/nasa-space-apps-salta-taller.webp",
-        alt: "Flyer for the workshop IA para llegar al MVP at NASA Space Apps Salta, Friday 6 November, 14–16h, UCASAL.",
-      },
-    ],
-  },
-  {
-    date: "Nov 2026",
-    text: "Took part in the Claude Code Hackathon in Madrid.",
-    color: "bg-[#6366F1]",
+    href: "#talks",
+    linkLabel: "See talks",
   },
   {
     date: "Nov 2026",
     text: "GMI Cloud Clouder ambassador.",
     color: "bg-[#10B981]",
+    href: "#talks",
+    linkLabel: "See talks",
   },
   {
     date: "25–26 Oct 2026",
-    text: "Mentor and judge, HackMeridian 2026 (Stellar), Lisbon, Oct 25–26 2026: mentored Scale-track teams for Cosmos Pay and helped judge 165 projects from 350+ builders.",
+    text: "Mentor and judge at HackMeridian 2026 in Lisbon, for Cosmos Pay.",
     color: "bg-[#EC4899]",
-    links: [
-      {
-        href: "https://es.linkedin.com/posts/leocagli_fui-mentor-y-juez-en-hack-meridian-de-stellar-activity-7525497358118313985-FKo6",
-        label: "LinkedIn post",
-      },
-      { href: "https://www.hackmeridian.com/2026", label: "Event recap" },
-    ],
-    media: [
-      {
-        src: "/images/hackmeridian-mentor-judge.webp",
-        alt: "Leonardo Cagliero mentoring at HackMeridian 2026 in Lisbon. A laptop sign reads Ask for feedback here, Cosmos Pay, Mentor.",
-      },
-      {
-        src: "/images/hackmeridian-stellar-ceo.webp",
-        alt: "Leonardo Cagliero with the CEO of the Stellar Development Foundation at HackMeridian.",
-        caption: "With the SDF CEO at HackMeridian",
-      },
-    ],
+    href: "#cosmos-pay",
+    linkLabel: "See Cosmos Pay",
   },
   {
     date: "Oct 2026",
-    text: "Submitted Agentic City, a gamified orchestrator for AI agents, to Superteam Earn / Colosseum.",
+    text: "Submitted Agentic City to Superteam Earn / Colosseum.",
     color: "bg-[#F59E0B]",
-    href: "https://github.com/Bitcoindefi/agentic-city",
-    linkLabel: "View Agentic City on GitHub",
+    href: "#agentic-city",
+    linkLabel: "See project",
   },
   {
-    date: "9 Oct 2026",
-    text: "CosmosPay skill merged into stellar/stellar-dev-skill (PR #138).",
-    color: "bg-[#FFC224]",
-    href: "https://github.com/stellar/stellar-dev-skill/pull/138",
-    linkLabel: "View PR #138",
+    date: "11 Oct 2026",
+    text: "Runa won Best Game at Tripothon S1 in São Paulo (Demo Day).",
+    color: "bg-[#2F81F7]",
+    href: "#runa",
+    linkLabel: "See Runa",
   },
   {
     date: "8 Oct 2026",
-    text: "Gave Taller N°2, “Fake news theory and information verification,” in Código Alerta, an extension project of UCASAL Facultad de Ciencias Jurídicas. Virtual session. I spoke as Product Manager, Salta Dev.",
+    text: "Código Alerta workshop at UCASAL.",
     color: "bg-[#2F81F7]",
-    media: [
-      {
-        src: "/images/codigo-alerta-ucasal-speaker.webp",
-        alt: "Leonardo Cagliero speaking at the Código Alerta workshop.",
-      },
-      {
-        src: "/images/codigo-alerta-ucasal-taller.webp",
-        alt: "Código Alerta workshop on fake news theory and information verification.",
-      },
-    ],
+    href: "#talks",
+    linkLabel: "See talks",
   },
   {
     date: "4 Oct 2026",
-    text: "In Buenos Aires, presented MedFlow at NAVES IAE Business School and an app to prevent gambling addiction in children and adolescents, together with the Government of the City of Buenos Aires and LOTBA. MedFlow is a health project that started at the HSIL hackathon. It continued in NAVES (IAE) with a scholarship. I was a NAVES finalist.",
+    text: "Presented MedFlow at NAVES IAE Business School.",
     color: "bg-[#8B5CF6]",
-    href: "https://www.linkedin.com/posts/leocagli_ayer-estuve-mentoreando-equipos-en-el-hackath%C3%B3n-activity-7512542004531204097-qVDo",
-    linkLabel: "LinkedIn post",
+    href: "#medflow",
+    linkLabel: "See MedFlow",
   },
   {
     date: "4 Oct 2026",
     text: "Mentored teams at the Solana IRL hackathon in Salta.",
     color: "bg-[#10B981]",
-    href: "https://www.linkedin.com/posts/leocagli_ayer-estuve-mentoreando-equipos-en-el-hackath%C3%B3n-activity-7512542004531204097-qVDo",
-    linkLabel: "LinkedIn post",
+    href: "#talks",
+    linkLabel: "See talks",
   },
   {
     date: "17 Sep 2026",
-    text: "With Cosmos Pay, gave the kick-off of the SDF + BAF Buildathon, explained NearX Stellar Apex, and mentored SaltaDev and jujuy.dev with Emanuel Guzman.",
+    text: "SDF + BAF Buildathon kick-off with Cosmos Pay.",
     color: "bg-[#2F81F7]",
-    href: "https://es.linkedin.com/posts/leocagli_con-cosmos-pay-wallet-payments-gateway-activity-7506175864540200960-PD7w",
-    linkLabel: "LinkedIn post",
+    href: "#cosmos-pay",
+    linkLabel: "See Cosmos Pay",
   },
 ]
 
 export function LatestSection() {
   return (
-    <section id="latest" className="bg-[#F5F5F5] py-16 md:py-24">
+    <section id="latest" className="bg-[#F5F5F5] py-14 md:py-20">
       <div className="container mx-auto px-4">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-3xl mx-auto">
           <motion.div
-            className="text-center mb-12"
+            className="text-center mb-10"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5 }}
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-              <span className="bg-[#2F81F7] text-white px-3 py-1 inline-block">Latest</span> work
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3">
+              <span className="bg-[#2F81F7] text-white px-3 py-1 inline-block">Latest</span>
             </h2>
-            <p className="text-[#393939] text-base md:text-lg font-medium">Recent builds, events and milestones.</p>
+            <p className="text-[#393939] text-base md:text-lg font-medium">
+              A short timeline. Open a project or talk to read the full story.
+            </p>
           </motion.div>
 
-          <div className="space-y-4">
+          <ol className="space-y-3">
             {latest.map((item, index) => (
-              <motion.div
-                key={index}
-                className="bg-white border-[3px] border-black rounded-[24px] p-5 md:p-6 flex flex-col gap-4 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-300"
-                initial={{ opacity: 0, y: 20 }}
+              <motion.li
+                key={`${item.date}-${item.href}-${item.text}`}
+                className="bg-white border-[3px] border-black rounded-2xl p-4 md:px-5 md:py-4 flex flex-col sm:flex-row sm:items-center gap-3 hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] transition-shadow"
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: Math.min(index * 0.04, 0.3) }}
+                transition={{ duration: 0.35, delay: Math.min(index * 0.03, 0.25) }}
               >
-                <div className="flex flex-col sm:flex-row sm:items-start gap-4">
-                  <span
-                    className={`${item.color} text-black border-2 border-black text-sm font-bold px-3 py-1.5 rounded-full self-start whitespace-nowrap`}
-                  >
-                    {item.date}
-                  </span>
-                  <p className="text-[#0B0B0B] text-base md:text-lg font-semibold flex-1">{item.text}</p>
-                  {item.href && (
-                    <a
-                      href={item.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1 font-semibold text-[#2F81F7] hover:gap-2 transition-all text-sm whitespace-nowrap self-start"
-                    >
-                      {item.linkLabel ?? "View"}
-                      <ArrowUpRight className="w-4 h-4" />
-                    </a>
-                  )}
-                  {item.links && (
-                    <div className="flex flex-col gap-2 self-start">
-                      {item.links.map((link) => (
-                        <a
-                          key={link.href}
-                          href={link.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-1 font-semibold text-[#2F81F7] hover:gap-2 transition-all text-sm whitespace-nowrap"
-                        >
-                          {link.label}
-                          <ArrowUpRight className="w-4 h-4" />
-                        </a>
-                      ))}
-                    </div>
-                  )}
-                </div>
-                {item.youtubeId && item.youtubeTitle && (
-                  <YouTubeEmbed videoId={item.youtubeId} title={item.youtubeTitle} />
-                )}
-                {item.media && item.media.length > 0 && <MediaCarousel items={item.media} />}
-              </motion.div>
+                <span
+                  className={`${item.color} text-black border-2 border-black text-xs md:text-sm font-bold px-3 py-1 rounded-full self-start whitespace-nowrap`}
+                >
+                  {item.date}
+                </span>
+                <p className="text-[#0B0B0B] text-sm md:text-base font-semibold flex-1">{item.text}</p>
+                <a
+                  href={item.href}
+                  {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  className="flex items-center gap-1 font-semibold text-[#2F81F7] text-sm whitespace-nowrap self-start sm:self-center"
+                >
+                  {item.linkLabel}
+                  <ArrowUpRight className="w-4 h-4" />
+                </a>
+              </motion.li>
             ))}
-          </div>
+          </ol>
         </div>
       </div>
     </section>

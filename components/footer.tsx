@@ -8,12 +8,13 @@ const navLinks = [
   { href: "#latest", label: "Latest" },
   { href: "#experience", label: "Experience" },
   { href: "#projects", label: "Projects" },
+  { href: "#talks", label: "Talks" },
   { href: "#education", label: "Education" },
-  { href: "#community", label: "Community" },
 ]
 
 const projectLinks = [
-  { href: "https://cosmospay.lat", label: "Cosmos Pay" },
+  { href: "https://cosmospay.lat", label: "cosmospay.lat" },
+  { href: "https://cosmosapp.lat", label: "cosmosapp.lat" },
   { href: "#projects", label: "Argentina.dev" },
   { href: "https://github.com/Bitcoindefi/runa", label: "Runa" },
   { href: "https://github.com/Bitcoindefi/agentic-city", label: "Agentic City" },

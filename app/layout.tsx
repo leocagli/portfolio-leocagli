@@ -50,7 +50,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="bg-white">
+    <html lang="en" className="bg-white scroll-smooth">
       <body className={`${onest.variable} font-sans antialiased overflow-x-hidden`}>{children}</body>
     </html>
   )
