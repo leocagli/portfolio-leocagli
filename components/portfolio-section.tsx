@@ -3,6 +3,7 @@
 import { ArrowRight, ArrowUpRight, Github } from "lucide-react"
 import { motion } from "framer-motion"
 import { MediaCarousel, YouTubeEmbed, type MediaSlide } from "@/components/media-carousel"
+import { TiltCard } from "@/components/three-ux/tilt-card"
 
 type ProjectLink = {
   href: string
@@ -219,10 +220,10 @@ export function PortfolioSection() {
 
         <div className="grid md:grid-cols-2 gap-6 mb-12">
           {projects.map((project, index) => (
+            <TiltCard key={project.id} className="h-full">
             <motion.article
-              key={project.id}
               id={project.id}
-              className="group bg-white border-[3px] border-black rounded-[32px] overflow-hidden hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-shadow scroll-mt-28"
+              className="group bg-white border-[3px] border-black rounded-[32px] overflow-hidden hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-shadow scroll-mt-28 h-full"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -303,6 +304,7 @@ export function PortfolioSection() {
                 )}
               </div>
             </motion.article>
+            </TiltCard>
           ))}
         </div>
 

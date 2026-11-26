@@ -2,6 +2,7 @@
 
 import { Award, Trophy, ArrowUpRight } from "lucide-react"
 import { motion } from "framer-motion"
+import { TiltCard } from "@/components/three-ux/tilt-card"
 
 type AwardItem = {
   title: string
@@ -89,9 +90,9 @@ export function AwardsSection() {
           {awards.map((award, index) => {
             const IconComponent = award.icon
             return (
+              <TiltCard key={award.title} className="h-full" max={7}>
               <motion.article
-                key={award.title}
-                className="bg-white border-[3px] border-black rounded-[24px] p-6 text-center hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-shadow"
+                className="bg-white border-[3px] border-black rounded-[24px] p-6 text-center hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-shadow h-full"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -123,6 +124,7 @@ export function AwardsSection() {
                   </a>
                 )}
               </motion.article>
+              </TiltCard>
             )
           })}
         </div>

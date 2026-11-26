@@ -1,10 +1,9 @@
 "use client"
 
-import { Canvas, useFrame, useThree } from "@react-three/fiber"
 import { useCallback, useEffect, useRef, useState, type PointerEvent as ReactPointerEvent } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { ProjectNavLinks } from "@/components/project-nav-links"
-import * as THREE from "three"
+import { shouldUseMotion } from "@/components/three-ux/env"
 
 const PROJECTS = [
   {
@@ -47,19 +46,6 @@ const PROJECTS = [
 
 const N = PROJECTS.length
 
-function shouldUseMotion() {
-  if (typeof window === "undefined") return false
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return false
-  const nav = navigator as Navigator & {
-    deviceMemory?: number
-    connection?: { saveData?: boolean }
-  }
-  if (nav.connection?.saveData) return false
-  if (typeof nav.deviceMemory === "number" && nav.deviceMemory <= 2) return false
-  if (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 2) return false
-  return true
-}
-
 function wrapIndex(i: number) {
   return ((i % N) + N) % N
 }
@@ -69,107 +55,6 @@ function shortestOffset(i: number, active: number) {
   while (d > N / 2) d -= N
   while (d < -N / 2) d += N
   return d
-}
-
-function DemandLoop({ enabled, fps }: { enabled: boolean; fps: number }) {
-  const invalidate = useThree((s) => s.invalidate)
-  useEffect(() => {
-    if (!enabled) return
-    let raf = 0
-    let last = 0
-    const tick = (now: number) => {
-      if (now - last >= 1000 / fps) {
-        last = now
-        invalidate()
-      }
-      raf = requestAnimationFrame(tick)
-    }
-    raf = requestAnimationFrame(tick)
-    return () => cancelAnimationFrame(raf)
-  }, [enabled, fps, invalidate])
-  return null
-}
-
-function LowPolyBackdrop() {
-  const terrain = useRef<THREE.Mesh>(null)
-  const group = useRef<THREE.Group>(null)
-  const geometry = useRef<THREE.PlaneGeometry | null>(null)
-  if (!geometry.current) {
-    const g = new THREE.PlaneGeometry(16, 7, 18, 9)
-    const pos = g.attributes.position
-    for (let i = 0; i < pos.count; i++) {
-      const x = pos.getX(i)
-      const y = pos.getY(i)
-      pos.setZ(i, Math.sin(x * 0.55) * 0.28 + Math.cos(y * 0.7) * 0.18)
-    }
-    geometry.current = g
-  }
-
-  useFrame(({ clock }) => {
-    const t = clock.elapsedTime
-    if (terrain.current) {
-      terrain.current.position.y = -1.35 + Math.sin(t * 0.2) * 0.06
-    }
-    if (group.current) {
-      group.current.rotation.y = Math.sin(t * 0.12) * 0.08
-    }
-  })
-
-  return (
-    <group ref={group}>
-      <mesh
-        ref={terrain}
-        geometry={geometry.current}
-        rotation={[-0.72, 0, 0]}
-        position={[0, -1.35, -2.2]}
-      >
-        <meshBasicMaterial color="#d7e4f7" transparent opacity={0.85} />
-      </mesh>
-      {[
-        { p: [-4.2, 0.4, -3] as const, c: "#2F81F7", s: 0.35 },
-        { p: [3.6, 0.7, -3.4] as const, c: "#FFC224", s: 0.28 },
-        { p: [-1.2, 1.1, -3.8] as const, c: "#FF6B7A", s: 0.22 },
-        { p: [1.8, 0.2, -3.1] as const, c: "#10B981", s: 0.26 },
-      ].map((item) => (
-        <mesh key={item.c} position={item.p} rotation={[0.4, 0.5, 0.2]}>
-          <icosahedronGeometry args={[item.s, 0]} />
-          <meshBasicMaterial color={item.c} wireframe transparent opacity={0.35} />
-        </mesh>
-      ))}
-    </group>
-  )
-}
-
-function BackgroundCanvas({ enabled }: { enabled: boolean }) {
-  const [isMobile, setIsMobile] = useState(true)
-  useEffect(() => setIsMobile(window.innerWidth < 768), [])
-  const dpr = isMobile ? 1 : Math.min(1.5, typeof window !== "undefined" ? window.devicePixelRatio || 1 : 1)
-
-  if (!enabled) return null
-
-  return (
-    <Canvas
-      frameloop="demand"
-      dpr={dpr}
-      flat
-      gl={{
-        antialias: false,
-        alpha: true,
-        powerPreference: "low-power",
-        stencil: false,
-        depth: true,
-      }}
-      camera={{ position: [0, 0.2, 6.5], fov: 40, near: 0.1, far: 30 }}
-      onCreated={({ gl }) => {
-        gl.shadowMap.enabled = false
-      }}
-      className="absolute inset-0 !h-full !w-full"
-      aria-hidden="true"
-    >
-      <DemandLoop enabled={enabled} fps={30} />
-      <LowPolyBackdrop />
-    </Canvas>
-  )
 }
 
 function ProjectGrid() {
@@ -277,8 +162,6 @@ export function HeroProjectNav() {
     if (moved) e.preventDefault()
   }
 
-  const bgEnabled = animating
-
   return (
     <div ref={wrapRef} className="mt-12 md:mt-16">
       <h2 className="text-2xl md:text-3xl font-bold text-center mb-2">Explore projects</h2>
@@ -291,7 +174,7 @@ export function HeroProjectNav() {
       {motionOn ? (
         <div className="relative mb-5">
           <div
-            className="relative h-[250px] md:h-[320px] rounded-[24px] border-[3px] border-black bg-[#F5F5F5] overflow-hidden touch-pan-y"
+            className="relative h-[250px] md:h-[320px] rounded-[24px] border-[3px] border-black bg-white/50 overflow-hidden touch-pan-y"
             onPointerMove={(e) => {
               onPointerMove(e)
               onPointerDrag(e)
@@ -303,7 +186,6 @@ export function HeroProjectNav() {
               tiltRef.current = { x: 0, y: 0 }
             }}
           >
-            <BackgroundCanvas enabled={bgEnabled} />
             <div
               className="absolute inset-0"
               style={{
