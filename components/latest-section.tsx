@@ -95,7 +95,7 @@ const latest: LatestItem[] = [
 
 export function LatestSection() {
   return (
-    <section id="latest" className="bg-[#F5F5F5] py-14 md:py-20">
+    <section id="latest" className="bg-transparent py-14 md:py-20">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto">
           <motion.div
@@ -105,30 +105,30 @@ export function LatestSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-3">
               <span className="bg-[#2F81F7] text-white px-3 py-1 inline-block">Latest</span>
             </h2>
-            <p className="text-[#393939] text-base md:text-lg font-medium">
+            <p className="text-slate-300 text-base md:text-lg font-medium">
               A short timeline. Open a project or talk to read the full story.
             </p>
           </motion.div>
 
           <ol className="space-y-3">
             {latest.map((item, index) => (
-              <TiltCard as="li" key={`${item.date}-${item.href}-${item.text}`} max={4}>
+              <TiltCard as="li" key={`${item.date}-${item.href}-${item.text}`} max={4} className="card-frame rounded-2xl">
               <motion.div
-                className="bg-white border-[3px] border-black rounded-2xl p-4 md:px-5 md:py-4 flex flex-col sm:flex-row sm:items-center gap-3 hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] transition-shadow"
+                className="card-glass rounded-[15px] p-4 md:px-5 md:py-4 flex flex-col sm:flex-row sm:items-center gap-3 transition-shadow"
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.35, delay: Math.min(index * 0.03, 0.25) }}
               >
                 <span
-                  className={`${item.color} text-black border-2 border-black text-xs md:text-sm font-bold px-3 py-1 rounded-full self-start whitespace-nowrap`}
+                  className={`${item.color} text-black text-xs md:text-sm font-bold px-3 py-1 rounded-full self-start whitespace-nowrap shadow-sm`}
                 >
                   {item.date}
                 </span>
-                <p className="text-[#0B0B0B] text-sm md:text-base font-semibold flex-1">{item.text}</p>
+                <p className="text-white text-sm md:text-base font-semibold flex-1">{item.text}</p>
                 <a
                   href={item.href}
                   {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}

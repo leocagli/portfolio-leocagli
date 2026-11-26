@@ -17,9 +17,9 @@ export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <div className="sticky top-0 z-50 bg-white/90 backdrop-blur-sm container mx-auto px-4 pt-3 pb-3 md:pt-4 md:pb-4">
-      <nav className="flex items-center justify-between bg-white border-4 border-black rounded-xl px-4 md:px-5 py-3 max-w-4xl mx-auto shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
-        <a href="/" className="text-lg md:text-xl font-bold leading-none flex-shrink-0">
+    <div className="sticky top-0 z-50 bg-transparent container mx-auto px-4 pt-3 pb-3 md:pt-4 md:pb-4">
+      <nav className="flex items-center justify-between card-glass rounded-xl px-4 md:px-5 py-3 max-w-4xl mx-auto">
+        <a href="/" className="text-lg md:text-xl font-bold leading-none flex-shrink-0 font-[family-name:var(--font-space-grotesk)] tracking-tight text-white">
           Leonardo Cagliero
         </a>
 
@@ -37,14 +37,14 @@ export function Navigation() {
 
         <div className="flex items-center gap-2">
           <Button
-            className="md:hidden bg-transparent hover:bg-gray-100 text-black p-2 h-auto"
+            className="md:hidden bg-transparent hover:bg-white/10 text-white p-2 h-auto"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </Button>
           <Button
             asChild
-            className="bg-black text-white hover:bg-black/90 rounded-sm px-5 h-12 min-w-[48px] flex-shrink-0"
+            className="bg-white text-[#0a1020] hover:bg-[#FFC224] rounded-full px-5 h-12 min-w-[48px] flex-shrink-0"
           >
             <a href="mailto:leocagli@gmail.com" aria-label="Email Leonardo">
               <Mail className="w-6 h-6" strokeWidth={2.5} />
@@ -55,7 +55,7 @@ export function Navigation() {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden mt-4 bg-white border-4 border-black rounded-xl p-4 max-w-3xl mx-auto shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+        <div className="md:hidden mt-4 card-glass rounded-xl p-4 max-w-3xl mx-auto">
           <div className="flex flex-col gap-4">
             {navLinks.map((link) => (
               <a

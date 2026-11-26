@@ -69,7 +69,7 @@ export function ExperienceSection() {
   const [showAll, setShowAll] = useState(false)
 
   return (
-    <section id="experience" className="bg-black py-16 md:py-24">
+    <section id="experience" className="bg-transparent py-16 md:py-24">
       <div className="container mx-auto px-4">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-start">
           <motion.div
@@ -79,7 +79,7 @@ export function ExperienceSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold mb-6 md:mb-8 leading-[1.3]">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-6 md:mb-8 leading-[1.3]">
               Take a look at my <span className="bg-[#6366F1] text-white px-3 py-1 inline-block">experience</span>
             </h2>
             <p className="text-gray-400 mb-6 leading-relaxed text-base md:text-lg">
@@ -95,37 +95,38 @@ export function ExperienceSection() {
             {(showAll ? experiences : experiences.slice(0, 3)).map((exp, index) => (
               <motion.div
                 key={index}
-                className="bg-white border-4 border-black rounded-3xl min-h-[220px] md:min-h-[240px]"
+                className="card-frame rounded-3xl min-h-[220px] md:min-h-[240px] overflow-hidden"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
               >
+                <div className="card-glass rounded-[22px] h-full">
                 <div className="flex items-center justify-between mb-4 md:mb-6 pt-6 md:pt-8 px-6 md:px-8">
-                  <div className="text-base md:text-[22px] leading-tight md:leading-[34px] font-bold text-[#0B0B0B]">
+                  <div className="text-base md:text-[22px] leading-tight md:leading-[34px] font-bold text-white">
                     {exp.period}
                   </div>
                   {exp.logo ? (
-                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/20 shadow-lg overflow-hidden">
                       <img src={exp.logo} alt={`${exp.company} logo`} className="w-full h-full object-cover" />
                     </div>
                   ) : (
                     <div
-                      className={`${exp.color} w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center`}
+                      className={`${exp.color} w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/20 shadow-lg flex items-center justify-center`}
                     >
                       <span className="text-white text-xs font-bold">{exp.company.slice(0, 2).toUpperCase()}</span>
                     </div>
                   )}
                 </div>
 
-                <div className="border-t-[3px] border-black mb-4 md:mb-6"></div>
+                <div className="border-t border-white/15 mb-4 md:mb-6"></div>
 
                 <div className="px-6 md:px-8 pb-6 md:pb-8">
-                  <h3 className="text-xl md:text-[24px] leading-tight md:leading-[32px] font-bold text-[#0B0B0B] mb-1">
+                  <h3 className="text-xl md:text-[24px] leading-tight md:leading-[32px] font-bold text-white mb-1">
                     {exp.title}
                   </h3>
                   <p className="text-[#2F81F7] font-bold mb-2">{exp.company}</p>
-                  <p className="text-[#393939] text-base md:text-[18px] leading-relaxed md:leading-[28px]">
+                  <p className="text-slate-300 text-base md:text-[18px] leading-relaxed md:leading-[28px]">
                     {exp.description}
                   </p>
                   {exp.href && (
@@ -137,13 +138,14 @@ export function ExperienceSection() {
                     </a>
                   )}
                 </div>
+                </div>
               </motion.div>
             ))}
 
             <div className="flex justify-center mt-8">
               <button
                 onClick={() => setShowAll(!showAll)}
-                className="bg-[#0B0B0B] text-white hover:bg-white hover:text-black font-semibold px-8 py-3 rounded-full border-[3px] border-black hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all"
+                className="bg-white text-[#0a1020] hover:bg-[#FFC224] font-semibold px-8 py-3 rounded-full transition-all"
               >
                 {showAll ? "Show less" : "See full history"}
               </button>
