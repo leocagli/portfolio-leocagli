@@ -341,22 +341,6 @@ export function PortfolioSection() {
           </div>
         </motion.div>
 
-        <motion.article
-          id="y-hat"
-          className="bg-white border-[3px] border-black rounded-[32px] p-6 md:p-8 scroll-mt-28"
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4 }}
-        >
-          <h3 className="text-xl font-bold mb-2">Y-Hat Hackathon, UBA Exactas</h3>
-          <p className="text-[#393939] font-medium mb-4">3rd place — AI Track with Provi.ia.</p>
-          <img
-            src="/images/y-hat-provi-certificate.jpeg"
-            alt="Certificate for 3rd place in the AI Track at Y-Hat Hackathon, UBA Exactas, with Provi.ia."
-            className="w-full max-w-md rounded-xl border-2 border-black"
-          />
-        </motion.article>
       </div>
     </section>
   )

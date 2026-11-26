@@ -7,8 +7,8 @@ import { useState, useEffect, useCallback } from "react"
 import dynamic from "next/dynamic"
 import { ProjectNavLinks } from "@/components/project-nav-links"
 
-const Hero3DNav = dynamic(
-  () => import("@/components/hero-3d-nav").then((m) => m.Hero3DNav),
+const HeroProjectNav = dynamic(
+  () => import("@/components/hero-project-nav").then((m) => m.HeroProjectNav),
   {
     ssr: false,
     loading: () => (
@@ -174,7 +174,7 @@ export function HeroSection() {
       </div>
 
       <div className="max-w-7xl mx-auto">
-        <Hero3DNav />
+        <HeroProjectNav />
       </div>
     </section>
   )
