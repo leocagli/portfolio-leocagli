@@ -3,18 +3,22 @@ import type { Metadata } from "next"
 
 import "./globals.css"
 
-import { Space_Grotesk, DM_Sans } from "next/font/google"
+import localFont from "next/font/local"
 
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
+// Vendored so the production build does not depend on the Google Fonts API
+// (next/font/google failed on Vercel with a loader TypeError).
+const spaceGrotesk = localFont({
+  src: "./fonts/SpaceGrotesk-latin.woff2",
+  weight: "500 700",
   variable: "--font-space-grotesk",
+  display: "swap",
 })
 
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
+const dmSans = localFont({
+  src: "./fonts/DMSans-latin.woff2",
+  weight: "400 600",
   variable: "--font-dm-sans",
+  display: "swap",
 })
 
 export const metadata: Metadata = {
