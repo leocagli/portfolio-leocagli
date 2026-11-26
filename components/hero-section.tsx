@@ -14,7 +14,7 @@ const HeroProjectNav = dynamic(
     loading: () => (
       <div className="mt-12 md:mt-16">
         <h2 className="text-2xl md:text-3xl font-bold text-center mb-2">Explore projects</h2>
-        <p className="text-slate-300 text-sm md:text-base font-medium text-center mb-5">
+        <p className="text-slate-100 text-sm md:text-base font-medium text-center mb-5 text-on-terrain">
           Open a project to read the full story in one place.
         </p>
         <ProjectNavLinks />
@@ -63,18 +63,18 @@ export function HeroSection() {
     <section id="top" className="container mx-auto px-4 py-10 md:py-16">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 md:gap-12 items-center">
         <motion.div
-          className="space-y-6"
+          className="relative space-y-6"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="text-[40px] leading-[46px] md:text-[68px] font-bold md:leading-[74px] text-white tracking-tight">
+          <h1 className="text-[40px] leading-[46px] md:text-[68px] font-bold md:leading-[74px] text-white tracking-tight text-on-terrain">
             I build <span className="bg-[#FF6B7A] text-white px-3 py-1 inline-block">products</span>, analyze{" "}
             <span className="bg-[#2F81F7] text-white px-3 py-1 inline-block">data</span> and automate work with{" "}
             <span className="bg-[#FFC224] text-black px-3 py-1 inline-block">AI</span>.
           </h1>
 
-          <p className="text-slate-100 text-[16px] md:text-[18px] font-medium leading-[28px] md:leading-[30px] max-w-xl [text-shadow:0_2px_18px_rgba(10,16,32,0.9)]">
+          <p className="text-slate-100 text-[16px] md:text-[18px] font-medium leading-[28px] md:leading-[30px] max-w-xl text-on-terrain">
             I&apos;m Leonardo Cagliero, from Salta, Argentina. I founded Cosmos Pay and Argentina.dev. About 5 years of
             work experience in finance, payments and logistics. Open to junior Product, Data Analyst and AI Automation
             roles. Remote, LatAm or global.

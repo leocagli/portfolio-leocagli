@@ -17,6 +17,7 @@ export function SiteBackgroundMount() {
     <>
       <div className="site-bg-fallback" aria-hidden="true" />
       {enabled ? <SiteBackground /> : null}
+      <div className="site-readability-overlay" aria-hidden="true" />
     </>
   )
 }

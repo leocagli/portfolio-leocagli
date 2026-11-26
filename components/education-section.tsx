@@ -85,7 +85,7 @@ export function EducationSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-4">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-4 text-on-terrain">
               Education &amp; <span className="bg-[#2F81F7] text-white px-3 py-1 inline-block">certificates</span>
             </h2>
           </motion.div>

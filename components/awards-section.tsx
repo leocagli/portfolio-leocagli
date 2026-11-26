@@ -80,7 +80,7 @@ export function AwardsSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-3">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-3 text-on-terrain">
             Hackathons, grants &amp;{" "}
             <span className="bg-[#FFC224] text-black px-3 py-1 inline-block">awards</span>
           </h2>

@@ -162,6 +162,7 @@ const projects: Project[] = [
       "Developer community I founded in Argentina. About 3,000 members in total, across Salta Dev, Jujuy Dev and Formosa Dev.",
       "On 22 Nov 2026 I was mentor and judge at Cursor Hackathon Jujuy on the Tren Solar de la Quebrada, departing Estación Volcán, organized with jujuy.dev / Argentina.dev, Cursor, SpaceXSI Community, Nodo and Argentina Space. 70 attendees.",
       "I organized Cabildo Tech in Jujuy, a tech event with 150 attendees. I also spoke there.",
+      "At Puna Tech 2026 in Salta I organized the Arkiv Network hackathon track (Arkiv x Puna Tech). I also hosted the closing sunset event on 30 May 2026, with Cerveza Salta. The congress had more than 1,500 attendees, per press.",
     ],
     tags: ["Community", "Hackathons", "Argentina", "Developers"],
     bgColor: "bg-[#10B981]",
@@ -209,11 +210,11 @@ export function PortfolioSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-3">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-3 text-on-terrain">
             Featured <br className="hidden md:block" />
             <span className="bg-[#FFC224] text-black px-3 py-1 inline-block">projects</span>
           </h2>
-          <p className="text-slate-300 text-base md:text-lg font-medium max-w-2xl mx-auto">
+          <p className="text-slate-100 text-base md:text-lg font-medium max-w-2xl mx-auto text-on-terrain">
             Each project lives in one place, with its story, photos and links.
           </p>
         </motion.div>

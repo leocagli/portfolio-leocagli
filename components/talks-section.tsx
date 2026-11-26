@@ -103,10 +103,10 @@ export function TalksSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-3">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-3 text-on-terrain">
               Talks &amp; <span className="bg-[#6366F1] text-white px-3 py-1 inline-block">workshops</span>
             </h2>
-            <p className="text-slate-300 text-base md:text-lg font-medium">
+            <p className="text-slate-100 text-base md:text-lg font-medium text-on-terrain">
               Mentoring, talks and workshops that are not tied to a single project.
             </p>
           </motion.div>
