@@ -3,6 +3,7 @@
 import { ArrowUpRight } from "lucide-react"
 import { motion } from "framer-motion"
 import { MediaCarousel, type MediaSlide } from "@/components/media-carousel"
+import { TiltCard } from "@/components/three-ux/tilt-card"
 
 type TalkLink = { href: string; label: string }
 
@@ -112,9 +113,9 @@ export function TalksSection() {
 
           <div className="grid md:grid-cols-2 gap-6">
             {talks.map((talk, index) => (
+              <TiltCard key={talk.title} className="h-full" max={5}>
               <motion.article
-                key={talk.title}
-                className="bg-white border-[3px] border-black rounded-[32px] overflow-hidden hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-shadow"
+                className="bg-white border-[3px] border-black rounded-[32px] overflow-hidden hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-shadow h-full"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -143,6 +144,7 @@ export function TalksSection() {
                   ))}
                 </div>
               </motion.article>
+              </TiltCard>
             ))}
           </div>
         </div>

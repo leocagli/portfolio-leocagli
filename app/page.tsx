@@ -7,10 +7,13 @@ import { AwardsSection } from "@/components/awards-section"
 import { TalksSection } from "@/components/talks-section"
 import { EducationSection } from "@/components/education-section"
 import { Footer } from "@/components/footer"
+import { SiteBackgroundMount } from "@/components/three-ux/site-background-mount"
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white">
+    <>
+      <SiteBackgroundMount />
+      <main className="relative z-10 min-h-screen">
       <Navigation />
       <HeroSection />
       <LatestSection />
@@ -21,5 +24,6 @@ export default function Home() {
       <EducationSection />
       <Footer />
     </main>
+    </>
   )
 }

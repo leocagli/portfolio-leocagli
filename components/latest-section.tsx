@@ -2,6 +2,7 @@
 
 import { ArrowUpRight } from "lucide-react"
 import { motion } from "framer-motion"
+import { TiltCard } from "@/components/three-ux/tilt-card"
 
 type LatestItem = {
   date: string
@@ -114,8 +115,8 @@ export function LatestSection() {
 
           <ol className="space-y-3">
             {latest.map((item, index) => (
-              <motion.li
-                key={`${item.date}-${item.href}-${item.text}`}
+              <TiltCard as="li" key={`${item.date}-${item.href}-${item.text}`} max={4}>
+              <motion.div
                 className="bg-white border-[3px] border-black rounded-2xl p-4 md:px-5 md:py-4 flex flex-col sm:flex-row sm:items-center gap-3 hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] transition-shadow"
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -136,7 +137,8 @@ export function LatestSection() {
                   {item.linkLabel}
                   <ArrowUpRight className="w-4 h-4" />
                 </a>
-              </motion.li>
+              </motion.div>
+              </TiltCard>
             ))}
           </ol>
         </div>
