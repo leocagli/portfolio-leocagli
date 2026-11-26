@@ -4,6 +4,24 @@ import { ArrowRight, Briefcase, ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { motion, AnimatePresence } from "framer-motion"
 import { useState, useEffect, useCallback } from "react"
+import dynamic from "next/dynamic"
+import { ProjectNavLinks } from "@/components/project-nav-links"
+
+const Hero3DNav = dynamic(
+  () => import("@/components/hero-3d-nav").then((m) => m.Hero3DNav),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="mt-12 md:mt-16">
+        <h2 className="text-2xl md:text-3xl font-bold text-center mb-2">Explore projects</h2>
+        <p className="text-[#393939] text-sm md:text-base font-medium text-center mb-5">
+          Open a project to read the full story in one place.
+        </p>
+        <ProjectNavLinks />
+      </div>
+    ),
+  },
+)
 
 const profilePhotos = [
   {
@@ -33,6 +51,8 @@ export function HeroSection() {
   }, [])
 
   useEffect(() => {
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    if (reduce) return
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % profilePhotos.length)
     }, 4000)
@@ -40,8 +60,8 @@ export function HeroSection() {
   }, [])
 
   return (
-    <section id="top" className="container mx-auto px-4 py-16 md:py-24">
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+    <section id="top" className="container mx-auto px-4 py-10 md:py-16">
+      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 md:gap-12 items-center">
         <motion.div
           className="space-y-6"
           initial={{ opacity: 0, y: 20 }}
@@ -151,6 +171,10 @@ export function HeroSection() {
             </div>
           </div>
         </motion.div>
+      </div>
+
+      <div className="max-w-7xl mx-auto">
+        <Hero3DNav />
       </div>
     </section>
   )

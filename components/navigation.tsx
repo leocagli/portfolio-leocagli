@@ -8,21 +8,21 @@ const navLinks = [
   { href: "#latest", label: "Latest" },
   { href: "#experience", label: "Experience" },
   { href: "#projects", label: "Projects" },
+  { href: "#talks", label: "Talks" },
   { href: "#education", label: "Education" },
-  { href: "#community", label: "Community" },
 ]
 
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <div className="container mx-auto px-4 pt-8 pb-4">
-      <nav className="flex items-center justify-between bg-white border-4 border-black rounded-xl px-5 py-3 max-w-3xl mx-auto shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+    <div className="sticky top-0 z-50 bg-white/90 backdrop-blur-sm container mx-auto px-4 pt-3 pb-3 md:pt-4 md:pb-4">
+      <nav className="flex items-center justify-between bg-white border-4 border-black rounded-xl px-4 md:px-5 py-3 max-w-4xl mx-auto shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
         <a href="/" className="text-lg md:text-xl font-bold leading-none flex-shrink-0">
           Leonardo Cagliero
         </a>
 
-        <div className="hidden md:flex items-center gap-5 flex-1 justify-center">
+        <div className="hidden md:flex items-center gap-4 lg:gap-5 flex-1 justify-center">
           {navLinks.map((link) => (
             <a
               key={link.href}

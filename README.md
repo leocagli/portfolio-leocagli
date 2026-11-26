@@ -12,7 +12,7 @@ Personal portfolio of **Leonardo Cagliero** — from Salta, Argentina. I build p
 
 ## Highlights
 
-- 🏆 **Hackathons & grants**: Tripothon S1 São Paulo (Best Game with Runa), ETHGlobal Buenos Aires (Yellow Track with Previate), Stellar Give Hackathon (1st place), Meridian Rio (Top 5 with Tralala Contracts), Instawards (US$10k, no equity — with Cosmos Pay), Y-Hat UBA Exactas (3rd — AI Track with Provi.ia), Pulso Hackathon by Stellar, Aleph Hackathon (with Runa)
+- 🏆 **Hackathons & grants**: Tripothon S1 São Paulo (Best Game with Runa), Instawards (US$10k, no equity — with Cosmos Pay), Y-Hat UBA Exactas (3rd — AI Track with Provi.ia)
 - 🌎 **Community**: Mentor & judge at HackMeridian 2026 (Stellar), Lisbon, 25–26 Oct 2026 (165 projects); mentor & judge at Cursor Hackathon Jujuy on the Tren Solar (22 Nov 2026, 70 attendees); Argentina.dev (~3,000 members across Salta Dev, Jujuy Dev and Formosa Dev); NASA Space Apps Salta workshop; Código Alerta at UCASAL; Cabildo Tech in Jujuy; UTN Córdoba talk with Bitcoin Argentina; GMI Cloud Clouder ambassador
 - 🛠️ **Projects**: Cosmos Pay, Argentina.dev, Runa, Agentic City — and more on [GitHub](https://github.com/Bitcoindefi)
 
@@ -30,7 +30,7 @@ Personal portfolio of **Leonardo Cagliero** — from Salta, Argentina. I build p
 
 ## Sections
 
-`Hero` (photo carousel) · `Latest` · `Experience` · `Projects` · `Education` · `Community & teaching` · `Footer`
+`Hero` (photo carousel + light 3D project nav, with a non-3D fallback) · `Latest` (short timeline) · `Experience` · `Projects` (one story per project) · `Talks & workshops` · `Education` · `Footer`
 
 Each section is a standalone component in [`components/`](components/) — content lives inline as typed arrays, so updating projects/awards is a one-file edit.
 

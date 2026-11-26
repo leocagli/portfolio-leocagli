@@ -3,8 +3,8 @@ import { HeroSection } from "@/components/hero-section"
 import { LatestSection } from "@/components/latest-section"
 import { ExperienceSection } from "@/components/experience-section"
 import { PortfolioSection } from "@/components/portfolio-section"
+import { TalksSection } from "@/components/talks-section"
 import { EducationSection } from "@/components/education-section"
-import { CommunitySection } from "@/components/community-section"
 import { Footer } from "@/components/footer"
 
 export default function Home() {
@@ -15,8 +15,8 @@ export default function Home() {
       <LatestSection />
       <ExperienceSection />
       <PortfolioSection />
+      <TalksSection />
       <EducationSection />
-      <CommunitySection />
       <Footer />
     </main>
   )

@@ -2,7 +2,7 @@
 
 import { ArrowRight, ArrowUpRight, Github } from "lucide-react"
 import { motion } from "framer-motion"
-import { MediaCarousel, type MediaSlide } from "@/components/media-carousel"
+import { MediaCarousel, YouTubeEmbed, type MediaSlide } from "@/components/media-carousel"
 
 type ProjectLink = {
   href: string
@@ -10,9 +10,10 @@ type ProjectLink = {
 }
 
 type Project = {
+  id: string
   title: string
   category: string
-  description: string
+  paragraphs: string[]
   tags: string[]
   bgColor: string
   tagColor: string
@@ -20,34 +21,101 @@ type Project = {
   href?: string
   links?: ProjectLink[]
   media?: MediaSlide[]
+  youtubeId?: string
+  youtubeTitle?: string
 }
 
 const projects: Project[] = [
   {
+    id: "cosmos-pay",
     title: "Cosmos Pay",
-    category: "Fintech · USDC payments",
-    description:
-      "Non-custodial USDC payments for LATAM. SEP-7 payment links. About 200 weekly active users and a team of 2. The CosmosPay skill was merged into stellar/stellar-dev-skill (PR #138). Won US$10k at Instawards, no equity.",
-    tags: ["Stellar", "USDC", "SEP-7", "Fintech", "LATAM"],
+    category: "Wallet · P2P marketplace",
+    paragraphs: [
+      "A simpler way to move your digital world.",
+      "Cosmos Pay is a crypto wallet and P2P marketplace for LatAm (USDT and USDC on Stellar). Started March 2025. Won US$10k at the Stellar Instawards, with no equity. Team of 2, with co-founder Emanuel Guzmán.",
+      "At HackMeridian 2026 (Stellar) in Lisbon, 25–26 Oct 2026, I mentored Scale-track teams for Cosmos Pay and helped judge 165 projects from 350+ builders.",
+      "On 17 Sep 2026, with Cosmos Pay, I gave the kick-off of the SDF + BAF Buildathon, explained NearX Stellar Apex, and mentored SaltaDev and jujuy.dev with Emanuel Guzmán.",
+    ],
+    tags: ["Stellar", "USDT", "USDC", "Wallet", "LatAm"],
     bgColor: "bg-[#2F81F7]",
     tagColor: "bg-[#FF6B7A]",
     logo: "/logos/cosmos-icon.jpeg",
     href: "https://cosmospay.lat",
+    links: [
+      { href: "https://cosmospay.lat", label: "cosmospay.lat" },
+      { href: "https://cosmosapp.lat", label: "cosmosapp.lat" },
+      {
+        href: "https://es.linkedin.com/posts/leocagli_fui-mentor-y-juez-en-hack-meridian-de-stellar-activity-7525497358118313985-FKo6",
+        label: "HackMeridian LinkedIn post",
+      },
+      { href: "https://www.hackmeridian.com/2026", label: "HackMeridian recap" },
+      {
+        href: "https://es.linkedin.com/posts/leocagli_con-cosmos-pay-wallet-payments-gateway-activity-7506175864540200960-PD7w",
+        label: "SDF + BAF Buildathon LinkedIn post",
+      },
+    ],
+    media: [
+      {
+        src: "/images/cosmos-pay-banner.webp",
+        alt: "Official Cosmos Pay banner: A simpler way to move your digital world.",
+      },
+      {
+        src: "/images/hackmeridian-mentor-judge.webp",
+        alt: "Leonardo Cagliero mentoring at HackMeridian 2026 in Lisbon. A laptop sign reads Ask for feedback here, Cosmos Pay, Mentor.",
+      },
+      {
+        src: "/images/hackmeridian-stellar-ceo.webp",
+        alt: "Leonardo Cagliero with the CEO of the Stellar Development Foundation at HackMeridian.",
+        caption: "With the SDF CEO at HackMeridian",
+      },
+    ],
   },
   {
-    title: "Argentina.dev",
-    category: "Developer Community",
-    description:
-      "Developer community I founded in Argentina. About 3,000 members in total, across Salta Dev, Jujuy Dev and Formosa Dev. On 22 Nov 2026 I was mentor and judge at Cursor Hackathon Jujuy on the Tren Solar de la Quebrada, departing Estación Volcán, organized with jujuy.dev / Argentina.dev, Cursor, SpaceXAI community, Nodo and Argentina Space. 70 attendees.",
-    tags: ["Community", "Hackathons", "Argentina", "Developers"],
+    id: "ba-protege-plus",
+    title: "BA Protege Plus",
+    category: "Current work",
+    paragraphs: [
+      "Building BA Protege Plus with Innova Labs, the innovation lab of the City of Buenos Aires, and working with LOTBA (Lotería de la Ciudad de Buenos Aires).",
+      "This is the app to prevent gambling addiction in children and adolescents.",
+    ],
+    tags: ["Innova Labs", "LOTBA", "Buenos Aires"],
     bgColor: "bg-[#10B981]",
     tagColor: "bg-[#0B0B0B]",
+    youtubeId: "roGEFiwATeI",
+    youtubeTitle: "BA Protege plus",
+    links: [{ href: "https://youtu.be/roGEFiwATeI", label: "Watch on YouTube" }],
   },
   {
+    id: "medflow",
+    title: "MedFlow",
+    category: "Health",
+    paragraphs: [
+      "In Buenos Aires, presented MedFlow at NAVES IAE Business School and an app to prevent gambling addiction in children and adolescents, together with the Government of the City of Buenos Aires and LOTBA. MedFlow is a health project that started at the HSIL hackathon. It continued in NAVES (IAE) with a scholarship. I was a NAVES finalist.",
+    ],
+    tags: ["Health", "NAVES IAE", "HSIL"],
+    bgColor: "bg-[#8B5CF6]",
+    tagColor: "bg-[#FFC224]",
+    logo: "/images/medflow-logo.webp",
+    links: [
+      {
+        href: "https://www.linkedin.com/posts/leocagli_ayer-estuve-mentoreando-equipos-en-el-hackath%C3%B3n-activity-7512542004531204097-qVDo",
+        label: "LinkedIn post",
+      },
+    ],
+    media: [
+      {
+        src: "/images/medflow-logo.webp",
+        alt: "MedFlow logo.",
+      },
+    ],
+  },
+  {
+    id: "runa",
     title: "Runa",
     category: "Game",
-    description:
-      "An ASCII RPG for the terminal, with a 3D city you can play in the browser. Every 3D model was generated with Tripo. Submitted to the Tripo Agentic Canvas Workflow Challenge (13 Nov 2026). Best Game at Tripothon S1 in São Paulo.",
+    paragraphs: [
+      "An ASCII RPG for the terminal, with a 3D city you can play in the browser. Every 3D model was generated with Tripo. Best Game at Tripothon S1 in São Paulo (Demo Day).",
+    ],
     tags: ["Game", "Tripo", "Tripothon", "RPG"],
     bgColor: "bg-[#0B0B0B]",
     tagColor: "bg-[#2F81F7]",
@@ -59,6 +127,10 @@ const projects: Project[] = [
     ],
     media: [
       {
+        src: "/images/tripothon-winner-runa.webp",
+        alt: "Runa winning Best Game at Tripothon S1 in São Paulo.",
+      },
+      {
         src: "/images/runa-3d-city-gameplay.webp",
         alt: "Runa 3D city gameplay.",
       },
@@ -66,20 +138,51 @@ const projects: Project[] = [
         src: "/images/runa-landing-tripothon.webp",
         alt: "Runa landing page for Tripothon S1 Demo Day at playruna.vercel.app.",
       },
-      {
-        src: "/images/tripothon-winner-runa.webp",
-        alt: "Runa winning Best Game at Tripothon S1 in São Paulo.",
-      },
     ],
   },
   {
+    id: "agentic-city",
     title: "Agentic City",
     category: "AI Agents",
-    description: "A gamified orchestrator for AI agents. Submitted to Superteam Earn / Colosseum (Oct 2026).",
+    paragraphs: [
+      "A gamified orchestrator for AI agents. Submitted to Superteam Earn / Colosseum (Oct 2026).",
+    ],
     tags: ["AI Agents", "Superteam", "Colosseum"],
     bgColor: "bg-[#6366F1]",
     tagColor: "bg-[#FFC224]",
     href: "https://github.com/Bitcoindefi/agentic-city",
+    links: [{ href: "https://github.com/Bitcoindefi/agentic-city", label: "View on GitHub" }],
+  },
+  {
+    id: "argentina-dev",
+    title: "Argentina.dev",
+    category: "Developer Community",
+    paragraphs: [
+      "Developer community I founded in Argentina. About 3,000 members in total, across Salta Dev, Jujuy Dev and Formosa Dev.",
+      "On 22 Nov 2026 I was mentor and judge at Cursor Hackathon Jujuy on the Tren Solar de la Quebrada, departing Estación Volcán, organized with jujuy.dev / Argentina.dev, Cursor, SpaceXSI Community, Nodo and Argentina Space. 70 attendees.",
+      "I organized Cabildo Tech in Jujuy, a tech event with 150 attendees. I also spoke there.",
+    ],
+    tags: ["Community", "Hackathons", "Argentina", "Developers"],
+    bgColor: "bg-[#10B981]",
+    tagColor: "bg-[#0B0B0B]",
+    media: [
+      {
+        src: "/images/tren-solar-mentor-pass.webp",
+        alt: "Boarding-pass card for Cursor Hackathon Jujuy on the Tren Solar de la Quebrada. Passenger Leo Cagliero Shictong, role Mentor, 22 Nov 2026, Estación Volcán.",
+      },
+      {
+        type: "video",
+        src: "/video/tren-solar.mp4",
+        poster: "/images/tren-solar-poster.webp",
+        alt: "Video from Cursor Hackathon Jujuy on the Tren Solar de la Quebrada.",
+      },
+      {
+        type: "video",
+        src: "/video/cabildo-tech-jujuy.mp4",
+        poster: "/images/cabildo-tech-poster.webp",
+        alt: "Leonardo Cagliero speaking at Cabildo Tech in Jujuy.",
+      },
+    ],
   },
 ]
 
@@ -96,33 +199,36 @@ const moreProjects: { title: string; href: string }[] = [
 
 export function PortfolioSection() {
   return (
-    <section id="projects" className="container mx-auto px-4 py-16 md:py-24">
+    <section id="projects" className="container mx-auto px-4 py-14 md:py-20">
       <div className="max-w-7xl mx-auto">
         <motion.div
-          className="text-center mb-12"
+          className="text-center mb-10 md:mb-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            Featured <br />
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3">
+            Featured <br className="hidden md:block" />
             <span className="bg-[#FFC224] text-black px-3 py-1 inline-block">projects</span>
           </h2>
+          <p className="text-[#393939] text-base md:text-lg font-medium max-w-2xl mx-auto">
+            Each project lives in one place, with its story, photos and links.
+          </p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-6 mb-12">
           {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              id={project.title === "Cosmos Pay" ? "cosmos-pay" : undefined}
-              className="group bg-white border-[3px] border-black rounded-[32px] overflow-hidden hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-300 hover:translate-y-[-4px] scroll-mt-24"
+            <motion.article
+              key={project.id}
+              id={project.id}
+              className="group bg-white border-[3px] border-black rounded-[32px] overflow-hidden hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-shadow scroll-mt-28"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.05 }}
+              transition={{ duration: 0.4, delay: Math.min(index * 0.04, 0.2) }}
             >
-              <div className={`${project.bgColor} p-6 md:p-8 relative`}>
+              <div className={`${project.bgColor} p-6 md:p-8 relative min-h-[88px]`}>
                 <span className={`${project.tagColor} text-white text-xs font-semibold px-4 py-1.5 rounded-full`}>
                   {project.category}
                 </span>
@@ -136,9 +242,19 @@ export function PortfolioSection() {
               <div className="p-6 md:p-8">
                 <h3 className="text-xl md:text-[28px] font-bold mb-3 leading-tight text-[#0B0B0B]">{project.title}</h3>
 
-                <p className="text-base md:text-[16px] text-[#393939] mb-6 leading-relaxed font-medium">
-                  {project.description}
-                </p>
+                <div className="space-y-3 mb-6">
+                  {project.paragraphs.map((p) => (
+                    <p key={p.slice(0, 48)} className="text-base text-[#393939] leading-relaxed font-medium">
+                      {p}
+                    </p>
+                  ))}
+                </div>
+
+                {project.youtubeId && project.youtubeTitle && (
+                  <div className="mb-6">
+                    <YouTubeEmbed videoId={project.youtubeId} title={project.youtubeTitle} />
+                  </div>
+                )}
 
                 {project.media && project.media.length > 0 && (
                   <div className="mb-6">
@@ -147,9 +263,9 @@ export function PortfolioSection() {
                 )}
 
                 <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tags.map((tag, tagIndex) => (
+                  {project.tags.map((tag) => (
                     <span
-                      key={tagIndex}
+                      key={tag}
                       className="bg-gray-100 text-[#393939] text-xs font-semibold px-3 py-1.5 rounded-full border border-gray-200"
                     >
                       {tag}
@@ -165,7 +281,7 @@ export function PortfolioSection() {
                         href={link.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 font-semibold text-[#0B0B0B] hover:gap-3 transition-all text-sm md:text-base group-hover:text-[#2F81F7]"
+                        className="flex items-center gap-2 font-semibold text-[#0B0B0B] hover:gap-3 transition-all text-sm md:text-base"
                       >
                         {link.label}
                         <ArrowRight className="w-4 h-4" />
@@ -178,7 +294,7 @@ export function PortfolioSection() {
                       href={project.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 font-semibold text-[#0B0B0B] hover:gap-3 transition-all text-sm md:text-base group-hover:text-[#2F81F7]"
+                      className="flex items-center gap-2 font-semibold text-[#0B0B0B] hover:gap-3 transition-all text-sm md:text-base"
                     >
                       Visit project
                       <ArrowRight className="w-4 h-4" />
@@ -186,17 +302,16 @@ export function PortfolioSection() {
                   )
                 )}
               </div>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
 
-        {/* More projects */}
         <motion.div
-          className="bg-[#0B0B0B] border-[3px] border-black rounded-[32px] p-8 md:p-10"
+          className="bg-[#0B0B0B] border-[3px] border-black rounded-[32px] p-8 md:p-10 mb-8"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
         >
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
             <h3 className="text-2xl font-bold text-white">More projects</h3>
@@ -225,6 +340,23 @@ export function PortfolioSection() {
             ))}
           </div>
         </motion.div>
+
+        <motion.article
+          id="y-hat"
+          className="bg-white border-[3px] border-black rounded-[32px] p-6 md:p-8 scroll-mt-28"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4 }}
+        >
+          <h3 className="text-xl font-bold mb-2">Y-Hat Hackathon, UBA Exactas</h3>
+          <p className="text-[#393939] font-medium mb-4">3rd place — AI Track with Provi.ia.</p>
+          <img
+            src="/images/y-hat-provi-certificate.jpeg"
+            alt="Certificate for 3rd place in the AI Track at Y-Hat Hackathon, UBA Exactas, with Provi.ia."
+            className="w-full max-w-md rounded-xl border-2 border-black"
+          />
+        </motion.article>
       </div>
     </section>
   )
