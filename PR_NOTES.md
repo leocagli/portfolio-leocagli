@@ -40,14 +40,12 @@ language (bold type, color blocks, black borders, rounded cards, Onest font) was
 
 - [x] **Stellar Meridian 2026** — confirmed as HackMeridian 2026 (Stellar), Lisbon, 25–26 Oct 2026;
       mentored Scale-track teams for Cosmos Pay and helped judge 165 projects from 350+ builders.
-- [ ] **Tren Solar hackathon (Argentina.dev, 22 Nov 2026)** — attendance / number of participants.
-- [ ] **Argentina.dev** — member count.
-- [ ] **Agentic City** — a confirmed one-line product description (currently only stated as a
-      project submitted to Superteam Earn / Colosseum).
+- [x] **Tren Solar / Cursor Hackathon Jujuy (22 Nov 2026)** — 70 attendees; mentor and judge; Estación Volcán, Tren Solar de la Quebrada; organized with jujuy.dev / Argentina.dev, Cursor, SpaceXAI community, Nodo and Argentina Space.
+- [x] **Argentina.dev** — about 3,000 members in total, across Salta Dev, Jujuy Dev and Formosa Dev.
+- [x] **Agentic City** — a gamified orchestrator for AI agents. Submitted to Superteam Earn / Colosseum (Oct 2026).
 - [ ] **LinkedIn-only experience** not already on this site (LinkedIn could not be read without
       login) — any roles there that should be added here.
-- [ ] **AI and Web3 professor/mentor at UCASAL** — not found on the current site or in the
-      available CV; confirm before adding.
+- [x] **UCASAL workshops (confirmed)** — Código Alerta Taller N°2 (8 Oct 2026, virtual) and NASA Space Apps Salta workshop “IA para llegar al MVP” (6 Nov 2026, 14:00–16:00, Aula 6, Edificio 9). The older “professor/mentor of AI and Web3 at UCASAL” title is still not used, because that exact title was not confirmed.
 - [ ] **"Puna Tech closing sunset side event"** as a distinct event — only the opening/closing
       mentor-and-co-organizer role at the PunaTech Salta / Arkiv Network hackathon is confirmed.
 - [ ] **A complete English PDF CV** that includes the formal jobs (Congress Rental, Food Packaging,
@@ -71,3 +69,17 @@ under the **`leo-caglieros-projects`** team. `main`'s last production deploys fa
 merge-conflict markers; the live site is still serving an older successful deploy. This branch
 (`portfolio-refresh-nov26`) must build cleanly before it is merged so those deploys recover.
 `pnpm build` passes on this branch.
+
+
+## 5. November 2026 media and facts pass
+
+Added confirmed items and compressed media (stills under 400 KB; Tren Solar clip 6.7 MB h264; Cabildo 1.2 MB h264 with audio).
+
+- Current work: BA Protege Plus with Innova Labs (innovation lab of the City of Buenos Aires) and LOTBA. YouTube embed (youtube-nocookie) captions the official video title “BA Protege plus” from oEmbed (`https://youtu.be/roGEFiwATeI`).
+- Cursor Hackathon Jujuy / Tren Solar: mentor pass + compressed video.
+- HackMeridian photos (mentoring laptop sign; “With the SDF CEO at HackMeridian” — no name). Official 165 projects, not 200.
+- NASA Space Apps flyer; Código Alerta photos; Cabildo Tech video; UTN Córdoba talk “Cómo descentralizamos” (photo + short clip, no date).
+- BNB Agent Studio Workshop at “BNB Builder Session: Salta” (BNB Chain LatAm). Luma screenshot only confirms Saturday 26th, starting at 11:30 — month/year and end time were not added.
+- Runa: Best Game at Tripothon S1, playruna.vercel.app, 3D gameplay and landing (3D models generated with Tripo).
+- Solana IRL and MedFlow/NAVES/LOTBA (4 Oct LinkedIn post) kept. MedFlow also notes HSIL origin, NAVES scholarship and finalist.
+- Cosmos Pay start date (Mar 2025) and “about 5 years” were not changed.

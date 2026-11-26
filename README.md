@@ -4,7 +4,7 @@
 [![Next.js 15](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js)](https://nextjs.org)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-38BDF8?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 
-Personal portfolio of **Leonardo Cagliero** — from Salta, Argentina. I build products, analyze data and automate work with AI. Founder of Cosmos Pay and Argentina.dev, with about 5 years of work experience in finance, payments and logistics. Open to junior Product, Data Analyst and AI Automation roles.
+Personal portfolio of **Leonardo Cagliero** — from Salta, Argentina. I build products, analyze data and automate work with AI. Founder of Cosmos Pay and Argentina.dev. Currently building BA Protege Plus with Innova Labs and LOTBA, with about 5 years of work experience in finance, payments and logistics. Open to junior Product, Data Analyst and AI Automation roles.
 
 **Live:** https://portfolio-leocagli.vercel.app
 
@@ -12,8 +12,8 @@ Personal portfolio of **Leonardo Cagliero** — from Salta, Argentina. I build p
 
 ## Highlights
 
-- 🏆 **Hackathons & grants**: ETHGlobal Buenos Aires (Yellow Track with Previate), Stellar Give Hackathon (1st place), Meridian Rio (Top 5 with Tralala Contracts), Instawards (US$10k, no equity — with Cosmos Pay), Y-Hat UBA Exactas (3rd — AI Track with Provi.ia), Pulso Hackathon by Stellar, Aleph Hackathon (with Runa)
-- 🌎 **Community**: Mentor & judge at HackMeridian 2026 (Stellar), Lisbon, 25–26 Oct 2026, Argentina.dev hackathon on the Tren Solar, GMI Cloud Clouder ambassador, PunaTech Salta / Arkiv (mentor & co-organizer), Descentralizar / Bitcoin Argentina (workshop)
+- 🏆 **Hackathons & grants**: Tripothon S1 São Paulo (Best Game with Runa), ETHGlobal Buenos Aires (Yellow Track with Previate), Stellar Give Hackathon (1st place), Meridian Rio (Top 5 with Tralala Contracts), Instawards (US$10k, no equity — with Cosmos Pay), Y-Hat UBA Exactas (3rd — AI Track with Provi.ia), Pulso Hackathon by Stellar, Aleph Hackathon (with Runa)
+- 🌎 **Community**: Mentor & judge at HackMeridian 2026 (Stellar), Lisbon, 25–26 Oct 2026 (165 projects); mentor & judge at Cursor Hackathon Jujuy on the Tren Solar (22 Nov 2026, 70 attendees); Argentina.dev (~3,000 members across Salta Dev, Jujuy Dev and Formosa Dev); NASA Space Apps Salta workshop; Código Alerta at UCASAL; Cabildo Tech in Jujuy; UTN Córdoba talk with Bitcoin Argentina; GMI Cloud Clouder ambassador
 - 🛠️ **Projects**: Cosmos Pay, Argentina.dev, Runa, Agentic City — and more on [GitHub](https://github.com/Bitcoindefi)
 
 ## Tech Stack

@@ -14,6 +14,14 @@ type Experience = {
 
 const experiences: Experience[] = [
   {
+    period: "Present",
+    title: "Builder",
+    company: "BA Protege Plus",
+    description:
+      "Building BA Protege Plus with Innova Labs, the innovation lab of the City of Buenos Aires, and working with LOTBA (Lotería de la Ciudad de Buenos Aires).",
+    color: "bg-[#10B981]",
+  },
+  {
     period: "Mar 2025 - Present",
     title: "Founder",
     company: "Cosmos Pay",
