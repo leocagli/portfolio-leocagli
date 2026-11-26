@@ -41,13 +41,6 @@ const latest: LatestItem[] = [
     color: "bg-[#10B981]",
   },
   {
-    date: "Oct 2026",
-    text: "Submitted Agentic City to Superteam Earn / Colosseum.",
-    color: "bg-[#F59E0B]",
-    href: "https://github.com/Bitcoindefi/agentic-city",
-    linkLabel: "View Agentic City on GitHub",
-  },
-  {
     date: "25–26 Oct 2026",
     text: "Mentor and judge, HackMeridian 2026 (Stellar), Lisbon, Oct 25–26 2026: mentored Scale-track teams for Cosmos Pay and helped judge 165 projects from 350+ builders.",
     color: "bg-[#EC4899]",
@@ -61,6 +54,13 @@ const latest: LatestItem[] = [
         label: "Event recap",
       },
     ],
+  },
+  {
+    date: "Oct 2026",
+    text: "Submitted Agentic City to Superteam Earn / Colosseum.",
+    color: "bg-[#F59E0B]",
+    href: "https://github.com/Bitcoindefi/agentic-city",
+    linkLabel: "View Agentic City on GitHub",
   },
   {
     date: "9 Oct 2026",
