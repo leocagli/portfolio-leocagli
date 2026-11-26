@@ -2,6 +2,12 @@
 
 import { ArrowRight, ArrowUpRight, Github } from "lucide-react"
 import { motion } from "framer-motion"
+import { MediaCarousel, type MediaSlide } from "@/components/media-carousel"
+
+type ProjectLink = {
+  href: string
+  label: string
+}
 
 type Project = {
   title: string
@@ -12,6 +18,8 @@ type Project = {
   tagColor: string
   logo?: string
   href?: string
+  links?: ProjectLink[]
+  media?: MediaSlide[]
 }
 
 const projects: Project[] = [
@@ -30,26 +38,44 @@ const projects: Project[] = [
     title: "Argentina.dev",
     category: "Developer Community",
     description:
-      "Developer community I founded in Argentina. In November 2026 we hosted a hackathon on the Tren Solar (22 Nov).",
+      "Developer community I founded in Argentina. About 3,000 members in total, across Salta Dev, Jujuy Dev and Formosa Dev. On 22 Nov 2026 I was mentor and judge at Cursor Hackathon Jujuy on the Tren Solar de la Quebrada, departing Estación Volcán, organized with jujuy.dev / Argentina.dev, Cursor, SpaceXAI community, Nodo and Argentina Space. 70 attendees.",
     tags: ["Community", "Hackathons", "Argentina", "Developers"],
     bgColor: "bg-[#10B981]",
     tagColor: "bg-[#0B0B0B]",
   },
   {
     title: "Runa",
-    category: "Terminal ASCII RPG",
+    category: "Game",
     description:
-      "An ASCII RPG for the terminal. Explore a city, roam the prairie and write your character's combat rules. Submitted to the Tripo Agentic Canvas Workflow Challenge (13 Nov 2026).",
-    tags: ["ASCII RPG", "Terminal", "Tripo", "Game"],
+      "An ASCII RPG for the terminal, with a 3D city you can play in the browser. Every 3D model was generated with Tripo. Submitted to the Tripo Agentic Canvas Workflow Challenge (13 Nov 2026). Best Game at Tripothon S1 in São Paulo.",
+    tags: ["Game", "Tripo", "Tripothon", "RPG"],
     bgColor: "bg-[#0B0B0B]",
     tagColor: "bg-[#2F81F7]",
     logo: "/images/runa-project.jpeg",
-    href: "https://github.com/Bitcoindefi/runa",
+    href: "https://playruna.vercel.app",
+    links: [
+      { href: "https://playruna.vercel.app", label: "Play Runa" },
+      { href: "https://github.com/Bitcoindefi/runa", label: "View on GitHub" },
+    ],
+    media: [
+      {
+        src: "/images/runa-3d-city-gameplay.webp",
+        alt: "Runa 3D city gameplay.",
+      },
+      {
+        src: "/images/runa-landing-tripothon.webp",
+        alt: "Runa landing page for Tripothon S1 Demo Day at playruna.vercel.app.",
+      },
+      {
+        src: "/images/tripothon-winner-runa.webp",
+        alt: "Runa winning Best Game at Tripothon S1 in São Paulo.",
+      },
+    ],
   },
   {
     title: "Agentic City",
     category: "AI Agents",
-    description: "A project submitted to Superteam Earn / Colosseum (Oct 2026).",
+    description: "A gamified orchestrator for AI agents. Submitted to Superteam Earn / Colosseum (Oct 2026).",
     tags: ["AI Agents", "Superteam", "Colosseum"],
     bgColor: "bg-[#6366F1]",
     tagColor: "bg-[#FFC224]",
@@ -114,6 +140,12 @@ export function PortfolioSection() {
                   {project.description}
                 </p>
 
+                {project.media && project.media.length > 0 && (
+                  <div className="mb-6">
+                    <MediaCarousel items={project.media} />
+                  </div>
+                )}
+
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.tags.map((tag, tagIndex) => (
                     <span
@@ -125,16 +157,33 @@ export function PortfolioSection() {
                   ))}
                 </div>
 
-                {project.href && (
-                  <a
-                    href={project.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 font-semibold text-[#0B0B0B] hover:gap-3 transition-all text-sm md:text-base group-hover:text-[#2F81F7]"
-                  >
-                    Visit project
-                    <ArrowRight className="w-4 h-4" />
-                  </a>
+                {project.links && project.links.length > 0 ? (
+                  <div className="flex flex-col gap-2">
+                    {project.links.map((link) => (
+                      <a
+                        key={link.href}
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 font-semibold text-[#0B0B0B] hover:gap-3 transition-all text-sm md:text-base group-hover:text-[#2F81F7]"
+                      >
+                        {link.label}
+                        <ArrowRight className="w-4 h-4" />
+                      </a>
+                    ))}
+                  </div>
+                ) : (
+                  project.href && (
+                    <a
+                      href={project.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 font-semibold text-[#0B0B0B] hover:gap-3 transition-all text-sm md:text-base group-hover:text-[#2F81F7]"
+                    >
+                      Visit project
+                      <ArrowRight className="w-4 h-4" />
+                    </a>
+                  )
                 )}
               </div>
             </motion.div>
